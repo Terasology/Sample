@@ -1,6 +1,9 @@
 {
-    "id" : "Test",
+    "id" : "Sample",
     "version" : "0.1.0",
-    "displayName" : "Example Mod",
-    "description" : "This module contains a number of assets for testing Terasology engine features"
+    "author" : "MovingBlocks Community",
+    "displayName" : "Sample Module",
+    "description" : "This module contains assets and code for testing / showcasing Terasology engine + module features",
+    "dependencies" : [],
+    "isServerSideOnly" : false
 }
