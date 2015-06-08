@@ -1,6 +1,6 @@
 {
     "id" : "Sample",
-    "version" : "0.1.0",
+    "version" : "0.1.1-SNAPSHOT",
     "author" : "MovingBlocks Community",
     "displayName" : "Sample Module",
     "description" : "This module contains assets and code for testing / showcasing Terasology engine + module features",
