@@ -29,6 +29,12 @@ public class CrashGameBlockSystem extends BaseComponentSystem {
 
     @ReceiveEvent(components = {CrashGameBlockComponent.class})
     public void onActivate(ActivateEvent event, EntityRef entity) {
-        throw new RuntimeException("Test crash triggered!");
+        CrashGameBlockComponent cgbc = entity.getComponent(CrashGameBlockComponent.class);
+        if (cgbc.reallyCrashy) {
+            System.out.println("REALLY crashing the game now - via violating module security!");
+            System.out.println("That is, unless you are running with security disabled? Naughty");
+        } else {
+            throw new RuntimeException("Test crash triggered!");
+        }
     }
 }

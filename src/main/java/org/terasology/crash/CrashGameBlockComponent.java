@@ -21,4 +21,5 @@ import org.terasology.entitySystem.Component;
  * Used by a block meant to crash the game, yay!
  */
 public class CrashGameBlockComponent implements Component {
+    boolean reallyCrashy;
 }
