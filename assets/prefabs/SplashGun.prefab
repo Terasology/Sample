@@ -1,7 +1,6 @@
 {
     "item" : {
         "name" : "Splash Gun",
-        "renderWithIcon" : false,
         "icon" : "railgun",
         "usage" : "ON_USER"
     },
