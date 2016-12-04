@@ -1,0 +1,13 @@
+{
+    "displayName": "Bookshelf",
+    "categories": ["bookshelf"],
+    "hardness": 15,
+    "tiles" : {
+        "top" : "bookshelf2",
+        "bottom" : "bookshelf2",
+        "front" : "bookshelf1",
+        "back" : "bookshelf1",
+        "left" : "bookshelf1",
+        "right" : "bookshelf1"
+    }
+}
