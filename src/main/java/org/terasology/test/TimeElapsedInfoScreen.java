@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.terasology.nuitest;
+package org.terasology.test;
 
 import org.terasology.engine.Time;
 import org.terasology.registry.In;
@@ -22,7 +22,7 @@ import org.terasology.rendering.nui.widgets.UIButton;
 import org.terasology.rendering.nui.widgets.UIText;
 import org.terasology.version.TerasologyVersion;
 
-public class EnvironmentInfoScreen extends CoreScreenLayer {
+public class TimeElapsedInfoScreen extends CoreScreenLayer {
 
     @In
     private Time time;
@@ -38,7 +38,7 @@ public class EnvironmentInfoScreen extends CoreScreenLayer {
 
         if (updateInfoButton != null) {
             updateInfoButton.subscribe(button -> {
-                infoArea.setText(String.format("Hello there! %d milliseconds have passed since you first opened this screen. ",time.getGameTimeInMs()-startTime));
+                infoArea.setText(String.format("Hello there! %d milliseconds have passed since you first opened this screen. ", time.getGameTimeInMs() - startTime));
             });
         }
     }
