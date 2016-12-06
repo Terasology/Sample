@@ -1,0 +1,53 @@
+{
+    "type": "QuoteRandom",
+    "contents": {
+        "type": "relativeLayout",
+        "text": "Terasology Related Quotes",
+        "contents": [
+            {
+                "type": "UIBox",
+                "layoutInfo": {
+                    "width": 300,
+                    "height": 300,
+                    "position-horizontal-center": {},
+                    "position-vertical-center": {}
+                },
+                "content": {
+                    "type": "relativeLayout",
+                    "contents": [
+                        {
+                            "type": "UILabel",
+                            "id": "quoteRandom",
+                            "text": "Inspirational Quotes",
+                            "layoutInfo": {
+                                "use-content-width": true,
+                                "position-horizontal-center": {},
+                                "height": 30
+                            }
+                        },
+                        {
+                            "type": "UILabel",
+                            "id": "quoteRandomBody",
+                            "text": "Many of life's failures are people who did not realize how close they were to success when they gave up. - Thomas Edison",
+                            "layoutInfo": {
+                                "use-content-width": true,
+                                "position-horizontal-center": {},
+                                "position-vertical-center": {},
+                                "height": 30
+                            }
+                        },
+                        {
+                            "type": "UIButton",
+                            "id": "updateInfoButton",
+                            "text": "Click for a Random Quote",
+                            "layoutInfo": {
+                                "use-content-height": true,
+                                "position-bottom": {}
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
