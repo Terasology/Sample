@@ -2,7 +2,5 @@
     "displayName": "WhiteStone",
     "categories": ["white_stone"],
     "hardness": 42,
-    "tile": "end_stone",
-    "credits": "Credit for non-commercially, non-edited use of end_stone.png under
-                the Creative Commons license: http://www.planetminecraft.com/texture_pack/new-start---by-loufisch/"
+    "tile": "end_stone"
 }
