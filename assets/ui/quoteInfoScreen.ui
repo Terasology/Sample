@@ -31,7 +31,7 @@
                                 "id": "infoArea",
                                 "layoutInfo": {
                                     "position-top": {
-                                        "widget": "environmentInfoLabel",
+                                        "widget": "quoteInfoLabel",
                                         "target": "BOTTOM"
                                 },
                                     "position-bottom": {
