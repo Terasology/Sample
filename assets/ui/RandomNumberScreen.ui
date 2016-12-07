@@ -1,5 +1,5 @@
 {
-    "type": "org.terasology.test.RandomNumberScreen",
+    "type": "RandomNumberScreen",
     "contents": {
         "type": "relativeLayout",
         "contents": [
