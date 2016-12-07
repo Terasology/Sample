@@ -7,8 +7,8 @@
             {
                 "type": "UIBox",
                 "layoutInfo": {
-                    "width": 400,
-                    "height": 400,
+                    "width": 300,
+                    "height": 300,
                     "position-horizontal-center": {},
                     "position-vertical-center": {}
                 },
@@ -27,7 +27,8 @@
                             },
                             {
                                 "type": "UIText",
-                                "text": "Many of life's failures are people who did not realize how close they were to success when they gave up. - Thomas Edison",
+                                "text": "Many of life's failures are people who did not realize how close they were to success when they gave up.
+- Thomas Edison",
                                 "id": "infoArea",
                                 "layoutInfo": {
                                     "position-top": {
