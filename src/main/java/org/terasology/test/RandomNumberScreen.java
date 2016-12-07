@@ -13,20 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package nui;
+package org.terasology.test;
 
 import org.terasology.engine.Time;
 import org.terasology.registry.In;
 import org.terasology.rendering.nui.CoreScreenLayer;
 import org.terasology.rendering.nui.widgets.UIButton;
 import org.terasology.rendering.nui.widgets.UIText;
-
 import java.util.Random;
 
-/**
- * Created by Zeke on 11/30/2016.
- */
-public class EnvironmentInfoScreen extends CoreScreenLayer{
+public class RandomNumberScreen extends CoreScreenLayer{
     private UIText infoArea;
     private UIButton updateInfoButton;
 
