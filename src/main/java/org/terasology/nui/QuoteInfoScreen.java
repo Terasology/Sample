@@ -17,7 +17,7 @@ package org.terasology.nui;
 
 import org.terasology.rendering.nui.CoreScreenLayer;
 
-public class EnvironmentInfoScreen extends CoreScreenLayer {
+public class QuoteInfoScreen extends CoreScreenLayer {
     @Override
     public void initialise() {
     }

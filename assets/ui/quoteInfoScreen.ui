@@ -1,5 +1,5 @@
 {
-    "type": "EnvironmentInfoScreen",
+    "type": "QuoteInfoScreen",
     "contents": {
         "type": "relativeLayout",
         "text": "Terasology Related Quotes",
@@ -17,7 +17,7 @@
                         "contents": [
                             {
                                 "type": "UILabel",
-                                "id": "environmentInfoLabel",
+                                "id": "quoteInfoLabel",
                                 "text": "Inspirational Quotes",
                                 "layoutInfo": {
                                     "use-content-width": true,
