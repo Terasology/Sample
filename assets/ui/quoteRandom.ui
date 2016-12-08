@@ -17,7 +17,7 @@
                         "contents": [
                             {
                                 "type": "UILabel",
-                                "id": "quoteRandom randomQuoteProvider",
+                                "id": "quoteRandom",
                                 "text": "Inspirational Quotes",
                                 "layoutInfo": {
                                     "use-content-width": true,
