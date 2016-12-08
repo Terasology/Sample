@@ -1,4 +1,4 @@
-package org.terasology.tutorialnui;
+package org.terasology.test;
 
 import org.terasology.engine.Time;
 import org.terasology.registry.In;
