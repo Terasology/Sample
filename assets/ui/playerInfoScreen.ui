@@ -1,5 +1,5 @@
 {
-    "type": "GeneralInfoScreen",
+    "type": "PlayerInfoScreen",
     "contents": {
         "type": "relativeLayout",
         "contents": [
@@ -16,8 +16,8 @@
                     "contents": [
                         {
                             "type": "UILabel",
-                            "id": "generalInfoLabel",
-                            "text": "General Info",
+                            "id": "playerInfoLabel",
+                            "text": "Player Info",
                             "layoutInfo": {
                                 "use-content-width": true,
                                 "position-horizontal-center": {},
@@ -30,7 +30,7 @@
                             "id": "infoArea",
                             "layoutInfo": {
                                 "position-top": {
-                                    "widget": "generalInfoLabel",
+                                    "widget": "playerInfoLabel",
                                     "target": "BOTTOM"
                                 },
                                 "position-bottom": {

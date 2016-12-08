@@ -15,15 +15,16 @@
  */
 package org.terasology.nui;
 
-import org.terasology.engine.Time;
+import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.logic.health.HealthComponent;
+import org.terasology.logic.inventory.InventoryManager;
 import org.terasology.logic.players.LocalPlayer;
 import org.terasology.registry.In;
 import org.terasology.rendering.nui.CoreScreenLayer;
 import org.terasology.rendering.nui.widgets.UIButton;
 import org.terasology.rendering.nui.widgets.UIText;
 
-public class GeneralInfoScreen extends CoreScreenLayer {
+public class PlayerInfoScreen extends CoreScreenLayer {
     private UIText infoArea;
     private UIButton updateButton;
 
@@ -31,7 +32,7 @@ public class GeneralInfoScreen extends CoreScreenLayer {
     private LocalPlayer localPlayer;
 
     @In
-    private Time time;
+    private InventoryManager inventoryManager;
 
     @Override
     public void initialise() {
@@ -40,19 +41,23 @@ public class GeneralInfoScreen extends CoreScreenLayer {
 
         if (updateButton != null) {
             updateButton.subscribe(button -> {
+                String response = "Welcome to the player information screen.\n\nPosition: " + localPlayer.getPosition().toString();
                 HealthComponent healthComponent = localPlayer.getCharacterEntity().getComponent(HealthComponent.class);
                 if (healthComponent != null) {
-                    final double bytesInMegabyte = 1048576.0;
-                    double memoryUsage = ((double) Runtime.getRuntime().totalMemory() - (double) Runtime.getRuntime().freeMemory()) / bytesInMegabyte;
-
-                    infoArea.setText(String.format("Welcome to the general information screen!%n" +
-                            "The current world has been active for %.0f seconds.%n" +
-                            "Currently running at %.2f FPS, using %.2f MB of memory out of %.2f available.%n" +
-                            "Health: %d out of %d",
-                            time.getGameTime(), time.getFps(),
-                            memoryUsage, Runtime.getRuntime().maxMemory() / bytesInMegabyte,
-                            healthComponent.currentHealth, healthComponent.maxHealth));
+                    response += "\n\nHealth: " + healthComponent.currentHealth + " out of " + healthComponent.maxHealth;
                 }
+
+                int numSlots = inventoryManager.getNumSlots(localPlayer.getCharacterEntity());
+                int numFilled = 0;
+                for (int i = 0; i < numSlots; i++) {
+                    if (!(inventoryManager.getItemInSlot(localPlayer.getCharacterEntity(), i).equals(EntityRef.NULL))) {
+                        numFilled++;
+                    }
+                }
+
+                response += "\n\nFilled inventory slots: " + numFilled + "\nTotal inventory slots: " + numSlots;
+
+                infoArea.setText(response);
             });
         }
     }
