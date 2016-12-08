@@ -17,5 +17,5 @@ public class QuoteRandom extends CoreScreenLayer {
     public void initialise() {
         infoArea = find("infoArea", UIText.class);
         updateInfoButton = find("updateInfoButton", UIButton.class);
-    };
+    }
 }
