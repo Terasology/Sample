@@ -6,7 +6,7 @@
             {
                 "type": "UIBox",
                 "layoutInfo": {
-                    "width": 600,
+                    "width": 300,
                     "height": 300,
                     "position-horizontal-center": {},
                     "position-vertical-center": {}
@@ -16,51 +16,13 @@
                     "contents": [
                         {
                             "type": "UILabel",
-                            "id": "environmentInfoLabel",
-                            "text": "Environment Info",
-                            "layoutInfo": {
-                                "use-content-width": true,
-                                "position-horizontal-left": {},
-                                "height": 30
-                            }
-                        },
-                        {
-                            "type": "UIText",
-                            "text": "",
-                            "id": "infoArea",
-                            "layoutInfo": {
-                                "position-top": {
-                                    "widget": "environmentInfoLabel",
-                                    "target": "BOTTOM"
-                                },
-                                "position-bottom": {
-                                    "widget": "updateInfoButton",
-                                    "target": "TOP"
-                                },
-                                "width": 270
-                            },
-                            "multiline": true,
-                            "readOnly": true
-                        },
-                        {
-                            "type": "UIButton",
-                            "id": "updateInfoButton",
-                            "text": "Update Information",
-                            "layoutInfo": {
-                                "use-content-height": true,
-                                "position-bottom": {},
-                                "width": 270
-                            }
-                        },
-                        {
-                            "type": "UILabel",
                             "id": "box2",
                             "text": "Random Thing",
                             "layoutInfo": {
                                 "use-content-width": true,
                                 "position-horizontal-right": {},
                                 "height": 30,
-                                "position-right": {}
+                                "position-left": {}
                             }
                         },
                         {

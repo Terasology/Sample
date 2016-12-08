@@ -23,9 +23,6 @@ import org.terasology.rendering.nui.widgets.UIText;
 import java.util.Random;
 
 public class RandomNumberScreen extends CoreScreenLayer{
-    private UIText infoArea;
-    private UIButton updateInfoButton;
-
     private UIText text2;
     private UIButton button2;
 
@@ -36,25 +33,10 @@ public class RandomNumberScreen extends CoreScreenLayer{
 
     @Override
     public void initialise(){
-        infoArea = find("infoArea", UIText.class);
-        updateInfoButton = find("updateInfoButton", UIButton.class);
-
         text2 = find("text2", UIText.class);
         button2 = find("button2", UIButton.class);
 
         rand = new Random();
-
-        if(updateInfoButton != null){
-            updateInfoButton.subscribe(button -> {
-                final double bytesInMegabyte = 1048576.0;
-                double memoryUsage = ((double) Runtime.getRuntime().totalMemory() - (double) Runtime.getRuntime().freeMemory()) / bytesInMegabyte;
-                infoArea.setText(String.format("Welcome to the environment info screen!%n" +
-                                "The current world has been active for %.0f (in-game) seconds.%n" +
-                                "Currently running at %.2f FPS and using %.2f MB of memory out of %.2f available.",
-                        time.getGameTime(), time.getFps(),
-                        memoryUsage, Runtime.getRuntime().maxMemory() / bytesInMegabyte));
-            });
-        }
 
         if(button2 != null) {
             button2.subscribe(button -> {
