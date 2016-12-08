@@ -27,14 +27,7 @@
                             },
                             {
                                 "type": "UIText",
-                                "text": "Many of life's failures are people who did not realize how close they were to success when they gave up.
-
-- Thomas Edison
-
-I don't measure a man's success by how high he climbs, but how high he bounces when he hits bottom.
-
-- George Patton
-",
+                                "text": "Test",
                                 "id": "infoArea",
                                 "layoutInfo": {
                                     "position-top": {
