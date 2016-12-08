@@ -14,41 +14,35 @@
                 },
                 "content": {
                     "type": "relativeLayout",
-                        "contents": [
-                            {
-                                "type": "UILabel",
-                                "id": "quoteRandom",
-                                "text": "Inspirational Quotes",
-                                "layoutInfo": {
-                                    "use-content-width": true,
-                                    "position-horizontal-center": {},
-                                    "height": 30
-                                }
-                            },
-                            {
-                                "type": "UIText",
-                                "text": "Test",
-                                "id": "infoArea",
-                                "layoutInfo": {
-                                    "position-top": {
-                                        "widget": "quoteInfoLabel",
-                                        "target": "BOTTOM"
-                                },
-                                    "position-bottom": {
-                                        "widget": "updateInfoButton",
-                                        "target": "TOP"
-                                    }
-                                },
-                                "multiline": true,
-                                "readOnly": true
-                            },
-                            {
-                                "type": "UIButton",
-                                "id": "updateInfoButton",
-                                "text": "Click for a Random Quote",
-                                "layoutInfo": {
-                                    "use-content-height": true,
-                                    "position-bottom": {}
+                    "contents": [
+                        {
+                            "type": "UILabel",
+                            "id": "quoteRandom",
+                            "text": "Inspirational Quotes123",
+                            "layoutInfo": {
+                                "use-content-width": true,
+                                "position-horizontal-center": {},
+                                "height": 30
+                            }
+                        },
+                        {
+                            "type": "UILabel",
+                            "id": "quoteRandomBody",
+                            "text": "This is a quote! 1234",
+                            "layoutInfo": {
+                                "use-content-width": true,
+                                "position-horizontal-center": {},
+                                "position-vertical-center": {},
+                                "height": 30
+                            }
+                        },
+                        {
+                            "type": "UIButton",
+                            "id": "updateInfoButton",
+                            "text": "Click for a Random Quote",
+                            "layoutInfo": {
+                                "use-content-height": true,
+                                "position-bottom": {}
                             }
                         }
                     ]
