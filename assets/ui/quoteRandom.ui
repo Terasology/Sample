@@ -1,5 +1,5 @@
 {
-    "type": "QuoteInfoScreen",
+    "type": "QuoteRandom",
     "contents": {
         "type": "relativeLayout",
         "text": "Terasology Related Quotes",
@@ -17,7 +17,7 @@
                         "contents": [
                             {
                                 "type": "UILabel",
-                                "id": "quoteInfoLabel",
+                                "id": "quoteRandom randomQuoteProvider",
                                 "text": "Inspirational Quotes",
                                 "layoutInfo": {
                                     "use-content-width": true,
@@ -29,7 +29,12 @@
                                 "type": "UIText",
                                 "text": "Many of life's failures are people who did not realize how close they were to success when they gave up.
 
-- Thomas Edison",
+- Thomas Edison
+
+I don't measure a man's success by how high he climbs, but how high he bounces when he hits bottom.
+
+- George Patton
+",
                                 "id": "infoArea",
                                 "layoutInfo": {
                                     "position-top": {
@@ -47,7 +52,7 @@
                             {
                                 "type": "UIButton",
                                 "id": "updateInfoButton",
-                                "text": "Update Information",
+                                "text": "Click for a Random Quote",
                                 "layoutInfo": {
                                     "use-content-height": true,
                                     "position-bottom": {}
