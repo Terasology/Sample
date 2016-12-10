@@ -22,7 +22,7 @@ import org.terasology.rendering.nui.widgets.UIButton;
 import org.terasology.rendering.nui.widgets.UIText;
 import java.util.Random;
 
-public class RandomNumberScreen extends CoreScreenLayer{
+public class RandomNumberScreen extends CoreScreenLayer {
     private UIText text2;
     private UIButton button2;
 
@@ -32,13 +32,13 @@ public class RandomNumberScreen extends CoreScreenLayer{
     private Time time;
 
     @Override
-    public void initialise(){
+    public void initialise() {
         text2 = find("text2", UIText.class);
         button2 = find("button2", UIButton.class);
 
         rand = new Random();
 
-        if(button2 != null) {
+        if (button2 != null) {
             button2.subscribe(button -> {
                 int random = rand.nextInt(10 - 1 + 1) + 1;
                 String text = "Random Number: " + random;
