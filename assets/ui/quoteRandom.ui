@@ -18,7 +18,7 @@
                         {
                             "type": "UILabel",
                             "id": "quoteRandom",
-                            "text": "Inspirational Quotes123",
+                            "text": "Inspirational Quotes",
                             "layoutInfo": {
                                 "use-content-width": true,
                                 "position-horizontal-center": {},
@@ -28,7 +28,7 @@
                         {
                             "type": "UILabel",
                             "id": "quoteRandomBody",
-                            "text": "This is a quote! 1234",
+                            "text": "Many of life's failures are people who did not realize how close they were to success when they gave up. - Thomas Edison",
                             "layoutInfo": {
                                 "use-content-width": true,
                                 "position-horizontal-center": {},
