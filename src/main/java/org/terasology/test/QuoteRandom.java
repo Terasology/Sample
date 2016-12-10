@@ -1,18 +1,19 @@
 package org.terasology.test;
 
-import org.terasology.engine.Time;
-import org.terasology.registry.In;
+import com.google.common.collect.Lists;
 import org.terasology.rendering.nui.CoreScreenLayer;
 import org.terasology.rendering.nui.UIWidget;
 import org.terasology.rendering.nui.widgets.UIButton;
 import org.terasology.rendering.nui.widgets.UILabel;
 
+import java.util.Collections;
+import java.util.List;
+
 public class QuoteRandom extends CoreScreenLayer {
     private UILabel infoArea;
     private UIButton updateInfoButton;
 
-    @In
-    private Time time;
+    private List<String> quoteList = Lists.newArrayList("a", "b", "c");
 
     @Override
     public void initialise() {
@@ -26,6 +27,8 @@ public class QuoteRandom extends CoreScreenLayer {
 
     private void onClickingQuoteButton(UIWidget uiWidget) {
         //getManager().popScreen();
+        Collections.shuffle(quoteList);
         infoArea.setText(infoArea.getText() + " !! ");
+        infoArea.setText(quoteList.get(0));
     }
 }
