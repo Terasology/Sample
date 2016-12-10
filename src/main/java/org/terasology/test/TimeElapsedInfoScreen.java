@@ -20,7 +20,6 @@ import org.terasology.registry.In;
 import org.terasology.rendering.nui.CoreScreenLayer;
 import org.terasology.rendering.nui.widgets.UIButton;
 import org.terasology.rendering.nui.widgets.UIText;
-import org.terasology.version.TerasologyVersion;
 
 public class TimeElapsedInfoScreen extends CoreScreenLayer {
 
