@@ -1,0 +1,22 @@
+/**
+ * Underglaze-blue is a traditional Chinese decorative material
+ */
+
+/**
+ * Google Code-in, Harry Wang
+ */
+
+{
+    "displayName": "Underglaze",
+    "liquid" : false,
+    "categories" : ["Brick"],
+    "template" : false,
+    "shape" : "engine:cube",
+    "hardness": 50    
+    "attachmentAllowed" : true,
+    "supportRequired" : false,
+    "penetrable" : false,
+    "targetable" : true,
+    "invisible" : false,
+    "mass" : 40
+}
