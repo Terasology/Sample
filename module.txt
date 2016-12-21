@@ -1,7 +1,7 @@
 {
     "id" : "Sample",
     "version" : "0.1.1-SNAPSHOT",
-    "author" : "MovingBlocks Community, Mandar Juvekar, Paarth Madan",
+    "author" : "MovingBlocks Community, Mandar Juvekar, Paarth Madan, Scott Moses Sunarto",
     "displayName" : "Sample Module",
     "description" : "This module contains assets and code for testing / showcasing Terasology engine + module features",
     "dependencies" : [{"id": "Core", "minVersion": "1.0.0"}],
