@@ -1,9 +1,9 @@
 {
-    "id" : "Sample",
+    "id" : “InspirationSample”,
     "version" : "0.1.1-SNAPSHOT",
-    "author" : "MovingBlocks Community, Mandar Juvekar",
-    "displayName" : "Sample Module",
-    "description" : "This module contains assets and code for testing / showcasing Terasology engine + module features",
+    "author" : "MovingBlocks Community, Paarth Madan”,
+    "displayName" : “InspirationQuotes”,
+    "description" : "This module contains assets and code for testing NUI functionality and creating a basic quote viewer.”,
     "dependencies" : [{"id": "Core", "minVersion": "1.0.0"}],
     "isServerSideOnly" : false
 }
