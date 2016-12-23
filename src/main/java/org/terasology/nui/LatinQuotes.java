@@ -32,18 +32,17 @@ public class LatinQuotes extends CoreScreenLayer {
     		"Ignotum per ignotius",
     		"Alea iacta est",
     		"Timendi causa est nescire",
-    		" Si vis servari, serva"
+    		"Si vis servari, serva"
     };
 
     @Override
     public void initialise() {
-        infoArea = find("infoArea", UIText.class);
-        infoArea.setText(LatinQuotes[random.nextInt(LatinQuotes.length-1)]);
+        infoBox = find("infoBox", UIText.class);
         updateInfoButton = find("updateInfoButton", UIButton.class);
 
         if (updateInfoButton != null) {
             updateInfoButton.subscribe(button -> {
-                infoArea.setText(LatinQuotes[random.nextInt(LatinQuotes.length-1)]);
+                infoArea.setText(LatinQuotes[random.nextInt(LatinQuotes.length)]);
             });
         }
     }
