@@ -1,0 +1,46 @@
+{
+    "type": "BlocksScreen",
+    "contents":{
+        "type": "migLayout",
+        "colConstraints": "[min][grow, fill][min][min][min]",
+        "rowConstraints": "[min][grow, fill]",
+        "contents": [
+            {
+                "type": "UILabel",
+                "text": "Search For: ",
+                "layoutInfo" : {"cc": ""}
+            },
+
+            {
+                "type": "UIText",
+                "text": "",
+                "layoutInfo" : {"cc": "growx"},
+                "multiline": false
+            },
+
+            {
+                "type": "UILabel",
+                "text": "Simultaneous Search",
+                "layoutInfo" : {"cc": ""}
+            },
+
+            {
+                "type": "UICheckbox",
+                "layoutInfo" : {"cc": ""}
+            },
+
+            {
+                "type": "UIButton",
+                "text": "Search",
+                "layoutInfo" : {"cc": "wrap"}
+            },
+
+            {
+                "type": "InventoryGrid",
+                "id": "inv",
+                "maxHorizontalCells": 10,
+                "layoutInfo" : {"cc": "span 5", "layoutConstraints": ""}
+            }
+        ]
+    }
+}
