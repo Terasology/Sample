@@ -1,58 +1,58 @@
 {
-  "type": "LatinQuotes",
-  "contents": {
-    "type": "relativeLayout",
-    "contents": [
-      {
-        "type": "UIBox",
-        "layoutInfo": {
-          "width": 300,
-          "height": 300,
-          "position-horizontal-center": {},
-          "position-vertical-center": {}
-        },
-        "content": {
-          "type": "relativeLayout",
-          "contents": [
+    "type": "LatinQuotes",
+    "contents": {
+        "type": "relativeLayout",
+        "contents": [
             {
-              "type": "UILabel",
-              "id": "latinQuotesLabel",
-              "text": "Latin!",
-              "layoutInfo": {
-                "use-content-width": true,
-                "position-horizontal-center": {},
-                "height": 30
-              }
-            },
-            {
-              "type": "UIText",
-              "text": "Cogito ergo ego sum",
-              "id": "infoBox",
-              "layoutInfo": {
-                "position-top": {
-                  "widget": "latinQuotesLabel",
-                  "target": "BOTTOM"
+                "type": "UIBox",
+                "layoutInfo": {
+                    "width": 300,
+                    "height": 300,
+                    "position-horizontal-center": {},
+                    "position-vertical-center": {}
                 },
-                "position-bottom": {
-                  "widget": "updateInfoButton",
-                  "target": "TOP"
+                "content": {
+                    "type": "relativeLayout",
+                    "contents": [
+                        {
+                            "type": "UILabel",
+                            "id": "latinQuotesLabel",
+                            "text": "Latin!",
+                            "layoutInfo": {
+                                "use-content-width": true,
+                                "position-horizontal-center": {},
+                                "height": 30
+                            }
+                        },
+                        {
+                            "type": "UIText",
+                            "text": "Cogito ergo ego sum",
+                            "id": "infoBox",
+                            "layoutInfo": {
+                                "position-top": {
+                                    "widget": "latinQuotesLabel",
+                                    "target": "BOTTOM"
+                                },
+                                "position-bottom": {
+                                    "widget": "updateInfoButton",
+                                    "target": "TOP"
+                                }
+                            },
+                            "multiline": true,
+                            "readOnly": true
+                        },
+                        {
+                            "type": "UIButton",
+                            "id": "updateInfoButton",
+                            "text": "Get another latin quote!",
+                            "layoutInfo": {
+                                "use-content-height": true,
+                                "position-bottom": {}
+                            }
+                        }
+                    ]
                 }
-              },
-              "multiline": true,
-              "readOnly": true
-            },
-            {
-              "type": "UIButton",
-              "id": "updateInfoButton",
-              "text": "Get another latin quote!",
-              "layoutInfo": {
-                "use-content-height": true,
-                "position-bottom": {}
-              }
             }
-          ]
-        }
-      }
-    ]
-  }
+        ]
+    }
 }

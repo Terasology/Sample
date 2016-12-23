@@ -42,7 +42,7 @@ public class LatinQuotes extends CoreScreenLayer {
 
         if (updateInfoButton != null) {
             updateInfoButton.subscribe(button -> {
-                infoArea.setText(LatinQuotes[random.nextInt(LatinQuotes.length)]);
+                infoBox.setText(LatinQuotes[random.nextInt(LatinQuotes.length)]);
             });
         }
     }
