@@ -27,7 +27,7 @@
                         {
                             "type": "UIText",
                             "text": "Cogito ergo ego sum",
-                            "id": "infoBox",
+                            "id": "infoArea",
                             "layoutInfo": {
                                 "position-top": {
                                     "widget": "latinQuotesLabel",

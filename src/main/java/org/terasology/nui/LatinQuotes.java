@@ -37,12 +37,12 @@ public class LatinQuotes extends CoreScreenLayer {
 
     @Override
     public void initialise() {
-        infoBox = find("infoBox", UIText.class);
+        infoArea = find("infoArea", UIText.class);
         updateInfoButton = find("updateInfoButton", UIButton.class);
 
         if (updateInfoButton != null) {
             updateInfoButton.subscribe(button -> {
-                infoBox.setText(LatinQuotes[random.nextInt(LatinQuotes.length)]);
+                infoArea.setText(LatinQuotes[random.nextInt(LatinQuotes.length)]);
             });
         }
     }
