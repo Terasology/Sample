@@ -25,14 +25,14 @@ public class LatinQuotes extends CoreScreenLayer {
     private UIButton updateInfoButton;
     private Random random = new Random();
     
-    private String[] LatinQuotes = {
-    		"Barba tenus sapientes",
-    		"Carpe Noctem!",
-    		"Ex nihilo nihil fit",
-    		"Ignotum per ignotius",
-    		"Alea iacta est",
-    		"Timendi causa est nescire",
-    		"Si vis servari, serva"
+    private String[] latinQuotes = {
+            "Barba tenus sapientes",
+            "Carpe Noctem!",
+            "Ex nihilo nihil fit",
+            "Ignotum per ignotius",
+            "Alea iacta est",
+            "Timendi causa est nescire",
+            "Si vis servari, serva"
     };
 
     @Override
@@ -42,7 +42,7 @@ public class LatinQuotes extends CoreScreenLayer {
 
         if (updateInfoButton != null) {
             updateInfoButton.subscribe(button -> {
-                infoArea.setText(LatinQuotes[random.nextInt(LatinQuotes.length)]);
+                infoArea.setText(latinQuotes[random.nextInt(latinQuotes.length)]);
             });
         }
     }
