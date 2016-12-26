@@ -9,3 +9,5 @@ WhiteStone: http://www.planetminecraft.com/texture_pack/new-start---by-loufisch/
 CementStone: Dane Claessen (https://github.com/Dane99)
 
 Rainbow block: Dev Choganwala (https://github.com/DevChoganwala)
+
+Diamond wallpaper: [Vishal Devireddy](https://github.com/TwoTau)
