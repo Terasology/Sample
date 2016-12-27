@@ -11,3 +11,5 @@ CementStone: Dane Claessen (https://github.com/Dane99)
 Rainbow block: Dev Choganwala (https://github.com/DevChoganwala)
 
 Diamond wallpaper: [Vishal Devireddy](https://github.com/TwoTau)
+
+Giftbox: [András Ottó Földes](https://github.com/andriii25)
