@@ -1,0 +1,14 @@
+{
+    "displayName": "computer",
+    "categories" : ["computer"],
+    "hardness": 7,
+    "tiles" : {
+        "top" : "sidecomputer",
+        "bottom" : "sidecomputer",
+        "front" : "frontcomputer",
+        "back" : "sidecomputer",
+        "left" : "sidecomputer",
+        "right" : "sidecomputer"
+    },
+    "rotation": "horizontal"
+}
