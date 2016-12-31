@@ -9,5 +9,6 @@
         "back" : "sidecomputer",
         "left" : "sidecomputer",
         "right" : "sidecomputer"
-    }
+    },
+    "rotation": "horizontal"
 }
