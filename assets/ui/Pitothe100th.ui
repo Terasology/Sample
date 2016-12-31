@@ -1,0 +1,53 @@
+{
+    "type": "Pi",
+    "contents": {
+        "type": "relativeLayout",
+        "text": "Ever wondered what is the 100th number of Pi",
+        "contents": [
+            {
+                "type": "UIBox",
+                "layoutInfo": {
+                    "width": 400,
+                    "height": 400,
+                    "position-horizontal-center": {},
+                    "position-vertical-center": {}
+                },
+                "content": {
+                    "type": "relativeLayout",
+                    "contents": [
+                        {
+                            "type": "UILabel",
+                            "id": "pi100",
+                            "text": "Here it is",
+                            "layoutInfo": {
+                                "use-content-width": true,
+                                "position-horizontal-center": {},
+                                "height": 30
+                            }
+                        },
+                        {
+                            "type": "UILabel",
+                            "id": "pi100body",
+                            "text": "3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679",
+                            "layoutInfo": {
+                                "use-content-width": true,
+                                "position-horizontal-center": {},
+                                "position-vertical-center": {},
+                                "height": 30
+                            }
+                        },
+                        {
+                            "type": "UIButton",
+                            "id": "updateInfoButton",
+                            "text": "Click for it a second time",
+                            "layoutInfo": {
+                                "use-content-height": true,
+                                "position-bottom": {}
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
