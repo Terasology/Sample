@@ -4,7 +4,7 @@
     "categories" : ["Brick"],
     "template" : false,
     "shape" : "engine:cube",
-    "hardness": 50    
+    "hardness": 50,    
     "attachmentAllowed" : true,
     "supportRequired" : false,
     "penetrable" : false,
