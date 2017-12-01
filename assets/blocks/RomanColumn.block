@@ -17,14 +17,14 @@
     },
     "on_top": {
     	"tiles": {
-	        "sides": "columnbase",
+	        "sides": "columncap",
 	        "topBottom": "columntop"
     	},
     	"shape": "engine:cube"
     },
     "on_bottom": {
     	"tiles": {
-	        "sides": "columncap",
+	        "sides": "columnbase",
 	        "topBottom": "columntop"
     	},
     	"shape": "engine:cube"
