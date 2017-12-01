@@ -27,20 +27,7 @@ public class RomanColumnFamily extends AbstractBlockFamily implements UpdatesWit
 
     @In
     WorldProvider worldProvider;
-
-    Iterable<String> categories = new ArrayList<String>() {
-
-        private static final long serialVersionUID = 1L;
-
-        {
-
-            add("roman");
-            add("column");
-            add("romancolumn");
-
-        }
-    };
-
+    
     private TByteObjectMap<Block> blocks;
 
     BlockUri blockUri;
@@ -65,7 +52,6 @@ public class RomanColumnFamily extends AbstractBlockFamily implements UpdatesWit
 
         this.setBlockUri(blockUri);
         this.setCategory(definition.getCategories());
-        this.setCategory(categories);
     }
 
     private void addConnection(Byte bitFlag, String section, BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder) {
