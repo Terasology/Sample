@@ -1,4 +1,22 @@
 {
     "displayName" : "Network Cable",
     "hardness" : 3,
+    "rotation" : "attachedToSurface",
+    "sides" : {
+        "tiles" : {
+            "left" : "NetworkCableSideLeft",
+            "right" : "NetworkCableSideRight",
+            "topBottom" : "NetworkCableSide"
+        }
+    },
+    "top" : {
+        "tiles" : {
+            "sides" : "NetworkCableSide"
+        }
+    },
+    "bottom" : {
+        "tiles" : {
+            "sides" : "NetworkCableSideReverse"
+        }
+    }
 }
