@@ -16,10 +16,14 @@
 package org.terasology.nui;
 
 import org.terasology.engine.Time;
+import org.terasology.engine.subsystem.headless.device.TimeSystem;
 import org.terasology.registry.In;
 import org.terasology.rendering.nui.CoreScreenLayer;
 import org.terasology.rendering.nui.widgets.UIButton;
 import org.terasology.rendering.nui.widgets.UIText;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class EnvironmentInfoScreen extends CoreScreenLayer {
     private UIText infoArea;
@@ -36,13 +40,16 @@ public class EnvironmentInfoScreen extends CoreScreenLayer {
 
         if (updateInfoButton != null) {
             updateInfoButton.subscribe(button -> {
-                final double bytesInMegabyte = 1048576.0;
-                double memoryUsage = ((double) Runtime.getRuntime().totalMemory() - (double) Runtime.getRuntime().freeMemory()) / bytesInMegabyte;
-                infoArea.setText(String.format("Welcome to the environment info screen!%n" +
-                                "The current world has been active for %.0f (in-game) seconds.%n" +
-                                "Currently running at %.2f FPS and using %.2f MB of memory out of %.2f available.",
-                        time.getGameTime(), time.getFps(),
-                        memoryUsage, Runtime.getRuntime().maxMemory() / bytesInMegabyte));
+                Calendar c = Calendar.getInstance();
+                c.setTimeInMillis(System.currentTimeMillis());
+
+                String date = c.get(Calendar.YEAR)+"-"+c.get(Calendar.MONTH)+"-"+c.get(Calendar.DAY_OF_MONTH);
+                String time = c.get(Calendar.HOUR_OF_DAY)+":"+c.get(Calendar.MINUTE)+":"+c.get(Calendar.SECOND);
+
+
+
+
+                infoArea.setText("Real Time: "+date + " " + time+"\nPress ESC to exit");
             });
         }
     }
