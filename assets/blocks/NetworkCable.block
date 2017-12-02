@@ -1,4 +1,57 @@
 {
-    "displayName" : "Network Cable",
-    "hardness" : 3,
+  "displayName": "Network Cable",
+  "hardness": 3,
+  "family": "sample:NetworkCable",
+  "one_connection": {
+    "tiles": {
+      "left": "NetworkCableRight",
+      "right": "NetworkCableLeft",
+      "topBottom": "NetworkCableDown"
+    }
+  },
+  "line_connection": {
+    "tiles": {
+      "left": "NetworkCableLeftRight",
+      "right": "NetworkCableLeftRight",
+      "topBottom": "NetworkCableUpDown"
+    }
+  },
+  "2d_corner": {
+    "tiles": {
+      "front": "NetworkCableLeftRight",
+      "right": "NetworkCableLeftRight",
+      "top": "NetworkCableDownLeft",
+      "bottom": "NetworkCableDownRight"
+    }
+  },
+  "3d_corner": {
+    "tiles": {
+      "front": "NetworkCableUpRight",
+      "right": "NetworkCableUpLeft",
+      "bottom": "NetworkCableDownRight"
+    }
+  },
+  "2d_t": {
+    "tiles": {
+      "right": "NetworkCableLeftRight",
+      "top": "NetworkCableUpDownLeft",
+      "bottom": "NetworkCableUpDownRight"
+    }
+  },
+  "cross": {
+    "tiles": {
+      "topBottom": "NetworkCableAll"
+    }
+  },
+  "3d_side": {
+    "tiles": {
+      "right": "NetworkCableUpLeftRight",
+      "bottom": "NetworkCableUpDownRight"
+    }
+  },
+  "five_connections": {
+    "tiles": {
+      "right": "NetworkCableAll"
+    }
+  }
 }
