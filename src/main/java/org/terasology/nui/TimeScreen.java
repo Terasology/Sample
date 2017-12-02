@@ -15,52 +15,31 @@
  */
 package org.terasology.nui;
 
-import org.terasology.engine.Time;
-import org.terasology.engine.subsystem.headless.device.TimeSystem;
-import org.terasology.registry.In;
 import org.terasology.rendering.nui.CoreScreenLayer;
+import org.terasology.rendering.nui.UIWidget;
 import org.terasology.rendering.nui.widgets.UIButton;
 import org.terasology.rendering.nui.widgets.UIText;
-
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class TimeScreen extends CoreScreenLayer {
     private UIText infoArea;
     private UIButton updateInfoButton;
 
-    @In
-    private Time time;
-
+    private void setInfoAreaText(){
+        Calendar c = Calendar.getInstance();
+        c.setTimeInMillis(System.currentTimeMillis());
+        String date = c.get(Calendar.YEAR) + "-" + c.get(Calendar.MONTH) + "-" + c.get(Calendar.DAY_OF_MONTH);
+        String time = c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE) + ":" + c.get(Calendar.SECOND);
+        infoArea.setText("Real Time: "+ date + " " + time + "\nPress ESC to exit");
+    }
 
     @Override
     public void initialise() {
         infoArea = find("infoArea", UIText.class);
         updateInfoButton = find("updateInfoButton", UIButton.class);
-        Calendar c = Calendar.getInstance();
-        c.setTimeInMillis(System.currentTimeMillis());
-
-        String date = c.get(Calendar.YEAR)+"-"+c.get(Calendar.MONTH)+"-"+c.get(Calendar.DAY_OF_MONTH);
-        String time = c.get(Calendar.HOUR_OF_DAY)+":"+c.get(Calendar.MINUTE)+":"+c.get(Calendar.SECOND);
-
-
-
-
-        infoArea.setText("Real Time: "+date + " " + time+"\nPress ESC to exit");
-
+        setInfoAreaText();
         if (updateInfoButton != null) {
-            updateInfoButton.subscribe(button -> {
-                Calendar d = Calendar.getInstance();
-                d.setTimeInMillis(System.currentTimeMillis());
-
-                String date2 = d.get(Calendar.YEAR)+"-"+d.get(Calendar.MONTH)+"-"+d.get(Calendar.DAY_OF_MONTH);
-                String time2 = d.get(Calendar.HOUR_OF_DAY)+":"+d.get(Calendar.MINUTE)+":"+d.get(Calendar.SECOND);
-
-
-
-
-                infoArea.setText("Real Time: "+date2 + " " + time2+"\nPress ESC to exit");
-            });
+            updateInfoButton.subscribe((UIWidget button) -> setInfoAreaText());
         }
     }
 }
