@@ -1,9 +1,8 @@
 {
-  "type": "EnvironmentInfoScreen",
+  "type": "TimeScreen",
   "contents": {
     "type": "relativeLayout",
     "contents": [
-
       {
         "type": "UIBox",
         "layoutInfo": {
@@ -17,8 +16,8 @@
           "contents": [
             {
               "type": "UILabel",
-              "id": "environmentInfoLabel",
-              "text": "Environment Info",
+              "id": "timeInfoLabel",
+              "text": "Time",
               "layoutInfo": {
                 "use-content-width": true,
                 "position-horizontal-center": {},
@@ -31,7 +30,7 @@
               "id": "infoArea",
               "layoutInfo": {
                 "position-top": {
-                  "widget": "environmentInfoLabel",
+                  "widget": "timeInfoLabel",
                   "target": "BOTTOM"
                 },
                 "position-bottom": {

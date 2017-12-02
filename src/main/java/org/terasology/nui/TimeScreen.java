@@ -37,19 +37,29 @@ public class TimeScreen extends CoreScreenLayer {
     public void initialise() {
         infoArea = find("infoArea", UIText.class);
         updateInfoButton = find("updateInfoButton", UIButton.class);
+        Calendar c = Calendar.getInstance();
+        c.setTimeInMillis(System.currentTimeMillis());
+
+        String date = c.get(Calendar.YEAR)+"-"+c.get(Calendar.MONTH)+"-"+c.get(Calendar.DAY_OF_MONTH);
+        String time = c.get(Calendar.HOUR_OF_DAY)+":"+c.get(Calendar.MINUTE)+":"+c.get(Calendar.SECOND);
+
+
+
+
+        infoArea.setText("Real Time: "+date + " " + time+"\nPress ESC to exit");
 
         if (updateInfoButton != null) {
             updateInfoButton.subscribe(button -> {
-                Calendar c = Calendar.getInstance();
-                c.setTimeInMillis(System.currentTimeMillis());
+                Calendar d = Calendar.getInstance();
+                d.setTimeInMillis(System.currentTimeMillis());
 
-                String date = c.get(Calendar.YEAR)+"-"+c.get(Calendar.MONTH)+"-"+c.get(Calendar.DAY_OF_MONTH);
-                String time = c.get(Calendar.HOUR_OF_DAY)+":"+c.get(Calendar.MINUTE)+":"+c.get(Calendar.SECOND);
-
-
+                String date2 = d.get(Calendar.YEAR)+"-"+d.get(Calendar.MONTH)+"-"+d.get(Calendar.DAY_OF_MONTH);
+                String time2 = d.get(Calendar.HOUR_OF_DAY)+":"+d.get(Calendar.MINUTE)+":"+d.get(Calendar.SECOND);
 
 
-                infoArea.setText("Real Time: "+date + " " + time+"\nPress ESC to exit");
+
+
+                infoArea.setText("Real Time: "+date2 + " " + time2+"\nPress ESC to exit");
             });
         }
     }
