@@ -25,7 +25,7 @@ import org.terasology.rendering.nui.widgets.UIText;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class EnvironmentInfoScreen extends CoreScreenLayer {
+public class TimeScreen extends CoreScreenLayer {
     private UIText infoArea;
     private UIButton updateInfoButton;
 
