@@ -17,11 +17,7 @@ package org.terasology.Sample.blocks;
 
 import org.terasology.math.Side;
 import org.terasology.math.geom.Vector3i;
-import org.terasology.registry.In;
-import org.terasology.world.WorldProvider;
-import org.terasology.world.block.Block;
 import org.terasology.world.block.BlockBuilderHelper;
-import org.terasology.world.block.BlockUri;
 import org.terasology.world.block.family.MultiConnectFamily;
 import org.terasology.world.block.family.RegisterBlockFamily;
 import org.terasology.world.block.loader.BlockFamilyDefinition;
@@ -29,20 +25,12 @@ import org.terasology.world.block.shapes.BlockShape;
 
 @RegisterBlockFamily("sample:NetworkCable")
 public class NetworkCableFamily extends MultiConnectFamily {
-    private Block archetypeBlock;
-
     public NetworkCableFamily(BlockFamilyDefinition definition, BlockShape shape, BlockBuilderHelper builderHelper) {
         super(definition, shape, builderHelper);
     }
 
     public NetworkCableFamily(BlockFamilyDefinition definition, BlockBuilderHelper builderHelper) {
         super(definition, builderHelper);
-        archetypeBlock = getBlockFor(new BlockUri("sample:NetworkCable.0"));
-    }
-
-    @Override
-    public Block getArchetypeBlock() {
-        return archetypeBlock;
     }
 
     @Override
