@@ -1,0 +1,16 @@
+/**
+ * Block with a similar purpose as torch, but in a block form.
+ */
+
+{
+  "displayName": "Mossy_Lamp",
+  "categories": ["lamp"],
+  "hardness": 50,
+  //Defines luminance, a bit higher than normal torch
+  "luminance": 20,
+
+  //graphics
+  "tiles": {
+    "all": "MossyLamp"
+  }
+}
