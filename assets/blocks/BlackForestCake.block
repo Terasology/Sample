@@ -1,0 +1,15 @@
+{
+  "displayName": "Black Forest Cake",
+  "categories": ["decoration"],
+  "shape": "engine:halfBlock",
+  "rotation": "horizontal",
+  "bottom": {
+    "shape" : "engine:cube"
+  },
+  "tiles": {
+    "center": "BFCakeTop",
+	"bottom": "BFCakeBottom",
+	"sides":"BFCakeSides"
+  },
+  "hardness": "3"
+}
