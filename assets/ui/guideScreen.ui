@@ -34,7 +34,7 @@
 
               "type": "UILabel",
 
-              "id": "environmentInfoLabel",
+              "id": "You are alive.",
 
               "text": "Environment Info",
 
@@ -54,7 +54,7 @@
 
               "type": "UIText",
 
-              "text": "<Placeholder text>",
+              "text": "Click for a detailed guide on how to play this adventure sandbox game.",
 
               "id": "infoArea",
 
@@ -62,7 +62,7 @@
 
                 "position-top": {
 
-                  "widget": "environmentInfoLabel",
+                  "widget": "You are alive.",
 
                   "target": "BOTTOM"
 
@@ -70,7 +70,7 @@
 
                 "position-bottom": {
 
-                  "widget": "updateInfoButton",
+                  "widget": "click me",
 
                   "target": "TOP"
 

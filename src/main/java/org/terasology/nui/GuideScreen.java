@@ -20,14 +20,17 @@ public class GuideScreen extends CoreScreenLayer {
 
         if (updateInfoButton != null) {
             updateInfoButton.subscribe(button -> {
-                final double bytesInMegabyte = 1048576.0;
+                /*final double bytesInMegabyte = 1048576.0;
                 double memoryUsage = ((double) Runtime.getRuntime().totalMemory() - (double) Runtime.getRuntime().freeMemory()) / bytesInMegabyte;
                 infoArea.setText(String.format("Welcome to the environment info screen!%n" +
                                 "The current world has been active for %.0f (in-game) seconds.%n" +
                                 "Currently running at %.2f FPS and using %.2f MB of memory out of %.2f available.%n" +
                                 "Please enjoy the game!!!",
                         time.getGameTime(), time.getFps(),
-                        memoryUsage, Runtime.getRuntime().maxMemory() / bytesInMegabyte));
+                        memoryUsage, Runtime.getRuntime().maxMemory() / bytesInMegabyte));*/
+                infoArea.setText("Welcome to Terasology! You are officially stuck in this dimension.\n" +
+                            "Use your brains to break down code and make a module.\n" +
+                        "Use the modules to craft code into useful and interactive gameplay!");
             });
         }
     }
