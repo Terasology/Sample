@@ -1,25 +1,23 @@
 package org.terasology.nui;
 
-import org.terasology.engine.Time;
-import org.terasology.registry.In;
+//import org.terasology.engine.Time;
+//import org.terasology.registry.In;
 import org.terasology.rendering.nui.CoreScreenLayer;
 import org.terasology.rendering.nui.widgets.UIButton;
 import org.terasology.rendering.nui.widgets.UIText;
 
 public class GuideScreen extends CoreScreenLayer {
     private UIText infoArea;
-    private UIButton updateInfoButton;
+    private UIButton receiveGuide;
 
-    @In
-    private Time time;
 
     @Override
     public void initialise() {
         infoArea = find("infoArea", UIText.class);
-        updateInfoButton = find("updateInfoButton", UIButton.class);
+        receiveGuide = find("click me", UIButton.class);
 
-        if (updateInfoButton != null) {
-            updateInfoButton.subscribe(button -> {
+        if (receiveGuide != null) {
+            receiveGuide.subscribe(button -> {
                 /*final double bytesInMegabyte = 1048576.0;
                 double memoryUsage = ((double) Runtime.getRuntime().totalMemory() - (double) Runtime.getRuntime().freeMemory()) / bytesInMegabyte;
                 infoArea.setText(String.format("Welcome to the environment info screen!%n" +

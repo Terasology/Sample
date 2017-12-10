@@ -88,9 +88,9 @@
 
               "type": "UIButton",
 
-              "id": "updateInfoButton",
+              "id": "click me",
 
-              "text": "Update Information",
+              "text": "Click me",
 
               "layoutInfo": {
 
