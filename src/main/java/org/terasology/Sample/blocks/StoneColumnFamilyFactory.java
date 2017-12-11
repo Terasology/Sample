@@ -109,7 +109,7 @@ public class StoneColumnFamilyFactory extends BaseComponentSystem implements Blo
     public void onPlaceBlock(OnBlockItemPlaced event, EntityRef entity) {
         BlockComponent blockComponent = event.getPlacedBlock().getComponent(BlockComponent.class);
 
-        if (blockComponent != null) {
+        if (blockComponent == null) {
             return;
         }
 
