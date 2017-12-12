@@ -1,0 +1,21 @@
+{
+    "displayName": "Stone Column",
+    "categories" : ["StoneColumn"],
+
+    "rotation": "Sample:stoneColumn",
+
+    "middle": {
+        "tile" : "Core:stone",
+        "shape": "engine:cube"
+    },
+
+    "top": {
+        "tile" : "Sample:ColourStone",
+        "shape": "engine:cube"
+    },
+
+    "bottom": {
+        "tile" : "Sample:WhiteStone",
+        "shape": "engine:cube"
+    }
+}
