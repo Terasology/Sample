@@ -1,9 +1,9 @@
 {
-    "id" : "Sample",
-    "version" : "0.1.1-SNAPSHOT",
-    "author" : "MovingBlocks Community, Mandar Juvekar, Paarth Madan, Scott Moses Sunarto, SufurElite",
-    "displayName" : "Sample Module",
-    "description" : "This module contains assets and code for testing / showcasing Terasology engine + module features",
-    "dependencies" : [{"id": "Core", "minVersion": "1.0.0"}],
-    "isServerSideOnly" : false
+    "id" : "TutorialNui",
+    "version" : "0.1.0-SNAPSHOT",
+    "author" : "",
+    "displayName" : "TutorialNui",
+    "description" : "",
+    "dependencies" : [],
+    "serverSideOnly" : false
 }
