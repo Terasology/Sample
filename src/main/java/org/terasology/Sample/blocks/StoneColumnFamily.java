@@ -29,10 +29,15 @@ import org.terasology.world.WorldProvider;
 import org.terasology.world.block.Block;
 import org.terasology.world.block.BlockBuilderHelper;
 import org.terasology.world.block.BlockUri;
-import org.terasology.world.block.family.*;
+import org.terasology.world.block.family.AbstractBlockFamily;
+import org.terasology.world.block.family.BlockFamily;
+import org.terasology.world.block.family.BlockSections;
+import org.terasology.world.block.family.RegisterBlockFamily;
+import org.terasology.world.block.family.UpdatesWithNeighboursFamily;
 import org.terasology.world.block.loader.BlockFamilyDefinition;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @RegisterBlockFamily("Sample:stoneColumn")
 @BlockSections({StoneColumnFamily.BOTTOM, StoneColumnFamily.MIDDLE, StoneColumnFamily.TOP})
