@@ -1,0 +1,14 @@
+{
+    "displayName": "arrow",
+    "categories": ["arrow"],
+    "hardness": 7,
+    "tiles" : {
+        "top" : "arrow_topbottom",
+        "bottom" : "arrow_topbottom",
+        "front" : "arrow_front",
+        "back" : "arrow_front",
+        "left" : "arrow_front",
+        "right" : "arrow_front"
+    },
+    "rotation": "horizontal"
+}
