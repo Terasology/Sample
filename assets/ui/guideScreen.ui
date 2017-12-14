@@ -1,0 +1,115 @@
+{
+
+  "type": "GuideScreen",
+
+  "contents": {
+
+    "type": "relativeLayout",
+
+    "contents": [
+
+      {
+
+        "type": "UIBox",
+
+        "layoutInfo": {
+
+          "width": 300,
+
+          "height": 300,
+
+          "position-horizontal-center": {},
+
+          "position-vertical-center": {}
+
+        },
+
+        "content": {
+
+          "type": "relativeLayout",
+
+          "contents": [
+
+            {
+
+              "type": "UILabel",
+
+              "id": "You are alive.",
+
+              "text": "Environment Info",
+
+              "layoutInfo": {
+
+                "use-content-width": true,
+
+                "position-horizontal-center": {},
+
+                "height": 30
+
+              }
+
+            },
+
+            {
+
+              "type": "UIText",
+
+              "text": "Click for a detailed guide on how to play this adventure sandbox game.",
+
+              "id": "infoArea",
+
+              "layoutInfo": {
+
+                "position-top": {
+
+                  "widget": "You are alive.",
+
+                  "target": "BOTTOM"
+
+                },
+
+                "position-bottom": {
+
+                  "widget": "click me",
+
+                  "target": "TOP"
+
+                }
+
+              },
+
+              "multiline": true,
+
+              "readOnly": true
+
+            },
+
+            {
+
+              "type": "UIButton",
+
+              "id": "click me",
+
+              "text": "Click me",
+
+              "layoutInfo": {
+
+                "use-content-height": true,
+
+                "position-bottom": {}
+
+              }
+
+            }
+
+          ]
+
+        }
+
+      }
+
+    ]
+
+  }
+
+}
