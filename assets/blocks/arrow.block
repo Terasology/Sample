@@ -1,6 +1,6 @@
 {
     "displayName": "arrow",
-    "categories": ["arrow"],
+    "categories": ["decoration"],
     "hardness": 7,
     "tiles" : {
         "top" : "arrow_topbottom",
