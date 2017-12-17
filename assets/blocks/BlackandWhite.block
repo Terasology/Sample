@@ -11,14 +11,14 @@
 
     "on_top": {
     	"tiles": {
-	        "sides": "BlackAndWhiteSide",
+	        "sides": "BlackAndWhiteBottom",
 	        "topBottom": "BlackAndWhiteTop"
     	},
     	"shape": "engine:cube"
     },
     "on_bottom": {
     	"tiles": {
-	        "sides": "BlackAndWhiteBottom",
+	        "sides": "BlackAndWhiteSide",
 	        "topBottom": "BlackAndWhiteTop"
     	},
     	"shape": "engine:cube"
