@@ -1,7 +1,7 @@
 {
     "displayName": "Black and White",
     "categories" : ["BlackAndWhite"],
-    "hardness": 3,
+    "hardness": 20,
     "tiles" : {
         "topBottom" : "BlackAndWhiteTop",
         "sides" : "BlackAndWhiteSide"
