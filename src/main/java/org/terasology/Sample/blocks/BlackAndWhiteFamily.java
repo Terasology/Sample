@@ -37,7 +37,7 @@ import org.terasology.world.block.shapes.BlockShape;
 import java.util.ArrayList;
 
 @RegisterBlockFamily("BlackAndWhite")
-@BlockSections({on_top", "on_bottom", "in_a_line"})
+@BlockSections({"lone_block", "on_top", "on_bottom", "in_a_line"})
 
 public class BlackAndWhiteFamily extends AbstractBlockFamiy implements UpdatesWithNeighboursFamily {
 
@@ -62,7 +62,7 @@ public class BlackAndWhiteFamily extends AbstractBlockFamiy implements UpdatesWi
 
         blockUri = new BlockUri(definition.getUrn());
 
-
+        addConnection((byte) 0, "lone_block", definition, blockBuilder);
         addConnection(SideBitFlag.getSide(Side.TOP), "on_bottom", definition, blockBuilder);
         addConnection(SideBitFlag.getSide(Side.BOTTOM), "on_top", definition, blockBuilder);
         addConnection(SideBitFlag.getSides(Side.TOP, Side.BOTTOM), "in_a_line", definition, blockBuilder);
@@ -146,7 +146,6 @@ public Iterable<Block> getBlocks() {
 
 @Override
 public Block getBlockForNeighborUpdate(Vector3i location, Block oldBlock) {
-        return getProperBlock(worldProvider, location);
+        return getProperBlock(worldProvider, location, Vector3i targetBlock);
         }
 
-        }

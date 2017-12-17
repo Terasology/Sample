@@ -7,7 +7,7 @@
         "sides" : "BlackAndWhiteSide"
     },
 
-    "rotation": "BlackAndWhite",
+    "family": "BlackAndWhite",
 
     "on_top": {
     	"tiles": {
