@@ -8,13 +8,7 @@
     },
 
     "rotation": "BlackAndWhite",
-    "lone_block": {
-	    "tiles" : {
-	        "topBottom" : "BlackAndWhiteTop",
-	        "sides" : "BlackAndWhiteSide"
-	    },
-    	"shape": "engine:cube"
-    },
+
     "on_top": {
     	"tiles": {
 	        "sides": "BlackAndWhiteBottom",
@@ -36,4 +30,4 @@
 	    },
     	"shape": "engine:cube"
     }
-}
+ }
