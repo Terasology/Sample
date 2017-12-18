@@ -78,7 +78,7 @@ public class BlackAndWhiteFamily extends AbstractBlockFamily implements UpdatesW
 
         this.setBlockUri(blockUri);
         this.setCategory(definition.getCategories());
-        this.setCategory(categories);
+
     }
 
     private void addConnection(Byte bitFlag, String section, BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder) {
@@ -109,7 +109,7 @@ public class BlackAndWhiteFamily extends AbstractBlockFamily implements UpdatesW
         if (worldProvider.isBlockRelevant(neighborLocation)) {
             Block neighborBlock = worldProvider.getBlock(neighborLocation);
             final BlockFamily blockFamily = neighborBlock.getBlockFamily();
-            if (blockFamily instanceof RomanColumnFamily) {
+            if (blockFamily instanceof BlackAndWhiteFamily) {
                 return true;
             }
         }
