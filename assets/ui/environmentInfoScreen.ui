@@ -6,8 +6,8 @@
             {
                 "type": "UIBox",
                 "layoutInfo": {
-                    "width": 300,
-                    "height": 300,
+                    "width": 700,
+                    "height": 400,
                     "position-horizontal-center": {},
                     "position-vertical-center": {}
                 },
@@ -17,7 +17,7 @@
                             {
                                 "type": "UILabel",
                                 "id": "environmentInfoLabel",
-                                "text": "Environment Info",
+                                "text": "Fun Dinosaur Facts",
                                 "layoutInfo": {
                                     "use-content-width": true,
                                     "position-horizontal-center": {},
@@ -44,7 +44,7 @@
                         {
                             "type": "UIButton",
                             "id": "updateInfoButton",
-                            "text": "Update Information",
+                            "text": "Next Fact",
                             "layoutInfo": {
                                 "use-content-height": true,
                                 "position-bottom": {}
