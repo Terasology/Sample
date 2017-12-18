@@ -1,33 +1,44 @@
 {
     "displayName": "Black and White",
-    "categories" : ["BlackAndWhite"],
+    "categories" : ["BlackAndWhite", "Black", "White"],
     "hardness": 2,
     "tiles" : {
         "topBottom" : "BlackAndWhiteTop",
         "sides" : "BlackAndWhiteSide"
     },
 
-    "rotation": "BlackAndWhite",
+    "family": "BlackAndWhite",
 
-    "on_top": {
+    "lone_block": {
+	    "tiles" : {
+	        "topBottom" : "BlackAndWhiteTop",
+	        "sides" : "BlackAndWhiteSide"
+	    },
+    	"shape": "engine:cube"
+    },
+
+    "top": {
     	"tiles": {
 	        "sides": "BlackAndWhiteBottom",
 	        "topBottom": "BlackAndWhiteTop"
     	},
     	"shape": "engine:cube"
     },
-    "on_bottom": {
+
+    "bottom": {
     	"tiles": {
-	        "sides": "BlackAndWhiteSide",
+	        "sides": "BlackAndWhiteBottom",
 	        "topBottom": "BlackAndWhiteTop"
     	},
     	"shape": "engine:cube"
     },
-    "in_a_line": {
+
+    "line": {
 	    "tiles" : {
 	        "topBottom" : "BlackAndWhiteTop",
 	        "sides" : "BlackAndWhiteSide"
 	    },
+
     	"shape": "engine:cube"
     }
  }
