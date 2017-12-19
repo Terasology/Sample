@@ -38,6 +38,7 @@ import java.util.ArrayList;
 
 @RegisterBlockFamily("Sample:BlackAndWhite")
 @BlockSections({"lone_block", "on_top", "on_bottom", "in_a_line"})
+
 public class BlackAndWhiteFamily extends AbstractBlockFamily implements UpdatesWithNeighboursFamily {
 
     @In
@@ -67,7 +68,7 @@ public class BlackAndWhiteFamily extends AbstractBlockFamily implements UpdatesW
     public BlackAndWhiteFamily(BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder) {
         super(definition, blockBuilder);
 
-        blocks = new TByteObjectHashMap<Block>();
+        blocks = new TByteObjectHashMap<>();
 
         blockUri = new BlockUri(definition.getUrn());
 

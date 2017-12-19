@@ -17,7 +17,7 @@
     	"shape": "engine:cube"
     },
 
-    "top": {
+    "on_top": {
     	"tiles": {
 	        "sides": "BlackAndWhiteBottom",
 	        "topBottom": "BlackAndWhiteTop"
@@ -25,7 +25,7 @@
     	"shape": "engine:cube"
     },
 
-    "bottom": {
+    "on_bottom": {
     	"tiles": {
 	        "sides": "BlackAndWhiteBottom",
 	        "topBottom": "BlackAndWhiteTop"
@@ -33,7 +33,7 @@
     	"shape": "engine:cube"
     },
 
-    "line": {
+    "in_a_line": {
 	    "tiles" : {
 	        "topBottom" : "BlackAndWhiteTop",
 	        "sides" : "BlackAndWhiteSide"
