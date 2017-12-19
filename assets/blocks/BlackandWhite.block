@@ -17,7 +17,11 @@
     	"shape": "engine:cube"
     },
 
+<<<<<<< HEAD
     "on_top": {
+=======
+    "top": {
+>>>>>>> 58fcd4e2bd35a9b0518116d97590c04a83df5a7e
     	"tiles": {
 	        "sides": "BlackAndWhiteBottom",
 	        "topBottom": "BlackAndWhiteTop"
@@ -25,7 +29,11 @@
     	"shape": "engine:cube"
     },
 
+<<<<<<< HEAD
     "on_bottom": {
+=======
+    "bottom": {
+>>>>>>> 58fcd4e2bd35a9b0518116d97590c04a83df5a7e
     	"tiles": {
 	        "sides": "BlackAndWhiteBottom",
 	        "topBottom": "BlackAndWhiteTop"
@@ -33,7 +41,11 @@
     	"shape": "engine:cube"
     },
 
+<<<<<<< HEAD
     "in_a_line": {
+=======
+    "line": {
+>>>>>>> 58fcd4e2bd35a9b0518116d97590c04a83df5a7e
 	    "tiles" : {
 	        "topBottom" : "BlackAndWhiteTop",
 	        "sides" : "BlackAndWhiteSide"
