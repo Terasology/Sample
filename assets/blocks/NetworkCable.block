@@ -1,4 +1,26 @@
 {
+<<<<<<< HEAD
+    "displayName" : "Network Cable",
+    "hardness" : 3,
+    "rotation" : "attachedToSurface",
+    "sides" : {
+        "tiles" : {
+            "left" : "NetworkCableSideLeft",
+            "right" : "NetworkCableSideRight",
+            "topBottom" : "NetworkCableSide"
+        }
+    },
+    "top" : {
+        "tiles" : {
+            "sides" : "NetworkCableSide"
+        }
+    },
+    "bottom" : {
+        "tiles" : {
+            "sides" : "NetworkCableSideReverse"
+        }
+    }
+=======
   "displayName": "Network Cable",
   "hardness": 3,
   "family": "sample:NetworkCable",
@@ -54,4 +76,5 @@
       "right": "NetworkCableAll"
     }
   }
+>>>>>>> 58fcd4e2bd35a9b0518116d97590c04a83df5a7e
 }
