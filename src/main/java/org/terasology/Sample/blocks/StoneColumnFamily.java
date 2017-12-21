@@ -27,9 +27,7 @@ import org.terasology.world.block.family.RegisterBlockFamily;
 import org.terasology.world.block.loader.BlockFamilyDefinition;
 import org.terasology.world.block.shapes.BlockShape;
 import org.terasology.world.block.family.MultiConnectFamily;
-
 import java.util.Collections;
-
 import static org.terasology.math.SideBitFlag.*;
 @RegisterBlockFamily("sample:StoneColumn")
 @BlockSections({"bottom", "top", "middle"})
