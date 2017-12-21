@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 package org.terasology.Sample.blocks;
+
 import gnu.trove.map.hash.TByteObjectHashMap;
 import org.terasology.math.Rotation;
 import org.terasology.math.Side;
@@ -27,8 +28,9 @@ import org.terasology.world.block.family.RegisterBlockFamily;
 import org.terasology.world.block.loader.BlockFamilyDefinition;
 import org.terasology.world.block.shapes.BlockShape;
 import org.terasology.world.block.family.MultiConnectFamily;
+import static org.terasology.math.SideBitFlag.getSides;
+
 import java.util.Collections;
-import static org.terasology.math.SideBitFlag.*;
 
 @RegisterBlockFamily("sample:StoneColumn")
 @BlockSections({"bottom", "top", "middle"})
@@ -46,7 +48,7 @@ public class StoneColumnFamily extends MultiConnectFamily {
         registerBlock(blockUri, definition, blockBuilder,"standby", (byte) 0 , Collections.singleton(Rotation.none()));
         registerBlock(blockUri, definition, blockBuilder,"bottom", SideBitFlag.getSide(Side.TOP) , Collections.singleton(Rotation.none()));
         registerBlock(blockUri, definition, blockBuilder,"top", SideBitFlag.getSide(Side.BOTTOM) , Collections.singleton(Rotation.none()));
-        registerBlock(blockUri, definition, blockBuilder,"middle", SideBitFlag.getSides(Side.TOP, Side.BOTTOM) , Collections.singleton(Rotation.none()));
+        registerBlock(blockUri, definition, blockBuilder,"middle", getSides(Side.TOP, Side.BOTTOM) , Collections.singleton(Rotation.none()));
         this.setCategory(definition.getCategories());
     }
 
@@ -60,8 +62,8 @@ public class StoneColumnFamily extends MultiConnectFamily {
     public byte getConnectionSides() {
         return getSides(Side.TOP, Side.BOTTOM);
     }
-    @Override
 
+    @Override
     public Block getArchetypeBlock() {
         return blocks.get(getSides(Side.TOP, Side.BOTTOM));
     }
