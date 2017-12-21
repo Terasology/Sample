@@ -46,10 +46,10 @@ public class StoneColumnFamily extends MultiConnectFamily {
 
     BlockUri blockUri;
 
-
-
     public StoneColumnFamily(BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder) {
         super(definition, blockBuilder);
+
+        BlockUri blockUri;
 
         blocks = new TByteObjectHashMap<Block>();
 
@@ -60,11 +60,8 @@ public class StoneColumnFamily extends MultiConnectFamily {
         registerBlock(blockUri, definition, blockBuilder,"top", SideBitFlag.getSide(Side.BOTTOM) , Collections.singleton(Rotation.none()));
         registerBlock(blockUri, definition, blockBuilder,"middle", SideBitFlag.getSides(Side.TOP, Side.BOTTOM) , Collections.singleton(Rotation.none()));
 
-
-
         this.setCategory(definition.getCategories());
     }
-
 
     @Override
     protected boolean connectionCondition(Vector3i blockLocation, Side connectSide) {
@@ -81,7 +78,4 @@ public class StoneColumnFamily extends MultiConnectFamily {
     public Block getArchetypeBlock() {
         return blocks.get(getSides(Side.TOP, Side.BOTTOM));
     }
-
 }
-
-
