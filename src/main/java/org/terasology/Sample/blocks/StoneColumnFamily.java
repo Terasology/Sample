@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 package org.terasology.Sample.blocks;
-
-
-
 import gnu.trove.map.hash.TByteObjectHashMap;
 import org.terasology.math.Rotation;
 import org.terasology.math.Side;
@@ -34,46 +31,33 @@ import org.terasology.world.block.family.MultiConnectFamily;
 import java.util.Collections;
 
 import static org.terasology.math.SideBitFlag.*;
-
-
 @RegisterBlockFamily("sample:StoneColumn")
 @BlockSections({"bottom", "top", "middle"})
 public class StoneColumnFamily extends MultiConnectFamily {
-
     public StoneColumnFamily(BlockFamilyDefinition definition, BlockShape shape, BlockBuilderHelper blockBuilder) {
         super(definition, shape, blockBuilder);
     }
-
     BlockUri blockUri;
-
     public StoneColumnFamily(BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder) {
         super(definition, blockBuilder);
-
         BlockUri blockUri;
-
         blocks = new TByteObjectHashMap<Block>();
-
         blockUri = new BlockUri(definition.getUrn());
-
         registerBlock(blockUri, definition, blockBuilder,"standby", (byte) 0 , Collections.singleton(Rotation.none()));
         registerBlock(blockUri, definition, blockBuilder,"bottom", SideBitFlag.getSide(Side.TOP) , Collections.singleton(Rotation.none()));
         registerBlock(blockUri, definition, blockBuilder,"top", SideBitFlag.getSide(Side.BOTTOM) , Collections.singleton(Rotation.none()));
         registerBlock(blockUri, definition, blockBuilder,"middle", SideBitFlag.getSides(Side.TOP, Side.BOTTOM) , Collections.singleton(Rotation.none()));
-
         this.setCategory(definition.getCategories());
     }
-
     @Override
     protected boolean connectionCondition(Vector3i blockLocation, Side connectSide) {
         Vector3i target = connectSide.getAdjacentPos(blockLocation);
         return worldProvider.isBlockRelevant(target) && worldProvider.getBlock(target).getBlockFamily() instanceof StoneColumnFamily;
     }
-
     @Override
     public byte getConnectionSides() {
         return getSides(Side.TOP, Side.BOTTOM);
     }
-
     @Override
     public Block getArchetypeBlock() {
         return blocks.get(getSides(Side.TOP, Side.BOTTOM));
