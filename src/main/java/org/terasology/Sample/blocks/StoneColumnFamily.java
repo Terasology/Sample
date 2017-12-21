@@ -29,13 +29,15 @@ import org.terasology.world.block.shapes.BlockShape;
 import org.terasology.world.block.family.MultiConnectFamily;
 import java.util.Collections;
 import static org.terasology.math.SideBitFlag.*;
+
 @RegisterBlockFamily("sample:StoneColumn")
 @BlockSections({"bottom", "top", "middle"})
+
 public class StoneColumnFamily extends MultiConnectFamily {
     public StoneColumnFamily(BlockFamilyDefinition definition, BlockShape shape, BlockBuilderHelper blockBuilder) {
         super(definition, shape, blockBuilder);
     }
-    BlockUri blockUri;
+
     public StoneColumnFamily(BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder) {
         super(definition, blockBuilder);
         BlockUri blockUri;
@@ -47,16 +49,19 @@ public class StoneColumnFamily extends MultiConnectFamily {
         registerBlock(blockUri, definition, blockBuilder,"middle", SideBitFlag.getSides(Side.TOP, Side.BOTTOM) , Collections.singleton(Rotation.none()));
         this.setCategory(definition.getCategories());
     }
+
     @Override
     protected boolean connectionCondition(Vector3i blockLocation, Side connectSide) {
         Vector3i target = connectSide.getAdjacentPos(blockLocation);
         return worldProvider.isBlockRelevant(target) && worldProvider.getBlock(target).getBlockFamily() instanceof StoneColumnFamily;
     }
+
     @Override
     public byte getConnectionSides() {
         return getSides(Side.TOP, Side.BOTTOM);
     }
     @Override
+
     public Block getArchetypeBlock() {
         return blocks.get(getSides(Side.TOP, Side.BOTTOM));
     }
