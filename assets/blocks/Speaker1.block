@@ -1,0 +1,9 @@
+{
+    "displayName" : "Speaker1",
+    "categories" : ["Speaker"],
+    "tiles" : {
+            "top" : "Speaker1",
+            "sides" : "Speaker1",
+            "bottom" : "Speaker1"
+        }
+}
