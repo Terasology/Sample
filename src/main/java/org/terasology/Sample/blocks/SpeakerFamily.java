@@ -26,52 +26,53 @@ import org.terasology.world.block.BlockUri;
 import org.terasology.world.block.family.BlockFamily;
 import org.terasology.world.block.family.UpdatesWithNeighboursFamily;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class SpeakerFamily extends UpdatesWithNeighboursFamily {
-
     private TByteObjectMap<Block> blocks;
 
-    public SpeakerFamily(BlockUri blockUri, List<String> categories, Block archetypeBlock, TByteObjectMap<Block> blocks) {
+    public SpeakerFamily(BlockUri blockUri, List<String> categories,
+                             Block archetypeBlock, TByteObjectMap<Block> blocks) {
         super(null, blockUri, categories, archetypeBlock, blocks, (byte) 63);
+
         this.blocks = blocks;
     }
 
     @Override
-    public Block getBlockForPlacement(WorldProvider worldProvider, BlockEntityRegistry blockEntityRegistry, Vector3i location, Side attachmentSide, Side direction) {
-        return getProperBlock(worldProvider, location);
+    public Block getBlockForPlacement(WorldProvider worldProvider, BlockEntityRegistry blockEntityRegistry,
+                                      Vector3i location, Side attachmentSide, Side direction) {
+        return getBlockForLocation(worldProvider, location);
     }
 
     @Override
-    public Block getBlockForNeighborUpdate(WorldProvider worldProvider, BlockEntityRegistry blockEntityRegistry, Vector3i location, Block oldBlock) {
-        return getProperBlock(worldProvider, location);
+    public Block getBlockForNeighborUpdate(WorldProvider worldProvider,
+                                           BlockEntityRegistry blockEntityRegistry,
+                                           Vector3i location, Block oldBlock) {
+        return getBlockForLocation(worldProvider, location);
     }
 
-    private Block getProperBlock(WorldProvider worldProvider, Vector3i location) {
+    private Block getBlockForLocation(WorldProvider worldProvider, Vector3i location) {
+        Set<Side> SpeakerNeighborSides = new HashSet<>();
 
-        List<Side> sides = new ArrayList<>();
-        for (Side side : new Side[] {Side.TOP, Side.BOTTOM}) {
+        for (Side side : new Side[] {Side.RIGHT, Side.LEFT}) {
             Vector3i neighborLocation = new Vector3i(location);
             neighborLocation.add(side.getVector3i());
-            if (worldProvider.isBlockRelevant(neighborLocation)) {
-                Block neighborBlock = worldProvider.getBlock(neighborLocation);
-                final BlockFamily blockFamily = neighborBlock.getBlockFamily();
-                if (blockFamily instanceof SpeakerFamily) {
-                    sides.add(side);
-                }
+
+            if (!worldProvider.isBlockRelevant(neighborLocation)) {
+                continue;
+            }
+
+            Block neighborBlock = worldProvider.getBlock(neighborLocation);
+            final BlockFamily blockFamily = neighborBlock.getBlockFamily();
+
+            if (blockFamily instanceof SpeakerFamily) {
+                SpeakerNeighborSides.add(side);
             }
         }
-        if (sides.contains(Side.BOTTOM) && !sides.contains(Side.TOP)) {
-            return blocks.get(SideBitFlag.getSide(Side.TOP));
-        } else if (!sides.contains(Side.BOTTOM) && sides.contains(Side.TOP)) {
-            return blocks.get(SideBitFlag.getSide(Side.BOTTOM));
-        } else if (sides.contains(Side.BOTTOM) && sides.contains(Side.TOP)) {
-            return blocks.get(SideBitFlag.getSides(Side.BOTTOM, Side.TOP));
-        } else if (!sides.contains(Side.BOTTOM) && !sides.contains(Side.TOP)) {
-            return blocks.get(SideBitFlag.getSides(Side.BOTTOM, Side.TOP));
-        }
-        return null;
-    }
 
+        return blocks.get(SideBitFlag.getSides(SpeakerNeighborSides));
+    }
 }
+

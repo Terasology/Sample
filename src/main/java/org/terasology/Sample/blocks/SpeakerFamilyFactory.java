@@ -42,45 +42,70 @@ import org.terasology.world.block.loader.BlockFamilyDefinition;
 
 import java.util.Set;
 
-@RegisterBlockFamilyFactory("speaker")
+@RegisterBlockFamilyFactory("Sample:Speaker1")
 @RegisterSystem(RegisterMode.AUTHORITY)
 public class SpeakerFamilyFactory extends BaseComponentSystem implements BlockFamilyFactory {
+    public static final String MIDDLE = "middle";
+    public static final String RIGHT = "right";
+    public static final String LEFT = "left";
+
+    private static final ImmutableSet<String> SECTIONS = ImmutableSet.of(MIDDLE, RIGHT, LEFT);
+
+    private static final ImmutableSet<Byte> CONNECTIONS = ImmutableSet.of(
+            (byte) 0,
+            SideBitFlag.getSides(Side.LEFT, Side.RIGHT),
+            SideBitFlag.getSide(Side.RIGHT),
+            SideBitFlag.getSide(Side.LEFT)
+    );
+
+    private static final TByteObjectMap<String> SECTION_CONNECTIONS =
+            new TByteObjectHashMap<String>() {
+                {
+                    put((byte) 0, MIDDLE);
+                    put(SideBitFlag.getSides(Side.LEFT, Side.RIGHT), MIDDLE);
+                    put(SideBitFlag.getSide(Side.RIGHT), LEFT);
+                    put(SideBitFlag.getSide(Side.LEFT), RIGHT);
+                }
+            };
 
     @In
-    private WorldProvider worldProvider;
+    WorldProvider worldProvider;
 
     @In
-    private BlockEntityRegistry blockEntityRegistry;
-
-    private static final ImmutableSet<String> BLOCK_NAMES = ImmutableSet.of(
-            "lone_block",
-            "on_bottom",
-            "on_top",
-            "in_a_line");
-
-    public SpeakerFamilyFactory() {
-    }
+    BlockEntityRegistry blockEntityRegistry;
 
     @Override
     public BlockFamily createBlockFamily(BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder) {
-        TByteObjectMap<Block> blocksForConnections = new TByteObjectHashMap<>();
-
+        TByteObjectMap<Block> blocks = new TByteObjectHashMap<>();
         BlockUri blockUri = new BlockUri(definition.getUrn());
 
-        blocksForConnections.put((byte) 0, makeABlock(definition, blockBuilder, "no_connections", blockUri, (byte) 0));
-        blocksForConnections.put(SideBitFlag.getSide(Side.TOP), makeABlock(definition, blockBuilder, "on_bottom", blockUri, SideBitFlag.getSide(Side.TOP)));
-        blocksForConnections.put(SideBitFlag.getSide(Side.BOTTOM), makeABlock(definition, blockBuilder, "on_top", blockUri, SideBitFlag.getSide(Side.BOTTOM)));
-        blocksForConnections.put(SideBitFlag.getSides(Side.BOTTOM, Side.TOP),
-                makeABlock(definition, blockBuilder, "in_a_line", blockUri, SideBitFlag.getSides(Side.TOP, Side.BOTTOM)));
+        for (byte connection : CONNECTIONS) {
+            blocks.put(connection, getBlock(definition, blockBuilder, SECTION_CONNECTIONS.get(connection),
+                    blockUri, connection));
+        }
 
-        final Block archetypeBlock = blocksForConnections.get(SideBitFlag.getSides(Side.BOTTOM, Side.TOP));
-        return new SpeakerFamily(blockUri, definition.getCategories(),
-                archetypeBlock, blocksForConnections);
+        final Block archetypeBlock = blocks.get(SideBitFlag.getSides(Side.RIGHT, Side.LEFT));
+
+        return new SpeakerFamily(blockUri, definition.getCategories(),  archetypeBlock, blocks);
+    }
+
+    private Block getBlock(BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder, String section, BlockUri blockUri, byte sides) {
+        Block newBlock = blockBuilder.constructSimpleBlock(definition, section);
+
+        newBlock.setUri(new BlockUri(blockUri, new Name(section + String.valueOf(sides))));
+
+        return newBlock;
+    }
+
+    @Override
+    public Set<String> getSectionNames() {
+        return SECTIONS;
     }
 
     @ReceiveEvent()
     public void onPlaceBlock(OnBlockItemPlaced event, EntityRef entity) {
         BlockComponent blockComponent = event.getPlacedBlock().getComponent(BlockComponent.class);
+
         if (blockComponent == null) {
             return;
         }
@@ -93,30 +118,23 @@ public class SpeakerFamilyFactory extends BaseComponentSystem implements BlockFa
         for (Side side : Side.values()) {
             Vector3i neighborLocation = new Vector3i(blockLocation);
             neighborLocation.add(side.getVector3i());
-            if (worldProvider.isBlockRelevant(neighborLocation)) {
-                Block neighborBlock = worldProvider.getBlock(neighborLocation);
-                final BlockFamily blockFamily = neighborBlock.getBlockFamily();
-                if (blockFamily instanceof SpeakerFamily) {
-                    SpeakerFamily neighboursFamily = (SpeakerFamily) blockFamily;
-                    Block neighborBlockAfterUpdate = neighboursFamily.getBlockForNeighborUpdate(worldProvider, blockEntityRegistry, neighborLocation, neighborBlock);
-                    if (neighborBlock != neighborBlockAfterUpdate) {
-                        worldProvider.setBlock(neighborLocation, neighborBlockAfterUpdate);
-                    }
-                }
+
+            if (!worldProvider.isBlockRelevant(neighborLocation)) {
+                continue;
+            }
+
+            Block neighborBlock = worldProvider.getBlock(neighborLocation);
+            final BlockFamily blockFamily = neighborBlock.getBlockFamily();
+
+            if (!(blockFamily instanceof SpeakerFamily)) {
+                continue;
+            }
+
+            SpeakerFamily neighboursFamily = (SpeakerFamily) blockFamily;
+            Block neighborBlockAfterUpdate = neighboursFamily.getBlockForNeighborUpdate(worldProvider, blockEntityRegistry, neighborLocation, neighborBlock);
+            if (neighborBlock != neighborBlockAfterUpdate) {
+                worldProvider.setBlock(neighborLocation, neighborBlockAfterUpdate);
             }
         }
     }
-
-    private Block makeABlock(BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder, String section, BlockUri blockUri, byte sides) {
-        Block newBlock = blockBuilder.constructSimpleBlock(definition, section);
-        newBlock.setUri(new BlockUri(blockUri, new Name(String.valueOf(sides))));
-
-        return newBlock;
-    }
-
-    @Override
-    public Set<String> getSectionNames() {
-        return BLOCK_NAMES;
-    }
-
 }
