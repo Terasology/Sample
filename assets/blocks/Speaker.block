@@ -1,18 +1,14 @@
 {
-    "displayName": "Speaker1",
-
-    "rotation": "Sample:Speaker1",
-
+    "displayName": "Speaker",
+    "rotation": "Sample:Speaker",
     "middle": {
         "tile" : "Sample:Speaker1",
         "shape": "engine:cube"
     },
-
     "left": {
         "tile" : "Sample:Speaker2",
         "shape": "engine:cube"
     },
-
     "right": {
         "tile" : "Sample:Speaker3",
         "shape": "engine:cube"

@@ -39,18 +39,15 @@ import org.terasology.world.block.family.BlockFamilyFactory;
 import org.terasology.world.block.family.RegisterBlockFamilyFactory;
 import org.terasology.world.block.items.OnBlockItemPlaced;
 import org.terasology.world.block.loader.BlockFamilyDefinition;
-
 import java.util.Set;
 
-@RegisterBlockFamilyFactory("Sample:Speaker1")
+@RegisterBlockFamilyFactory("Sample:Speaker")
 @RegisterSystem(RegisterMode.AUTHORITY)
 public class SpeakerFamilyFactory extends BaseComponentSystem implements BlockFamilyFactory {
     public static final String MIDDLE = "middle";
     public static final String RIGHT = "right";
     public static final String LEFT = "left";
-
     private static final ImmutableSet<String> SECTIONS = ImmutableSet.of(MIDDLE, RIGHT, LEFT);
-
     private static final ImmutableSet<Byte> CONNECTIONS = ImmutableSet.of(
             (byte) 0,
             SideBitFlag.getSides(Side.LEFT, Side.RIGHT),
@@ -70,22 +67,17 @@ public class SpeakerFamilyFactory extends BaseComponentSystem implements BlockFa
 
     @In
     WorldProvider worldProvider;
-
     @In
     BlockEntityRegistry blockEntityRegistry;
-
     @Override
     public BlockFamily createBlockFamily(BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder) {
         TByteObjectMap<Block> blocks = new TByteObjectHashMap<>();
         BlockUri blockUri = new BlockUri(definition.getUrn());
-
         for (byte connection : CONNECTIONS) {
             blocks.put(connection, getBlock(definition, blockBuilder, SECTION_CONNECTIONS.get(connection),
                     blockUri, connection));
         }
-
         final Block archetypeBlock = blocks.get(SideBitFlag.getSides(Side.RIGHT, Side.LEFT));
-
         return new SpeakerFamily(blockUri, definition.getCategories(),  archetypeBlock, blocks);
     }
 
@@ -118,18 +110,14 @@ public class SpeakerFamilyFactory extends BaseComponentSystem implements BlockFa
         for (Side side : Side.values()) {
             Vector3i neighborLocation = new Vector3i(blockLocation);
             neighborLocation.add(side.getVector3i());
-
             if (!worldProvider.isBlockRelevant(neighborLocation)) {
                 continue;
             }
-
             Block neighborBlock = worldProvider.getBlock(neighborLocation);
             final BlockFamily blockFamily = neighborBlock.getBlockFamily();
-
             if (!(blockFamily instanceof SpeakerFamily)) {
                 continue;
             }
-
             SpeakerFamily neighboursFamily = (SpeakerFamily) blockFamily;
             Block neighborBlockAfterUpdate = neighboursFamily.getBlockForNeighborUpdate(worldProvider, blockEntityRegistry, neighborLocation, neighborBlock);
             if (neighborBlock != neighborBlockAfterUpdate) {

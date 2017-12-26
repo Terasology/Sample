@@ -25,14 +25,12 @@ import org.terasology.world.block.Block;
 import org.terasology.world.block.BlockUri;
 import org.terasology.world.block.family.BlockFamily;
 import org.terasology.world.block.family.UpdatesWithNeighboursFamily;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class SpeakerFamily extends UpdatesWithNeighboursFamily {
     private TByteObjectMap<Block> blocks;
-
     public SpeakerFamily(BlockUri blockUri, List<String> categories,
                              Block archetypeBlock, TByteObjectMap<Block> blocks) {
         super(null, blockUri, categories, archetypeBlock, blocks, (byte) 63);
@@ -55,23 +53,18 @@ public class SpeakerFamily extends UpdatesWithNeighboursFamily {
 
     private Block getBlockForLocation(WorldProvider worldProvider, Vector3i location) {
         Set<Side> SpeakerNeighborSides = new HashSet<>();
-
         for (Side side : new Side[] {Side.RIGHT, Side.LEFT}) {
             Vector3i neighborLocation = new Vector3i(location);
             neighborLocation.add(side.getVector3i());
-
             if (!worldProvider.isBlockRelevant(neighborLocation)) {
                 continue;
             }
-
             Block neighborBlock = worldProvider.getBlock(neighborLocation);
             final BlockFamily blockFamily = neighborBlock.getBlockFamily();
-
             if (blockFamily instanceof SpeakerFamily) {
                 SpeakerNeighborSides.add(side);
             }
         }
-
         return blocks.get(SideBitFlag.getSides(SpeakerNeighborSides));
     }
 }
