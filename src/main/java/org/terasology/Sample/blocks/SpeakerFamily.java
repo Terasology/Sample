@@ -15,140 +15,59 @@
  */
 package org.terasology.Sample.blocks;
 
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Sets;
-import gnu.trove.map.TByteObjectMap;
-import gnu.trove.map.hash.TByteObjectHashMap;
+import org.terasology.math.Rotation;
 import org.terasology.math.Side;
 import org.terasology.math.SideBitFlag;
 import org.terasology.math.geom.Vector3i;
-import org.terasology.naming.Name;
-import org.terasology.registry.In;
-import org.terasology.world.BlockEntityRegistry;
-import org.terasology.world.WorldProvider;
 import org.terasology.world.block.Block;
 import org.terasology.world.block.BlockBuilderHelper;
 import org.terasology.world.block.BlockUri;
 import org.terasology.world.block.family.*;
 import org.terasology.world.block.loader.BlockFamilyDefinition;
-
-import java.util.*;
+import org.terasology.world.block.shapes.BlockShape;
 
 @RegisterBlockFamily("Sample:Speaker")
-@BlockSections({SpeakerFamily.RIGHT, SpeakerFamily.MIDDLE, SpeakerFamily.LEFT})
-public class SpeakerFamily extends AbstractBlockFamily implements UpdatesWithNeighboursFamily {
-    public static final String MIDDLE = "middle";
-    public static final String RIGHT = "right";
-    public static final String LEFT = "left";
+@BlockSections({"no_connections", "one_connection", "line_connection"})
+public class SpeakerFamily extends MultiConnectFamily implements UpdatesWithNeighboursFamily {
+    public static final String NO_CONNECTIONS = "no_connections";
+    public static final String ONE_CONNECTION = "one_connection";
+    public static final String TWO_CONNECTIONS_LINE = "line_connection";
 
-    private static final ImmutableSet<Byte> CONNECTIONS = ImmutableSet.of(
-            (byte) 0,
-            SideBitFlag.getSides(Side.LEFT, Side.RIGHT),
-            SideBitFlag.getSide(Side.RIGHT),
-            SideBitFlag.getSide(Side.LEFT)
-    );
-
-    private static final TByteObjectMap<String> SECTION_CONNECTIONS =
-            new TByteObjectHashMap<String>() {
-                {
-                    put((byte) 0, MIDDLE);
-                    put(SideBitFlag.getSides(Side.LEFT, Side.RIGHT), MIDDLE);
-                    put(SideBitFlag.getSide(Side.RIGHT), LEFT);
-                    put(SideBitFlag.getSide(Side.LEFT), RIGHT);
-                }
-            };
-
-
-    @In
-    WorldProvider worldProvider;
-
-    @In
-    BlockEntityRegistry blockEntityRegistry;
-
-    private TByteObjectMap<Block> blocks;
-
-    private final Block archetypeBlock;
-
-    public SpeakerFamily(BlockFamilyDefinition blockFamilyDefinition,
-                             BlockBuilderHelper blockBuilderHelper) {
-        super(blockFamilyDefinition, blockBuilderHelper);
-
-        blocks = new TByteObjectHashMap<>();
-        setBlockUri(new BlockUri(blockFamilyDefinition.getUrn()));
-        setCategory(Sets.newHashSet(blockFamilyDefinition.getCategories()));
-
-        for (byte connection : CONNECTIONS) {
-            blocks.put(
-                    connection,
-                    getBlock(blockFamilyDefinition, blockBuilderHelper,
-                            SECTION_CONNECTIONS.get(connection), getURI(), connection)
-            );
-        }
-
-        archetypeBlock = blocks.get(SideBitFlag.getSides(Side.RIGHT, Side.LEFT));
+    public SpeakerFamily(BlockFamilyDefinition definition, BlockShape shape, BlockBuilderHelper blockBuilder) {
+        super(definition, shape, blockBuilder);
     }
 
-    private Block getBlock(BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder, String section, BlockUri blockUri, byte sides) {
-        Block newBlock = blockBuilder.constructSimpleBlock(definition, section);
+    public SpeakerFamily(BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder) {
+        super(definition, blockBuilder);
 
-        newBlock.setUri(new BlockUri(blockUri, new Name(String.valueOf(sides))));
-        newBlock.setBlockFamily(this);
+        BlockUri blockUri = new BlockUri(definition.getUrn());
 
-        return newBlock;
+        this.registerBlock(blockUri, definition, blockBuilder, NO_CONNECTIONS, (byte) 0, Rotation.allValues());
+        this.registerBlock(blockUri, definition, blockBuilder, ONE_CONNECTION, SideBitFlag.getSides(Side.BACK), Rotation.allValues());
+        this.registerBlock(blockUri, definition, blockBuilder, TWO_CONNECTIONS_LINE, SideBitFlag.getSides(Side.BACK, Side.FRONT), Rotation.allValues());
+
     }
-
-    private Block getBlockForLocation(Vector3i location) {
-        Set<Side> SpeakerNeighborSides = new HashSet<>();
-
-        for (Side side : new Side[] {Side.LEFT, Side.RIGHT}) {
-            Vector3i neighborLocation = new Vector3i(location);
-            neighborLocation.add(side.getVector3i());
-
-            if (!worldProvider.isBlockRelevant(neighborLocation)) {
-                continue;
-            }
-
+    @Override
+    protected boolean connectionCondition(Vector3i blockLocation, Side connectSide) {
+        Vector3i neighborLocation = new Vector3i(blockLocation);
+        neighborLocation.add(connectSide.getVector3i());
+        if (worldProvider.isBlockRelevant(neighborLocation)) {
             Block neighborBlock = worldProvider.getBlock(neighborLocation);
             final BlockFamily blockFamily = neighborBlock.getBlockFamily();
-
-            if (blockFamily instanceof SpeakerFamily) {
-                SpeakerNeighborSides.add(side);
-            }
+            if (blockFamily instanceof SpeakerFamily)
+                return true;
         }
-
-        return blocks.get(SideBitFlag.getSides(SpeakerNeighborSides));
+        return false;
     }
 
     @Override
-    public Block getBlockForNeighborUpdate(Vector3i location, Block oldBlock) {
-        return getBlockForLocation(location);
-    }
-
-    @Override
-    public Block getBlockForPlacement(Vector3i location, Side attachmentSide, Side direction) {
-        return getBlockForLocation(location);
+    public byte getConnectionSides() {
+        return SideBitFlag.getSides(Side.FRONT, Side.BACK, Side.LEFT, Side.RIGHT);
     }
 
     @Override
     public Block getArchetypeBlock() {
-        return archetypeBlock;
+        return blocks.get((byte) 0);
     }
 
-    @Override
-    public Block getBlockFor(BlockUri blockUri) {
-        if (getURI().equals(blockUri.getFamilyUri())) {
-            try {
-                Byte connections = Byte.valueOf(blockUri.getIdentifier().toString());
-                return blocks.get(connections);
-            } catch (IllegalArgumentException e) {
-                return null;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public Iterable<Block> getBlocks() {
-        return blocks.valueCollection();
-    }
 }
