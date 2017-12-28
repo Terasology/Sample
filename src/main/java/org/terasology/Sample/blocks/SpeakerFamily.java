@@ -37,10 +37,6 @@ public class SpeakerFamily extends MultiConnectFamily implements UpdatesWithNeig
             Rotation.rotate(Yaw.NONE, Pitch.NONE, Roll.NONE),
             Rotation.rotate(Yaw.CLOCKWISE_90, Pitch.NONE, Roll.NONE));
 
-    ImmutableList<Rotation> Rotation2= ImmutableList.of(
-            Rotation.rotate(Yaw.CLOCKWISE_180, Pitch.NONE, Roll.NONE),
-            Rotation.rotate(Yaw.CLOCKWISE_270, Pitch.NONE, Roll.NONE));
-
     public SpeakerFamily(BlockFamilyDefinition definition, BlockShape shape, BlockBuilderHelper blockBuilder) {
         super(definition, shape, blockBuilder);
     }
@@ -53,7 +49,7 @@ public class SpeakerFamily extends MultiConnectFamily implements UpdatesWithNeig
         this.registerBlock(blockUri, definition, blockBuilder, MIDDLE, (byte) 0, Rotation.allValues());
         this.registerBlock(blockUri, definition, blockBuilder, MIDDLE, SideBitFlag.getSides(Side.LEFT, Side.RIGHT), Rotation.allValues());
         this.registerBlock(blockUri, definition, blockBuilder, LEFT, SideBitFlag.getSides(Side.RIGHT), Rotation1);
-        this.registerBlock(blockUri, definition, blockBuilder, RIGHT, SideBitFlag.getSides(Side.LEFT), Rotation2);
+        this.registerBlock(blockUri, definition, blockBuilder, RIGHT, SideBitFlag.getSides(Side.LEFT), Rotation1);
 
     }
     @Override
