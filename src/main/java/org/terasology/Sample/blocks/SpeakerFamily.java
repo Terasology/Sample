@@ -15,9 +15,9 @@
  */
 package org.terasology.Sample.blocks;
 
-import org.terasology.math.Rotation;
-import org.terasology.math.Side;
-import org.terasology.math.SideBitFlag;
+
+import com.google.common.collect.ImmutableList;
+import org.terasology.math.*;
 import org.terasology.math.geom.Vector3i;
 import org.terasology.world.block.Block;
 import org.terasology.world.block.BlockBuilderHelper;
@@ -33,6 +33,14 @@ public class SpeakerFamily extends MultiConnectFamily implements UpdatesWithNeig
     public static final String ONE_CONNECTION = "one_connection";
     public static final String TWO_CONNECTIONS_LINE = "line_connection";
 
+    ImmutableList<Rotation> Rotation1= ImmutableList.of(
+            Rotation.rotate(Yaw.NONE, Pitch.NONE, Roll.NONE),
+            Rotation.rotate(Yaw.CLOCKWISE_90, Pitch.NONE, Roll.NONE));
+
+    ImmutableList<Rotation> Rotation2= ImmutableList.of(
+            Rotation.rotate(Yaw.CLOCKWISE_180, Pitch.NONE, Roll.NONE),
+            Rotation.rotate(Yaw.CLOCKWISE_270, Pitch.NONE, Roll.NONE));
+
     public SpeakerFamily(BlockFamilyDefinition definition, BlockShape shape, BlockBuilderHelper blockBuilder) {
         super(definition, shape, blockBuilder);
     }
@@ -43,8 +51,8 @@ public class SpeakerFamily extends MultiConnectFamily implements UpdatesWithNeig
         BlockUri blockUri = new BlockUri(definition.getUrn());
 
         this.registerBlock(blockUri, definition, blockBuilder, NO_CONNECTIONS, (byte) 0, Rotation.allValues());
-        this.registerBlock(blockUri, definition, blockBuilder, ONE_CONNECTION, SideBitFlag.getSides(Side.BACK), Rotation.allValues());
-        this.registerBlock(blockUri, definition, blockBuilder, TWO_CONNECTIONS_LINE, SideBitFlag.getSides(Side.BACK, Side.FRONT), Rotation.allValues());
+        this.registerBlock(blockUri, definition, blockBuilder, ONE_CONNECTION, SideBitFlag.getSides(Side.BACK), Rotation1);
+        this.registerBlock(blockUri, definition, blockBuilder, TWO_CONNECTIONS_LINE, SideBitFlag.getSides(Side.BACK, Side.FRONT), Rotation2);
 
     }
     @Override
