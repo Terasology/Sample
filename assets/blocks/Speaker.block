@@ -1,7 +1,7 @@
 {
     "displayName": "Speaker",
     "family": "Sample:Speaker",
-    "no_connections": {
+    "left": {
         "tiles": {
           "left": "Speaker1",
           "front": "Speaker1",
@@ -10,7 +10,7 @@
           "topBottom": "Speaker1"
         }
     },
-    "one_connection": {
+    "middle": {
         "tiles": {
           "left": "Speaker2",
           "front": "Speaker2",
@@ -19,7 +19,7 @@
           "topBottom": "Speaker2"
         }
       },
-      "line_connection": {
+      "right": {
           "tiles": {
             "left": "Speaker3",
             "front": "Speaker3",

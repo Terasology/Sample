@@ -27,11 +27,11 @@ import org.terasology.world.block.loader.BlockFamilyDefinition;
 import org.terasology.world.block.shapes.BlockShape;
 
 @RegisterBlockFamily("Sample:Speaker")
-@BlockSections({"no_connections", "one_connection", "line_connection"})
+@BlockSections({"left", "middle", "right"})
 public class SpeakerFamily extends MultiConnectFamily implements UpdatesWithNeighboursFamily {
-    public static final String NO_CONNECTIONS = "no_connections";
-    public static final String ONE_CONNECTION = "one_connection";
-    public static final String TWO_CONNECTIONS_LINE = "line_connection";
+    public static final String LEFT = "left";
+    public static final String MIDDLE = "middle";
+    public static final String RIGHT = "right";
 
     ImmutableList<Rotation> Rotation1= ImmutableList.of(
             Rotation.rotate(Yaw.NONE, Pitch.NONE, Roll.NONE),
@@ -50,9 +50,9 @@ public class SpeakerFamily extends MultiConnectFamily implements UpdatesWithNeig
 
         BlockUri blockUri = new BlockUri(definition.getUrn());
 
-        this.registerBlock(blockUri, definition, blockBuilder, NO_CONNECTIONS, (byte) 0, Rotation.allValues());
-        this.registerBlock(blockUri, definition, blockBuilder, ONE_CONNECTION, SideBitFlag.getSides(Side.BACK), Rotation1);
-        this.registerBlock(blockUri, definition, blockBuilder, TWO_CONNECTIONS_LINE, SideBitFlag.getSides(Side.BACK, Side.FRONT), Rotation2);
+        this.registerBlock(blockUri, definition, blockBuilder, LEFT, (byte) 0, Rotation.allValues());
+        this.registerBlock(blockUri, definition, blockBuilder, MIDDLE, SideBitFlag.getSides(Side.BACK), Rotation1);
+        this.registerBlock(blockUri, definition, blockBuilder, RIGHT, SideBitFlag.getSides(Side.BACK, Side.FRONT), Rotation2);
 
     }
     @Override
