@@ -50,9 +50,10 @@ public class SpeakerFamily extends MultiConnectFamily implements UpdatesWithNeig
 
         BlockUri blockUri = new BlockUri(definition.getUrn());
 
-        this.registerBlock(blockUri, definition, blockBuilder, LEFT, (byte) 0, Rotation.allValues());
-        this.registerBlock(blockUri, definition, blockBuilder, MIDDLE, SideBitFlag.getSides(Side.BACK), Rotation1);
-        this.registerBlock(blockUri, definition, blockBuilder, RIGHT, SideBitFlag.getSides(Side.BACK, Side.FRONT), Rotation2);
+        this.registerBlock(blockUri, definition, blockBuilder, MIDDLE, (byte) 0, Rotation.allValues());
+        this.registerBlock(blockUri, definition, blockBuilder, MIDDLE, SideBitFlag.getSides(Side.LEFT, Side.RIGHT), Rotation.allValues());
+        this.registerBlock(blockUri, definition, blockBuilder, LEFT, SideBitFlag.getSides(Side.RIGHT), Rotation1);
+        this.registerBlock(blockUri, definition, blockBuilder, RIGHT, SideBitFlag.getSides(Side.LEFT), Rotation2);
 
     }
     @Override

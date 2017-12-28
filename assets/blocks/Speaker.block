@@ -1,7 +1,7 @@
 {
     "displayName": "Speaker",
     "family": "Sample:Speaker",
-    "left": {
+    "middle": {
         "tiles": {
           "left": "Speaker1",
           "front": "Speaker1",
@@ -10,7 +10,7 @@
           "topBottom": "Speaker1"
         }
     },
-    "middle": {
+    "left": {
         "tiles": {
           "left": "Speaker2",
           "front": "Speaker2",
