@@ -1,0 +1,149 @@
+{
+    "displayName": "Iron Plate",
+    "categories" : ["IronPlate"],
+    "hardness" : 3,
+    "tiles" : {
+    	"all" : "plateSquare"
+    },
+    
+    "rotation" : "ironplate",
+    
+    //Single block
+    "single" : {
+    	"tiles" : {
+    		"all" : "plateSquare"
+    	}
+    },
+    
+    //One connection
+    "left" : {
+    	"tiles" : {
+    		"top" : "plateReverseC",
+    		"bottom" : "plateC",
+    		"left" : "plateSquare",
+    		"right" : "plateSquare",
+    		"front" : "plateC",
+    		"back" : "plateReverseC"
+    	}
+    },
+    "right" : {
+    	"tiles" : {
+    		"top" : "plateC",
+    		"bottom" : "plateReverseC",
+    		"left" : "plateSquare",
+    		"right" : "plateSquare",
+    		"front" : "plateReverseC",
+    		"back" : "plateC"
+    	}
+    },
+    "front" : {
+    	"tiles" : {
+    		"top" : "plateU",
+    		"bottom" : "plateU",
+    		"left" : "plateReverseC",
+    		"right" : "plateC",
+    		"front" : "plateSquare",
+    		"back" : "plateSquare"
+    	}
+    },
+    "back" : {
+    	"tiles" : {
+    		"top" : "plateReverseU",
+    		"bottom" : "plateReverseU",
+    		"left" : "plateC",
+    		"right" : "plateReverseC",
+    		"front" : "plateSquare",
+    		"back" : "plateSquare"
+    	}
+    },
+    
+    //Line
+    "left_right" : {
+    	"tiles" : {
+    		"all" : "plateHorizontal"
+    	}
+    },
+    "front_back" : {
+    	"tiles" : {
+    		"topBottom" : "plateVertical",
+    		"sides" : "plateHorizontal"
+    	}
+    },
+    
+    //Corner
+    "front_left" : {
+    	"tiles" : {
+    		"top" : "plateBottomright",
+    		"bottom" : "plateBottomleft",
+    		"left" : "plateSquare",
+    		"right" : "plateC",
+    		"front" : "plateSquare",
+    		"back" : "plateReverseC"
+    	}
+    },
+    "front_right" : {
+    	"tiles" : {
+    		"top" : "plateBottomleft",
+    		"bottom" : "plateBottomright",
+    		"left" : "plateReverseC",
+    		"right" : "plateSquare",
+    		"front" : "plateSquare",
+    		"back" : "plateC"
+    	}
+    },
+    "back_left" : {
+    	"tiles" : {
+    		"top" : "plateTopright",
+    		"bottom" : "plateTopleft",
+    		"left" : "plateSquare",
+    		"right" : "plateReverseC",
+    		"front" : "plateC",
+    		"back" : "plateSquare"
+    	}
+    },
+    "back_right" : {
+    	"tiles" : {
+    		"top" : "plateTopleft",
+    		"bottom" : "plateTopright",
+    		"left" : "plateC",
+    		"right" : "plateSquare",
+    		"front" : "plateReverseC",
+    		"back" : "plateSquare"
+    	}
+    },
+    
+    //T shape
+    "left_t" : {
+    	"tiles" : {
+    		"top" : "plateLeft",
+    		"bottom" : "plateRight",
+    		"sides" : "plateHorizontal"
+    	}
+    },
+    "right_t" : {
+    	"tiles" : {
+    		"top" : "plateRight",
+    		"bottom" : "plateLeft",
+    		"sides" : "plateHorizontal"
+    	}
+    },
+    "front_t" : {
+    	"tiles" : {
+    		"topBottom" : "plateTop",
+    		"sides" : "plateHorizontal"
+    	}
+    },
+    "back_t" : {
+    	"tiles" : {
+    		"topBottom" : "plateBottom",
+    		"sides" : "plateHorizontal"
+    	}
+    },
+    
+    //Cross
+    "cross" : {
+    	"tiles" : {
+    		"all" : "plateNone"
+    	}
+    }
+}
