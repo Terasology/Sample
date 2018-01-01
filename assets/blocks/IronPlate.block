@@ -1,0 +1,64 @@
+{
+    "displayName": "Iron Plate",
+    "categories" : ["IronPlate"],
+    "hardness" : 3,
+    "tiles" : {
+    	"all" : "plateSquare"
+    },
+    
+    "family" : "ironplate",
+    
+    //Single block
+    "single" : {
+    	"tiles" : {
+    		"all" : "plateSquare"
+    	}
+    },
+    
+    //One connection
+    "one_connection" : {
+    	"tiles" : {
+    		"top" : "plateC",
+    		"bottom" : "plateReverseC",
+    		"left" : "plateSquare",
+    		"right" : "plateSquare",
+    		"front" : "plateReverseC",
+    		"back" : "plateC"
+    	}
+    },
+    
+    //Line
+    "line" : {
+    	"tiles" : {
+    		"topBottom" : "plateVertical",
+    		"sides" : "plateHorizontal"
+    	}
+    },
+    
+    //Corner
+    "corner" : {
+    	"tiles" : {
+    		"top" : "plateTopright",
+    		"bottom" : "plateTopleft",
+    		"left" : "plateSquare",
+    		"right" : "plateReverseC",
+    		"front" : "plateC",
+    		"back" : "plateSquare"
+    	}
+    },
+    
+    //T shape
+    "t" : {
+    	"tiles" : {
+    		"topBottom" : "plateTop",
+    		"sides" : "plateHorizontal"
+    	}
+    },
+    
+    //Cross
+    "cross" : {
+    	"tiles" : {
+    		"all" : "plateNone"
+    	}
+    }
+}
