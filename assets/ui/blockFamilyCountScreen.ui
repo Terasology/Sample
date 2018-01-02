@@ -1,0 +1,8 @@
+{
+    "type": "BlockFamilyCountScreen",
+    "contents": {
+        "type": "UILabel",
+        "id": "blockFamilyCountLabel",
+        "text": ""
+    }
+}
