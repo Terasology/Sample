@@ -13,3 +13,5 @@ Rainbow block: Dev Choganwala (https://github.com/DevChoganwala)
 Diamond wallpaper: [Vishal Devireddy](https://github.com/TwoTau)
 
 Giftbox: [András Ottó Földes](https://github.com/andriii25)
+
+Blue Deco: Megan Yu (https://github.com/meganyyu)
