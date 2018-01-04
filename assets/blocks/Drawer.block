@@ -1,0 +1,28 @@
+{
+  "shadowCasting": "false",
+  "rotation": "Sample:Drawer",
+
+  "entity": {
+    "prefab": "Sample:Drawer"
+  },
+
+  "no_connections": {
+    "tiles": {
+      "sides": "Core:Plank",
+      "topBottom": "Core:Plank",
+      "front": "Core:Stone",
+      "back": "DrawerBackSingle"
+    },
+    "shape": "engine:cube"
+  },
+
+  "one_connection": {
+    "tiles": {
+      "sides": "Core:Plank",
+      "topBottom": "Core:Plank",
+      "front": "Core:Stone",
+      "back": "DrawerBackLeft"
+    },
+    "shape": "engine:cube"
+  }
+}
