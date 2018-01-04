@@ -1,0 +1,19 @@
+{
+"rotation" : "horizontal",
+"sides" : {
+    "shape" : "engine:cube"
+},
+"bottom" : {
+    "shape" : "engine:cube"
+},
+"debrisOnDestroy" : true,
+"tiles" : {
+    "sides" : "Core:SidesCubePC",
+    "front" : "Core:FrontCubePC",
+    "back" : "Core:BackCubePC",
+    "bottom" : "Core:BTCubePC",
+    "top"    : "Core:BTCubePC"
+},
+"luminance" : 8,
+"hardness"  : 4
+}
