@@ -37,12 +37,16 @@ public class DrawerFamilyFactory extends UpdatesWithNeighboursFamilyFactory {
                put(NO_CONNECTIONS, (byte) 0);
                put(ONE_CONNECTION, SideBitFlag.getSides(Side.RIGHT));
 
-               /*put(TWO_CONNECTIONS_LINE, SideBitFlag.getSides(Side.LEFT, Side.RIGHT));
-               put(TWO_CONNECTIONS_CORNER, SideBitFlag.getSides(Side.LEFT, Side.FRONT));*/
+                put(TWO_CONNECTIONS_LINE, SideBitFlag.getSides(Side.LEFT, Side.RIGHT));
+                put(TWO_CONNECTIONS_CORNER, SideBitFlag.getSides(Side.LEFT, Side.FRONT));
+
+                put(THREE_CONNECTIONS_T, SideBitFlag.getSides(Side.LEFT, Side.RIGHT, Side.FRONT));
+
+                put(FOUR_CONNECTIONS_CROSS, SideBitFlag.getSides(Side.RIGHT, Side.LEFT, Side.BACK, Side.FRONT));
             }};
 
     public DrawerFamilyFactory() {
-        super(new DrawerConnectionCondition(), (byte) 0b00000010, DRAWER_MAPPING, true);
+        super(new DrawerConnectionCondition(), (byte) 0b110110, DRAWER_MAPPING, true);
     }
 
     private static class DrawerConnectionCondition implements ConnectionCondition {
