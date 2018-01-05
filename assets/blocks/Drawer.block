@@ -1,0 +1,44 @@
+{
+  "shadowCasting": "false",
+  "rotation": "Sample:Drawer",
+
+  "entity": {
+    "prefab": "Sample:Drawer"
+  },
+
+  "tiles": {
+    "sides": "Core:Plank",
+    "topBottom": "Core:Plank",
+    "front": "DrawerSolo",
+    "back": "DrawerSolo"
+  },
+  "shape": "engine:cube",
+
+
+  "no_connections": {
+  },
+  "one_connection": {
+    "tiles": {
+      "front": "DrawerRight",
+      "back": "DrawerLeft"
+    }
+  },
+  "line_connection": {
+    "tiles": {
+      "front": "DrawerCentre",
+      "back": "DrawerCentre"
+    }
+  },
+  "2d_corner": {
+    "tiles": {
+      "right": "DrawerLeft",
+      "back": "DrawerRight"
+    }
+  },
+  "2d_t": {
+    "tiles": {
+      "back": "DrawerCentre"
+    }
+  },
+  "cross": { }
+}
