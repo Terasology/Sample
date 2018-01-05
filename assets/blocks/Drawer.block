@@ -35,6 +35,10 @@
       "back": "DrawerRight"
     }
   },
-  "2d_t": { },
+  "2d_t": {
+    "tiles": {
+      "back": "DrawerCentre"
+    }
+  },
   "cross": { }
 }
