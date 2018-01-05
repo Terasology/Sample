@@ -1,6 +1,6 @@
 {
   "shadowCasting": "false",
-  "rotation": "Sample:Drawer",
+  "family": "Sample:Drawer",
 
   "entity": {
     "prefab": "Sample:Drawer"
@@ -15,8 +15,7 @@
   "shape": "engine:cube",
 
 
-  "no_connections": {
-  },
+  "no_connections": { },
   "one_connection": {
     "tiles": {
       "front": "DrawerRight",
