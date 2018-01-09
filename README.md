@@ -1,38 +1,29 @@
-﻿# ABOUT
+﻿# About
 
 Sample.
 
-This module is for fun and trying out new crazy and wacky things with the game. 
-It houses a number of example blocks and UI screens.
+This module is for fun and trying out new crazy and wacky things with the game. It houses a number of example blocks and UI screens.
 
  
-A person can test their UI screens and other various creations in this module.
-This module is open to local developments and tests.
-It is more inclined towards developers who want to test stuff; but players can enjoy it too!
+A person can test their UI screens and various other creations in this module.It is more focused towards developers who want to test stuff, but players can enjoy it too!Check out this module at https://github.com/Terasology/Sample
 
-# LICENSE
+# License
 
 The module is licensed under Apache 2.0 license.
 
-# CREDITS
+# Credits for images
 
-Credits for images:
 
-WhiteStone: http://www.planetminecraft.com/texture_pack/new-start---by-loufisch/
-Credits for CementStone: Dane Claessen (https://github.com/Dane99)
 
-Credits for 
+WhiteStone: http://www.planetminecraft.com/texture_pack/new-start---by-loufisch
+CementStone: Dane Claessen (https://github.com/Dane99)
+
+
 Rainbow block: Dev Choganwala (https://github.com/DevChoganwala)
+Diamond wallpaper: [Vishal Devireddy](https://github.com/TwoTau)
 
 
-Credits for Diamond wallpaper: [Vishal Devireddy](https://github.com/TwoTau)
+Giftbox: [András Ottó Földes](https://github.com/andriii25)
 
 
-Credits for Giftbox: [András Ottó Földes](https://github.com/andriii25)
-
-Credits for 
 Blue Deco: Megan Yu (https://github.com/meganyyu)
-
-# LINK
-
-Check out this module at https://github.com/Terasology/Sample
