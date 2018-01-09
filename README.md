@@ -17,10 +17,10 @@ The module is licensed under Apache 2.0 license.
 
 WhiteStone: http://www.planetminecraft.com/texture_pack/new-start---by-loufisch
 
-CementStone: [Dane Claessen] (https://github.com/Dane99)
+CementStone: [Dane Claessen](https://github.com/Dane99)
 
 
-Rainbow block: [Dev Choganwala] (https://github.com/DevChoganwala)
+Rainbow block: [Dev Choganwala](https://github.com/DevChoganwala)
 
 Diamond wallpaper: [Vishal Devireddy](https://github.com/TwoTau)
 
@@ -28,4 +28,4 @@ Diamond wallpaper: [Vishal Devireddy](https://github.com/TwoTau)
 Giftbox: [András Ottó Földes](https://github.com/andriii25)
 
 
-Blue Deco: [Megan Yu] (https://github.com/meganyyu)
+Blue Deco: [Megan Yu](https://github.com/meganyyu)
