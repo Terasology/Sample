@@ -1,5 +1,5 @@
 {
-    "type": "EnvironmentInfoScreen",
+    "type": "Task",
     "contents": {
         "type": "relativeLayout",
         "contents": [
@@ -16,8 +16,8 @@
                     "contents": [
                         {
                             "type": "UILabel",
-                            "id": "environmentInfoLabel",
-                            "text": "Environment Info",
+                            "id": "taskLabel",
+                            "text": "Task",
                             "layoutInfo": {
                                 "use-content-width": true,
                                 "position-horizontal-center": {},
@@ -30,11 +30,11 @@
                             "id": "infoArea",
                             "layoutInfo": {
                                 "position-top": {
-                                    "widget": "environmentInfoLabel",
+                                    "widget": "taskLabel",
                                     "target": "BOTTOM"
                                 },
                                 "position-bottom": {
-                                    "widget": "updateInfoButton",
+                                    "widget": "infoButton",
                                     "target": "TOP"
                                 }
                             },
@@ -43,8 +43,8 @@
                         },
                         {
                             "type": "UIButton",
-                            "id": "updateInfoButton",
-                            "text": "Update Information",
+                            "id": "infoButton",
+                            "text": "Update Quote",
                             "layoutInfo": {
                                 "use-content-height": true,
                                 "position-bottom": {}

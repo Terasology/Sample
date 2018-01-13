@@ -13,16 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.terasology.nui;
+package org.terasology.tutorial.nui;
 
+import org.terasology.engine.Time;
+import org.terasology.registry.In;
 import org.terasology.rendering.nui.CoreScreenLayer;
 import org.terasology.rendering.nui.widgets.UIButton;
 import org.terasology.rendering.nui.widgets.UIText;
-import org.terasology.engine.Time;
-import org.terasology.registry.In;
-import java.util.Random;
 
 public class EnvironmentInfoScreen extends CoreScreenLayer {
+
     private UIText infoArea;
     private UIButton updateInfoButton;
 
@@ -36,20 +36,12 @@ public class EnvironmentInfoScreen extends CoreScreenLayer {
 
         if (updateInfoButton != null) {
             updateInfoButton.subscribe(button -> {
-                Random rand = new Random();
-                int  n = rand.nextInt(5) + 1;
-                    if (1 == n) {
-                        infoArea.setText(String.format("The Dinosaur was first discovered in 1824."));
-                    } else if (2 == n) {
-                        infoArea.setText(String.format("Dimetrodon is not a dinosaur."));
-                    } else if (3 == n) {
-                        infoArea.setText(String.format("The T-Rex and Stegosaurus did not live at the same time period."));
-                    } else if (4 == n) {
-                        infoArea.setText(String.format("In Jurassic Park, the 'Velociraptors' are far larger than their real life counterparts."));
-                    } else if (5 == n) {
-                        infoArea.setText(String.format("The first dinosaur discovered was an Iguanadon, but they build the skeleton incorrectly."));
-                    }
-
+                final double bytesInMegabyte = 1048576.0;
+                double memoryUsage = ((double) Runtime.getRuntime().totalMemory() - (double) Runtime.getRuntime().freeMemory()) / bytesInMegabyte;
+                infoArea.setText(String.format("Welcome to the environment info screen!%n" +
+                                "The current world has been active for %.0f (in-game) seconds.%n" +
+                                "Currently running at %.2f FPS and using %.2f MB of memory out of %.2f available.",
+                        time.getGameTime(), time.getFps(), memoryUsage, Runtime.getRuntime().maxMemory() / bytesInMegabyte));
             });
         }
     }
