@@ -15,8 +15,6 @@
  */
 package org.terasology.nui;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.terasology.rendering.nui.CoreScreenLayer;
 import org.terasology.rendering.nui.widgets.UIButton;
 import org.terasology.rendering.nui.widgets.UIText;
@@ -25,13 +23,24 @@ import java.util.ArrayList;
 
 public class ListenerScreen extends CoreScreenLayer {
     private UIText text;
-    private UIButton button;
-    private static ArrayList<ListenerScreenTextProvider> providers = new ArrayList<>();
+
+    private static ListenerScreen instance;
+    private ArrayList<ListenerScreenTextProvider> providers = new ArrayList<>();
+
+    public ListenerScreen() {
+        this(true);
+    }
+
+    private ListenerScreen(boolean singleton) {
+        if(singleton) {
+            instance = this;
+        }
+    }
 
     @Override
     public void initialise() {
         text = find("listenerText", UIText.class);
-        button = find("listenerButton", UIButton.class);
+        UIButton button = find("listenerButton", UIButton.class);
 
         if (button != null) {
             button.subscribe(w -> {
@@ -48,6 +57,6 @@ public class ListenerScreen extends CoreScreenLayer {
     }
 
     public static void registerProvider(ListenerScreenTextProvider provider) {
-        providers.add(provider);
+        instance.providers.add(provider);
     }
 }
