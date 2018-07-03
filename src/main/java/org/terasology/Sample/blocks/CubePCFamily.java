@@ -79,8 +79,7 @@ public class CubePCFamily extends AbstractBlockFamily implements UpdatesWithNeig
     }
 
     private Block addBlock(BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder, String section, BlockUri blockUri, byte sides) {
-        Block newBlock = blockBuilder.constructSimpleBlock(definition, section);
-        newBlock.setUri(new BlockUri(blockUri, new Name(String.valueOf(sides))));
+        Block newBlock = blockBuilder.constructSimpleBlock(definition, section,new BlockUri(blockUri, new Name(String.valueOf(sides))),this);
         newBlock.setBlockFamily(this);
 
         return newBlock;
