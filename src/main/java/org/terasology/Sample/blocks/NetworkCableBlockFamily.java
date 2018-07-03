@@ -89,7 +89,7 @@ public class NetworkCableBlockFamily extends MultiConnectFamily {
         neighborLocation.add(connectSide.getVector3i());
 
         EntityRef neighborEntity = blockEntityRegistry.getBlockEntityAt(neighborLocation);
-        return neighborEntity != null && worldProvider.getBlock(neighborLocation).getBlockFamily() instanceof  SignalCableBlockFamily;
+        return neighborEntity != null && worldProvider.getBlock(neighborLocation).getBlockFamily() instanceof  NetworkCableBlockFamily;
     }
 
 
