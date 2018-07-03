@@ -1,19 +1,46 @@
 {
-"rotation" : "horizontal",
-"sides" : {
-    "shape" : "engine:cube"
-},
-"bottom" : {
-    "shape" : "engine:cube"
-},
-"debrisOnDestroy" : true,
-"tiles" : {
-    "sides" : "Core:SidesCubePC",
-    "front" : "Core:FrontCubePC",
-    "back" : "Core:BackCubePC",
-    "bottom" : "Core:BTCubePC",
-    "top"    : "Core:BTCubePC"
-},
-"luminance" : 8,
-"hardness"  : 4
+    "displayName": "Cube PC",
+    "debrisOnDestroy" : true,
+    "categories" : ["CubePC"],
+    "luminance" : 8,
+    "hardness"  : 4,
+    "tiles" : {
+          "sides"  : "SidesCubePC",
+          "front"  : "FrontCubePC",
+          "back"   : "BackCubePC",
+          "bottom" : "BTCubePC",
+          "top"    : "BTCubePC"
+    },
+    "family": "CubePC",
+    "lone": {
+	    "tiles" : {
+	         "sides"  : "SidesCubePC",
+              "front"  : "FrontCubePC",
+              "back"   : "BackCubePC",
+              "bottom" : "BTCubePC",
+              "top"    : "BTCubePC"
+	},
+        "shape": "engine:cube"
+    },
+    "top": {
+    	"tiles": {
+	        "sides": "CubePCBottom",
+	        "topBottom": "BTCubePC"
+    	},
+    	"shape": "engine:cube"
+    },
+    "bottom": {
+    	"tiles": {
+	        "sides": "CubePCTop",
+	        "topBottom": "BTCubePC"
+    	},
+    	"shape": "engine:cube"
+    },
+    "middle": {
+	    "tiles" : {
+	        "topBottom" : "BTCubePC",
+	        "sides" : "CubePCCaseSide"
+	    },
+    	"shape": "engine:cube"
+    }
 }
