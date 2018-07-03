@@ -1,6 +1,6 @@
 {
     "id" : "Sample",
-    "version" : "0.1.3-SNAPSHOT",
+    "version" : "0.1.4-SNAPSHOT",
     "author" : "MovingBlocks Community, Mandar Juvekar, Paarth Madan, Scott Moses Sunarto, SufurElite, Wojciech Sadowski",
     "displayName" : "Sample Module",
     "description" : "This module contains assets and code for testing / showcasing Terasology engine + module features",
