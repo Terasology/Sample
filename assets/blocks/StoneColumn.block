@@ -1,27 +1,4 @@
 {
-<<<<<<< HEAD
-    "displayName": "Stone Column",
-    "categories" : ["StoneColumn"],
-
-    "tile" : "Sample:CementStone",
-
-    "family": "Sample:stoneColumn",
-
-    "middle": {
-        "tile" : "Sample:CementStone",
-        "shape": "engine:cube"
-    },
-
-    "top": {
-        "tile" : "Sample:ColourStone",
-        "shape": "engine:cube"
-    },
-
-    "bottom": {
-        "tile" : "Sample:WhiteStone",
-        "shape": "engine:cube"
-    }
-=======
   "displayName": "Stone Column",
   "categories" : ["StoneColumn"],
   "hardness": 3,
@@ -48,5 +25,4 @@
           "shape": "engine:cube"
           }
 
->>>>>>> origin/blockFamilyStuff
 }
