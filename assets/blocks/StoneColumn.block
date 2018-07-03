@@ -2,10 +2,12 @@
     "displayName": "Stone Column",
     "categories" : ["StoneColumn"],
 
-    "rotation": "Sample:stoneColumn",
+    "tile" : "Sample:CementStone",
+
+    "family": "Sample:stoneColumn",
 
     "middle": {
-        "tile" : "Core:stone",
+        "tile" : "Sample:CementStone",
         "shape": "engine:cube"
     },
 

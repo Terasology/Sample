@@ -15,46 +15,94 @@
  */
 package org.terasology.Sample.blocks;
 
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
 import gnu.trove.map.TByteObjectMap;
+import gnu.trove.map.hash.TByteObjectHashMap;
 import org.terasology.math.Side;
 import org.terasology.math.SideBitFlag;
 import org.terasology.math.geom.Vector3i;
+import org.terasology.naming.Name;
+import org.terasology.registry.In;
 import org.terasology.world.BlockEntityRegistry;
 import org.terasology.world.WorldProvider;
 import org.terasology.world.block.Block;
+import org.terasology.world.block.BlockBuilderHelper;
 import org.terasology.world.block.BlockUri;
+import org.terasology.world.block.family.AbstractBlockFamily;
 import org.terasology.world.block.family.BlockFamily;
+import org.terasology.world.block.family.BlockSections;
+import org.terasology.world.block.family.RegisterBlockFamily;
 import org.terasology.world.block.family.UpdatesWithNeighboursFamily;
+import org.terasology.world.block.loader.BlockFamilyDefinition;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
-public class StoneColumnFamily extends UpdatesWithNeighboursFamily {
+@RegisterBlockFamily("Sample:stoneColumn")
+@BlockSections({StoneColumnFamily.BOTTOM, StoneColumnFamily.MIDDLE, StoneColumnFamily.TOP})
+public class StoneColumnFamily extends AbstractBlockFamily implements UpdatesWithNeighboursFamily {
+    public static final String MIDDLE = "middle";
+    public static final String BOTTOM = "bottom";
+    public static final String TOP = "top";
+
+    private static final ImmutableSet<Byte> CONNECTIONS = ImmutableSet.of(
+            (byte) 0,
+            SideBitFlag.getSides(Side.TOP, Side.BOTTOM),
+            SideBitFlag.getSide(Side.BOTTOM),
+            SideBitFlag.getSide(Side.TOP)
+    );
+
+    private static final TByteObjectMap<String> SECTION_CONNECTIONS =
+            new TByteObjectHashMap<String>() {
+                {
+                    put((byte) 0, MIDDLE);
+                    put(SideBitFlag.getSides(Side.TOP, Side.BOTTOM), MIDDLE);
+                    put(SideBitFlag.getSide(Side.BOTTOM), TOP);
+                    put(SideBitFlag.getSide(Side.TOP), BOTTOM);
+                }
+            };
+
+
+    @In
+    WorldProvider worldProvider;
+
+    @In
+    BlockEntityRegistry blockEntityRegistry;
+
     private TByteObjectMap<Block> blocks;
 
-    public StoneColumnFamily(BlockUri blockUri, List<String> categories,
-                             Block archetypeBlock, TByteObjectMap<Block> blocks) {
-        super(null, blockUri, categories, archetypeBlock, blocks, (byte) 63);
+    private final Block archetypeBlock;
 
-        this.blocks = blocks;
+    public StoneColumnFamily(BlockFamilyDefinition blockFamilyDefinition,
+                      BlockBuilderHelper blockBuilderHelper) {
+        super(blockFamilyDefinition, blockBuilderHelper);
+
+        blocks = new TByteObjectHashMap<>();
+        setBlockUri(new BlockUri(blockFamilyDefinition.getUrn()));
+        setCategory(Sets.newHashSet(blockFamilyDefinition.getCategories()));
+
+        for (byte connection : CONNECTIONS) {
+            blocks.put(
+                    connection,
+                    getBlock(blockFamilyDefinition, blockBuilderHelper,
+                            SECTION_CONNECTIONS.get(connection), getURI(), connection)
+            );
+        }
+
+        archetypeBlock = blocks.get(SideBitFlag.getSides(Side.BOTTOM, Side.TOP));
     }
 
-    @Override
-    public Block getBlockForPlacement(WorldProvider worldProvider, BlockEntityRegistry blockEntityRegistry,
-                                      Vector3i location, Side attachmentSide, Side direction) {
-        return getBlockForLocation(worldProvider, location);
+    private Block getBlock(BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder, String section, BlockUri blockUri, byte sides) {
+        Block newBlock = blockBuilder.constructSimpleBlock(definition, section);
+
+        newBlock.setUri(new BlockUri(blockUri, new Name(String.valueOf(sides))));
+        newBlock.setBlockFamily(this);
+
+        return newBlock;
     }
 
-    @Override
-    public Block getBlockForNeighborUpdate(WorldProvider worldProvider,
-                                           BlockEntityRegistry blockEntityRegistry,
-                                           Vector3i location, Block oldBlock) {
-        return getBlockForLocation(worldProvider, location);
-    }
-
-    private Block getBlockForLocation(WorldProvider worldProvider, Vector3i location) {
+    private Block getBlockForLocation(Vector3i location) {
         Set<Side> stoneColumnNeighborSides = new HashSet<>();
 
         for (Side side : new Side[] {Side.TOP, Side.BOTTOM}) {
@@ -74,5 +122,38 @@ public class StoneColumnFamily extends UpdatesWithNeighboursFamily {
         }
 
         return blocks.get(SideBitFlag.getSides(stoneColumnNeighborSides));
+    }
+
+    @Override
+    public Block getBlockForNeighborUpdate(Vector3i location, Block oldBlock) {
+        return getBlockForLocation(location);
+    }
+
+    @Override
+    public Block getBlockForPlacement(Vector3i location, Side attachmentSide, Side direction) {
+        return getBlockForLocation(location);
+    }
+
+    @Override
+    public Block getArchetypeBlock() {
+        return archetypeBlock;
+    }
+
+    @Override
+    public Block getBlockFor(BlockUri blockUri) {
+        if (getURI().equals(blockUri.getFamilyUri())) {
+            try {
+                Byte connections = Byte.valueOf(blockUri.getIdentifier().toString());
+                return blocks.get(connections);
+            } catch (IllegalArgumentException e) {
+                return null;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Iterable<Block> getBlocks() {
+        return blocks.valueCollection();
     }
 }
