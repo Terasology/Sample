@@ -1,5 +1,57 @@
+<<<<<<< HEAD
 {
     "displayName": "Black_and_White",
     "categories" : ["blackandwhite"],
     "hardness": 30
 }
+=======
+{
+    "displayName": "Black and White",
+    "categories" : ["BlackAndWhite", "Black", "White"],
+    "hardness": 2,
+    "tiles" : {
+        "topBottom" : "BlackAndWhiteTop",
+        "sides" : "BlackAndWhiteSide"
+    },
+
+    "family": "BlackAndWhite",
+
+    "lone_block": {
+	    "tiles" : {
+	        "topBottom" : "BlackAndWhiteTop",
+	        "sides" : "BlackAndWhiteSide"
+	    },
+    	"shape": "engine:cube"
+    },
+
+    "on_top": {
+
+    	"tiles": {
+	        "sides": "BlackAndWhiteBottom",
+	        "topBottom": "BlackAndWhiteTop"
+    	},
+    	"shape": "engine:cube"
+    },
+
+
+    "on_bottom": {
+
+    	"tiles": {
+	        "sides": "BlackAndWhiteBottom",
+	        "topBottom": "BlackAndWhiteTop"
+    	},
+    	"shape": "engine:cube"
+    },
+
+
+    "in_a_line": {
+
+	    "tiles" : {
+	        "topBottom" : "BlackAndWhiteTop",
+	        "sides" : "BlackAndWhiteSide"
+	    },
+
+    	"shape": "engine:cube"
+    }
+ }
+>>>>>>> origin/blockFamilyStuff

@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "displayName": "Stone Column",
     "categories" : ["StoneColumn"],
 
@@ -20,4 +21,32 @@
         "tile" : "Sample:WhiteStone",
         "shape": "engine:cube"
     }
+=======
+  "displayName": "Stone Column",
+  "categories" : ["StoneColumn"],
+  "hardness": 3,
+  "family": "sample:StoneColumn",
+
+    "standby" : {
+        "tile" : "Sample:standby",
+        "shape" : "engine:cube"
+
+    },
+
+  "middle": {
+          "tile" : "Core:Stone",
+          "shape": "engine:cube"
+      },
+
+  "top": {
+          "tile" : "Sample:ColourStone",
+          "shape": "engine:cube"
+          },
+
+   "bottom": {
+          "tile" : "Sample:WhiteStone",
+          "shape": "engine:cube"
+          }
+
+>>>>>>> origin/blockFamilyStuff
 }
