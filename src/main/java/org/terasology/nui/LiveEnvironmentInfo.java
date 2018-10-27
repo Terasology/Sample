@@ -64,7 +64,7 @@ public class LiveEnvironmentInfo extends CoreScreenLayer {
             updateButton.subscribe(button -> {
                 freeMemory = Runtime.getRuntime().freeMemory()/bytesInMB;
                 memoryUsage = Runtime.getRuntime().totalMemory()/bytesInMB - freeMemory;
-                info.setText("Time Passed: " + convertTime(time.getGameTime()) + "s\n" +
+                info.setText("Time Passed: " + convertTime(time.getGameTime()) + "\n" +
                                 "FPS: " + Math.round(time.getFps() * 100)/100.0 + "\n\n\n\n\n\n" +
                                 "Memory Usage: " + Math.round(memoryUsage * 100)/100.0 + " MB\n" +
                                 "Available Memory: " + Math.round(freeMemory * 100)/100.0 + " MB\n" +
@@ -75,7 +75,7 @@ public class LiveEnvironmentInfo extends CoreScreenLayer {
 
     @Override
     public void update(float delta) {
-        info.setText("Time Spent in Game: " + convertTime(time.getGameTime()) + "s\n" +
+        info.setText("Time Spent in Game: " + convertTime(time.getGameTime()) + "\n" +
                 "Memory Usage: " + Math.round(memoryUsage * 100)/100.0 + " MB\n" +
                 "Available Memory: " + Math.round(freeMemory * 100)/100.0 + " MB\n" +
                 "FPS: " + Math.round(time.getFps() * 100)/100.0 + "\n\n\n\n\n\n" +
