@@ -82,8 +82,17 @@ public class LiveEnvironmentInfo extends CoreScreenLayer {
                 "Made by Torpedo");
         super.update(delta);
     }
-    public String convertTime(int seconds)
+    public String convertTime(double d)
     {
+        int seconds = (int) d;
+        String time = seconds/3600 + " hrs " + ((seconds%3600)/60) + " mins " + (seconds%60) + " s";
+        return time;
+       
+    }
+    
+    public String convertTime(float d)
+    {
+        int seconds = (int) d;
         String time = seconds/3600 + " hrs " + ((seconds%3600)/60) + " mins " + (seconds%60) + " s";
         return time;
        
