@@ -1,5 +1,5 @@
 {  
-   "type":"WorldTimeScreen",
+   "type":"UsefulCommandsScreen",
    "contents":{  
       "type":"relativeLayout",
       "contents":[  
@@ -20,8 +20,8 @@
                "contents":[  
                   {  
                      "type":"UILabel",
-                     "id":"worldTimeLabel",
-                     "text":"World Time",
+                     "id":"usefulCommandsLabel",
+                     "text":"Useful Commands",
                      "layoutInfo":{  
                         "use-content-width":true,
                         "position-horizontal-center":{  
@@ -36,11 +36,11 @@
                      "id":"infoArea",
                      "layoutInfo":{  
                         "position-top":{  
-                           "widget":"worldTimeLabel",
+                           "widget":"usefulCommandsLabel",
                            "target":"BOTTOM"
                         },
                         "position-bottom":{  
-                           "widget":"updateInfoButton",
+                           "widget":"nextCommandButton",
                            "target":"TOP"
                         }
                      },
@@ -49,8 +49,8 @@
                   },
                   {  
                      "type":"UIButton",
-                     "id":"updateInfoButton",
-                     "text":"Update Information",
+                     "id":"nextCommandButton",
+                     "text":"Next Command",
                      "layoutInfo":{  
                         "use-content-height":true,
                         "position-bottom":{  
