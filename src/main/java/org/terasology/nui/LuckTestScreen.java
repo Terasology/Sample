@@ -182,8 +182,8 @@ public class LuckTestScreen extends CoreScreenLayer {
      */
     private void displayWagerText() {
         infoArea.setText(String.format("What do you want to bet? %n" +
-                        "You will bet %d GooeyTokens." +
-                        "You currently have %d GooeyTokens. %n",
+                        "You will bet %d GooeyTokens. %n" +
+                        "You currently have %d GooeyTokens.",
                 wager, tokens));
         setButtonText("Change Wager", "Use Wager");
     }
