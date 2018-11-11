@@ -91,7 +91,7 @@ public class LuckTestScreen extends CoreScreenLayer {
             topButton.subscribe(button -> {
                 switch (gameState) {
                     case WAGER_STATE: // wager selection change.
-                        if(wager >= tokens) { // cycle back from maximum wager to minimum.
+                        if (wager >= tokens) { // cycle back from maximum wager to minimum.
                             wager = STARTING_WAGER;
                         } else {
                             wager = TeraMath.clamp(wager * 2, wager, tokens); // wager cannot be more than player's tokens.
@@ -101,7 +101,7 @@ public class LuckTestScreen extends CoreScreenLayer {
                         break;
                     case GAME_STATE:
                         calculateChance();
-                        if(random.nextFloat() < chance) {
+                        if (random.nextFloat() < chance) {
                             wager *= 2; // double wager on win
                             gameState = WIN_STATE;
 
@@ -118,7 +118,7 @@ public class LuckTestScreen extends CoreScreenLayer {
 
                         break;
                     case LOSE_STATE:
-                        if(tokens <= 0) { // if all tokens are gone
+                        if (tokens <= 0) { // if all tokens are gone
                             tokens = LOAN_TOKENS; // give the 'loan'.
                             gameState = BANKRUPT_STATE;
 
