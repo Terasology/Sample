@@ -22,14 +22,37 @@ import org.terasology.rendering.nui.widgets.UIText;
 
 import java.util.Random;
 
+/**
+ * An NUI screen featuring a simple casino-like game.
+ */
 public class LuckTestScreen extends CoreScreenLayer {
 
+    /**
+     * Amount of tokens that the player starts the game with.
+     */
     private final static int START_TOKENS = 500;
-    private final static int LOAN_TOKENS = 250;
-    private final static int STARTING_WAGER = 10;
-    private final static float BASE_CHANCE = 0.8f;
-    private final static int HALF_CHANCE_TOKENS = 10000; // tokens required to decrease win chance by half.
 
+    /**
+     * Amount of tokens that the player will receive in the case of bankruptcy.
+     */
+    private final static int LOAN_TOKENS = 250;
+
+    /**
+     * The starting wager on the wager selection screen.
+     */
+    private final static int STARTING_WAGER = 10;
+
+    /**
+     * The starting chance that the player will win, where 1f is 100% and 0f is 0%
+     */
+    private final static float BASE_CHANCE = 0.8f;
+
+    /**
+     * The tokens in a wager required to decrease the base chance by half.
+     */
+    private final static int HALF_CHANCE_TOKENS = 10000;
+
+    // State machine values
     private final static int WAGER_STATE = 0;
     private final static int GAME_STATE = 1;
     private final static int WIN_STATE = 2;
@@ -67,11 +90,11 @@ public class LuckTestScreen extends CoreScreenLayer {
         if (topButton != null) {
             topButton.subscribe(button -> {
                 switch (gameState) {
-                    case WAGER_STATE:
-                        if(wager >= tokens) {
+                    case WAGER_STATE: // wager selection change.
+                        if(wager >= tokens) { // cycle back from maximum wager to minimum.
                             wager = STARTING_WAGER;
                         } else {
-                            wager = TeraMath.clamp(wager * 2, wager, tokens);
+                            wager = TeraMath.clamp(wager * 2, wager, tokens); // wager cannot be more than player's tokens.
                         }
 
                         displayWagerText();
@@ -79,7 +102,7 @@ public class LuckTestScreen extends CoreScreenLayer {
                     case GAME_STATE:
                         calculateChance();
                         if(random.nextFloat() < chance) {
-                            wager *= 2;
+                            wager *= 2; // double wager on win
                             gameState = WIN_STATE;
 
                             displayWinText();
@@ -95,8 +118,8 @@ public class LuckTestScreen extends CoreScreenLayer {
 
                         break;
                     case LOSE_STATE:
-                        if(tokens <= 0) {
-                            tokens = LOAN_TOKENS;
+                        if(tokens <= 0) { // if all tokens are gone
+                            tokens = LOAN_TOKENS; // give the 'loan'.
                             gameState = BANKRUPT_STATE;
 
                             displayBankruptText();
@@ -110,7 +133,7 @@ public class LuckTestScreen extends CoreScreenLayer {
                         break;
                     case PAYOUT_STATE:
                     case BANKRUPT_STATE:
-                    case TUTORIAL_STATE:
+                    case TUTORIAL_STATE: // all three cases result in a return to the wager state.
                         wager = STARTING_WAGER;
                         gameState = WAGER_STATE;
 
@@ -125,13 +148,13 @@ public class LuckTestScreen extends CoreScreenLayer {
             bottomButton.subscribe(button -> {
                 switch (gameState) {
                     case WAGER_STATE:
-                        tokens -= wager;
+                        tokens -= wager; // take away wager from player tokens.
                         gameState = GAME_STATE;
 
                         displayGameText();
                         break;
                     case GAME_STATE:
-                        tokens += wager;
+                        tokens += wager; // add the wager back to the player tokens.
                         gameState = PAYOUT_STATE;
 
                         displayPayoutText();
@@ -140,16 +163,23 @@ public class LuckTestScreen extends CoreScreenLayer {
                     case LOSE_STATE:
                     case PAYOUT_STATE:
                     case BANKRUPT_STATE:
-                        break;
+                        break; // in all four states, the bottom button is blank.
                 }
             });
         }
     }
 
+    /**
+     * Calculates the win chance based on the player's current wager.
+     */
     private void calculateChance() {
+        // (x+2)/(x+1) - 1, chance will never be zero but will get close.
         chance = BASE_CHANCE * (((((float) wager / HALF_CHANCE_TOKENS) + 2) / (((float) wager / HALF_CHANCE_TOKENS) + 1)) - 1);
     }
 
+    /**
+     * Sets the button/label display text for the wager selection state.
+     */
     private void displayWagerText() {
         infoArea.setText(String.format("What do you want to bet? %n" +
                         "You will bet %d GooeyTokens." +
@@ -158,6 +188,9 @@ public class LuckTestScreen extends CoreScreenLayer {
         setButtonText("Change Wager", "Use Wager");
     }
 
+    /**
+     * Sets the button/label display text for the main game state.
+     */
     private void displayGameText() {
         infoArea.setText(String.format("Are you feeling lucky? %n" +
                         "Your wager is currently %d GooeyTokens.",
@@ -166,6 +199,9 @@ public class LuckTestScreen extends CoreScreenLayer {
         setButtonText("I'm Feeling Lucky", "Take Back Wager");
     }
 
+    /**
+     * Sets the button/label display text for the wager win state.
+     */
     private void displayWinText() {
         infoArea.setText(String.format("You have won the draw! %n" +
                         "Your wager has increased to %d GooeyTokens!",
@@ -173,6 +209,9 @@ public class LuckTestScreen extends CoreScreenLayer {
         setButtonText();
     }
 
+    /**
+     * Sets the button/label display text for the wager lose state.
+     */
     private void displayLoseText() {
         infoArea.setText(String.format("You have lost the draw... %n" +
                         "Your wager of %d GooeyTokens has been lost.",
@@ -180,6 +219,9 @@ public class LuckTestScreen extends CoreScreenLayer {
         setButtonText();
     }
 
+    /**
+     * Sets the button/label display text for the payout state.
+     */
     private void displayPayoutText() {
         infoArea.setText(String.format("You have won %d GooeyTokens! %n" +
                         "You now have a total of %d GooeyTokens.",
@@ -187,6 +229,9 @@ public class LuckTestScreen extends CoreScreenLayer {
         setButtonText();
     }
 
+    /**
+     * Sets the button/label display text for the bankruptcy state.
+     */
     private void displayBankruptText() {
         infoArea.setText(String.format("You are out of GooeyTokens! %n" +
                         "You have been given a loan of %d GooeyTokens, for being such a good sport.",
@@ -194,6 +239,9 @@ public class LuckTestScreen extends CoreScreenLayer {
         setButtonText();
     }
 
+    /**
+     * Sets the button/label display text for the tutorial state.
+     */
     private void displayTutorialText() {
         infoArea.setText(String.format("Welcome to the Gooey Arcade! %n" +
                         "You have been given %d GooeyTokens to start off. %n" +
@@ -204,10 +252,19 @@ public class LuckTestScreen extends CoreScreenLayer {
         setButtonText();
     }
 
+    /**
+     * Sets the text on both buttons to the single continue state.
+     */
     private void setButtonText() {
         setButtonText("Continue", "");
     }
 
+    /**
+     * Sets the text on both buttons to provided strings.
+     *
+     * @param topText The string to be displayed on the top button.
+     * @param bottomText The string to be displayed on the bottom button.
+     */
     private void setButtonText(String topText, String bottomText) {
         topButton.setText(topText);
         bottomButton.setText(bottomText);
