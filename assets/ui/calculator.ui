@@ -195,6 +195,22 @@
                                 "layoutInfo": {
                                     "cc": "cell 4 1"
                                 }
+                            },
+                            {
+                                "type": "UIButton",
+                                "id": "buttonLeftBracket",
+                                "text": "(",
+                                "layoutInfo": {
+                                    "cc": "cell 4 2"
+                                }
+                            },
+                            {
+                                "type": "UIButton",
+                                "id": "buttonRightBracket",
+                                "text": ")",
+                                "layoutInfo": {
+                                    "cc": "cell 4 3"
+                                }
                             }]
                         }
                     ]
