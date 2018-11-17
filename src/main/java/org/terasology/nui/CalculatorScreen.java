@@ -30,6 +30,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 public class CalculatorScreen extends CoreScreenLayer {
     private UIText resultText;
     private boolean flagError;
+    private boolean resultCalculated;
 
     @Override
     public void initialise() {
@@ -44,7 +45,7 @@ public class CalculatorScreen extends CoreScreenLayer {
             final int outputNumber = buttonNo;
             if (numberButton != null) {
                 numberButton.subscribe(button -> {
-                    resultText.setText(resultText.getText() + Integer.toString(outputNumber));
+                    appendToCalculation(Integer.toString(outputNumber), true);
                 });
             }
         }
@@ -53,9 +54,8 @@ public class CalculatorScreen extends CoreScreenLayer {
             if (operator != Operator.None) {
                 UIButton operatorButton = find("button" + operator.name(), UIButton.class);
                 if (operatorButton != null) {
-                    operatorButton.subscribe(button -> {
-                        resultText.setText(resultText.getText() + operator.toString());
-                    });
+                    final boolean clearOnCalculation = (operator == Operator.LeftBracket || operator == Operator.RightBracket);
+                    operatorButton.subscribe(button -> appendToCalculation(operator.toString(), clearOnCalculation));
                 }
             }
         }
@@ -63,7 +63,7 @@ public class CalculatorScreen extends CoreScreenLayer {
         UIButton dotButton = find("buttonDot", UIButton.class);
         if (dotButton != null) {
             dotButton.subscribe(button -> {
-                resultText.setText(resultText.getText() + ".");
+                appendToCalculation(".", true);
             });
         }
 
@@ -81,19 +81,23 @@ public class CalculatorScreen extends CoreScreenLayer {
                     resultText.setText("ERROR");
                     flagError = false;
                 }
+
+                resultCalculated = true;
             });
         }
 
         UIButton clearButton = find("buttonClear", UIButton.class);
         if (clearButton != null) {
-            clearButton.subscribe(button -> {
-                resultText.setText("");
-            });
+            clearButton.subscribe(button -> clearCalculation());
         }
 
         UIButton backButton = find("buttonBack", UIButton.class);
         if (backButton != null) {
             backButton.subscribe(button -> {
+                if (resultCalculated) {
+                    return;
+                }
+
                 String currentText = resultText.getText();
                 if (currentText.length() > 0) {
                     resultText.setText(currentText.substring(0, currentText.length() - 1));
@@ -218,6 +222,29 @@ public class CalculatorScreen extends CoreScreenLayer {
             default:
                 return Operator.None;
         }
+    }
+
+    private void clearCalculation() {
+        resultText.setText("");
+        resetFlags();
+    }
+
+    private void appendToCalculation(String value) {
+        appendToCalculation(value, false);
+    }
+
+    private void appendToCalculation(String value, boolean clearOnCalculated) {
+        if (resultCalculated && clearOnCalculated) {
+            clearCalculation();
+        }
+
+        resultText.setText(resultText.getText() + value);
+        resetFlags();
+    }
+
+    private void resetFlags() {
+        flagError = false;
+        resultCalculated = false;
     }
 
     private enum Operator {

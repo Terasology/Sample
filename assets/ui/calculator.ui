@@ -57,7 +57,7 @@
                                 "id": "button1",
                                 "text": "1",
                                 "layoutInfo": {
-                                    "cc": "cell 0 0"
+                                    "cc": "cell 0 2"
                                 }
                             },
                             {
@@ -65,7 +65,7 @@
                                 "id": "button2",
                                 "text": "2",
                                 "layoutInfo": {
-                                    "cc": "cell 1 0"
+                                    "cc": "cell 1 2"
                                 }
                             },
                             {
@@ -73,7 +73,7 @@
                                 "id": "button3",
                                 "text": "3",
                                 "layoutInfo": {
-                                    "cc": "cell 2 0"
+                                    "cc": "cell 2 2"
                                 }
                             },
                             {
@@ -105,7 +105,7 @@
                                 "id": "button7",
                                 "text": "7",
                                 "layoutInfo": {
-                                    "cc": "cell 0 2"
+                                    "cc": "cell 0 0"
                                 }
                             },
                             {
@@ -113,7 +113,7 @@
                                 "id": "button8",
                                 "text": "8",
                                 "layoutInfo": {
-                                    "cc": "cell 1 2"
+                                    "cc": "cell 1 0"
                                 }
                             },
                             {
@@ -121,7 +121,7 @@
                                 "id": "button9",
                                 "text": "9",
                                 "layoutInfo": {
-                                    "cc": "cell 2 2"
+                                    "cc": "cell 2 0"
                                 }
                             },
                             {
@@ -137,7 +137,7 @@
                                 "id": "buttonEquals",
                                 "text": "=",
                                 "layoutInfo": {
-                                    "cc": "cell 2 3"
+                                    "cc": "cell 4 3"
                                 }
                             },
                             {
@@ -145,7 +145,7 @@
                                 "id": "buttonAdd",
                                 "text": "+",
                                 "layoutInfo": {
-                                    "cc": "cell 3 0"
+                                    "cc": "cell 3 2"
                                 }
                             },
                             {
@@ -153,7 +153,7 @@
                                 "id": "buttonSubtract",
                                 "text": "-",
                                 "layoutInfo": {
-                                    "cc": "cell 3 1"
+                                    "cc": "cell 4 2"
                                 }
                             },
                             {
@@ -161,7 +161,7 @@
                                 "id": "buttonMultiply",
                                 "text": "*",
                                 "layoutInfo": {
-                                    "cc": "cell 3 2"
+                                    "cc": "cell 3 1"
                                 }
                             },
                             {
@@ -169,7 +169,7 @@
                                 "id": "buttonDivide",
                                 "text": "/",
                                 "layoutInfo": {
-                                    "cc": "cell 3 3"
+                                    "cc": "cell 4 1"
                                 }
                             },
                             {
@@ -193,7 +193,7 @@
                                 "id": "buttonBack",
                                 "text": "Delete",
                                 "layoutInfo": {
-                                    "cc": "cell 4 1"
+                                    "cc": "cell 3 0"
                                 }
                             },
                             {
@@ -201,7 +201,7 @@
                                 "id": "buttonLeftBracket",
                                 "text": "(",
                                 "layoutInfo": {
-                                    "cc": "cell 4 2"
+                                    "cc": "cell 2 3"
                                 }
                             },
                             {
@@ -209,7 +209,7 @@
                                 "id": "buttonRightBracket",
                                 "text": ")",
                                 "layoutInfo": {
-                                    "cc": "cell 4 3"
+                                    "cc": "cell 3 3"
                                 }
                             }]
                         }
