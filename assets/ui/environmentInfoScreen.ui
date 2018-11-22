@@ -1,0 +1,58 @@
+{
+    "type": "EnvironmentInfoScreen",
+    "contents": {
+        "type": "relativeLayout",
+        "contents": [
+            {
+                "type": "UIBox",
+                "layoutInfo": {
+                    "width": 300,
+                    "height": 300,
+                    "position-horizontal-center": {},
+                    "position-vertical-center": {}
+                },
+                "content": {
+                    "type": "relativeLayout",
+                    "contents": [
+                        {
+                            "type": "UILabel",
+                            "id": "environmentInfoLabel",
+                            "text": "Environment Info",
+                            "layoutInfo": {
+                                "use-content-width": true,
+                                "position-horizontal-center": {},
+                                "height": 30
+                            }
+                        },
+                        {
+                            "type": "UIText",
+                            "text": "<Placeholder text>",
+                            "id": "infoArea",
+                            "layoutInfo": {
+                                "position-top": {
+                                    "widget": "environmentInfoLabel",
+                                    "target": "BOTTOM"
+                                },
+                                "position-bottom": {
+                                    "widget": "updateInfoButton",
+                                    "target": "TOP"
+                                }
+                            },
+                            "multiline": true,
+                            "readOnly": true
+                        },
+                        {
+                            "type": "UIButton",
+                            "id": "updateInfoButton",
+                            "text": "Update Information",
+                            "layoutInfo": {
+                                "use-content-height": true,
+                                "position-bottom": {}
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

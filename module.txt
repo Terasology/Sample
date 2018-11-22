@@ -1,0 +1,9 @@
+{
+    "id" : "TutorialNUI",
+    "version" : "0.1.0-SNAPSHOT",
+    "author" : "",
+    "displayName" : "TutorialNUI",
+    "description" : "",
+    "dependencies" : [],
+    "serverSideOnly" : false
+}
