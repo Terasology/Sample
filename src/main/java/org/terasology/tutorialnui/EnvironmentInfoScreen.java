@@ -1,11 +1,11 @@
 package org.terasology.tutorialnui;
 
-//***************************************
+//****************************************
 // Nate Schnitzer
 // EnviornmentInfoScreen.java
 // 11/21/18
 // Google Code In Task
-//***************************************
+//****************************************
 
 import org.terasology.engine.Time;
 import org.terasology.registry.In;
