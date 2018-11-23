@@ -1,0 +1,11 @@
+{
+  "displayName": "Giftbox",
+  "categories": ["decoration"],
+  "hardness": 1,
+  "tiles":
+  {
+    "sides": "GiftboxSides",
+    "top": "GiftboxTop",
+    "bottom": "GiftboxBottom"
+  }
+}

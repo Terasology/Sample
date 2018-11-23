@@ -1,0 +1,10 @@
+{
+    "persisted" : true,
+    "location" : {},
+    "skeletalmesh" : {
+        "mesh" : "pony",
+        "material" : "pony",
+        "animation" : "pony-gallop",
+        "loop" : true
+    }
+}

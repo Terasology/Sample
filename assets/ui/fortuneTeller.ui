@@ -1,0 +1,32 @@
+{
+  "type": "FortuneTeller",
+  "contents": {
+    "type": "relativeLayout",
+    "contents": [
+      {
+        "type": "UIRadialRing",
+        "id": "radialMenu",
+        "layoutInfo": {
+          "width": 600,
+          "height": 600,
+          "position-vertical-center": {},
+          "position-horizontal-center": {}
+        },
+        "sections": []
+      },
+      {
+        "type": "UIText",
+        "text": "Choose your fortune...",
+        "id": "infoArea",
+        "layoutInfo": {
+          "position-top": {
+            "widget": "radialMenu",
+            "target": "BOTTOM"
+          }
+        },
+        "multiline": true,
+        "readOnly": true
+      }
+    ]
+  }
+}

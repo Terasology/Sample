@@ -1,0 +1,9 @@
+{
+  "displayName": "Mossy_Lamp",
+  "categories": ["lamp"],
+  "hardness": 50,
+  "luminance": 20,
+  "tiles": {
+    "all": "MossyLamp"
+  }
+}

@@ -1,0 +1,39 @@
+{
+    "displayName": "Roman Column",
+    "categories" : ["romancolumn", "column", "roman"],
+    "hardness": 3,
+    "tiles" : {
+        "topBottom" : "columntop",
+        "sides" : "columnside"
+    },
+    
+    "family": "romancolumn",
+    "lone_block": {
+	    "tiles" : {
+	        "topBottom" : "columntop",
+	        "sides" : "columnside"
+	    },
+    	"shape": "engine:cube"
+    },
+    "on_top": {
+    	"tiles": {
+	        "sides": "columncap",
+	        "topBottom": "columntop"
+    	},
+    	"shape": "engine:cube"
+    },
+    "on_bottom": {
+    	"tiles": {
+	        "sides": "columnbase",
+	        "topBottom": "columntop"
+    	},
+    	"shape": "engine:cube"
+    },
+    "in_a_line": {
+	    "tiles" : {
+	        "topBottom" : "columntop",
+	        "sides" : "columnside"
+	    },
+    	"shape": "engine:cube"
+    } 
+}

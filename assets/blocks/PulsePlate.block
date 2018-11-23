@@ -1,0 +1,10 @@
+{
+    "displayName": "Pulse Plate",
+    "categories" : ["pulse_plate"],
+    "hardness": 10,
+    "luminance": 4,
+    "inventory" : {
+        "directPickup" : false,
+        "stackable" : true
+    }
+}

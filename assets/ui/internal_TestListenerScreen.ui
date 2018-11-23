@@ -1,0 +1,58 @@
+{
+  "type": "TestListenerScreen",
+  "contents": {
+    "type": "relativeLayout",
+    "contents": [
+      {
+        "type": "UIBox",
+        "layoutInfo": {
+          "width": 300,
+          "height": 300,
+          "position-horizontal-center": {},
+          "position-vertical-center": {}
+        },
+        "content": {
+          "type": "relativeLayout",
+          "contents": [
+            {
+              "type": "UILabel",
+              "id": "listenerLabel",
+              "text": "Registered Info",
+              "layoutInfo": {
+                "use-content-width": true,
+                "position-horizontal-center": {},
+                "height": 30
+              }
+            },
+            {
+              "type": "UIText",
+              "id": "listenerText",
+              "text": "",
+              "layoutInfo": {
+                "position-top": {
+                  "widget": "listenerLabel",
+                  "target": "BOTTOM"
+                },
+                "position-bottom": {
+                  "widget": "listenerButton",
+                  "target": "TOP"
+                }
+              },
+              "multiline": true,
+              "readOnly": true
+            },
+            {
+              "type": "UIButton",
+              "id": "listenerButton",
+              "text": "Update",
+              "layoutInfo": {
+                "use-content-height": true,
+                "position-bottom": {}
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

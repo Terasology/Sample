@@ -1,0 +1,31 @@
+{
+    "displayName": "Speaker",
+    "family": "Sample:Speaker",
+    "middle": {
+        "tiles": {
+          "left": "Speaker1",
+          "front": "Speaker1",
+          "back": "Speaker1",
+          "right": "Speaker1",
+          "topBottom": "Speaker1"
+        }
+    },
+    "left": {
+        "tiles": {
+          "left": "Speaker2",
+          "front": "Speaker2",
+          "back": "Speaker2",
+          "right": "Speaker2",
+          "topBottom": "Speaker2"
+        }
+      },
+      "right": {
+          "tiles": {
+            "left": "Speaker3",
+            "front": "Speaker3",
+            "back": "Speaker3",
+            "right": "Speaker3",
+            "topBottom": "Speaker3"
+          }
+        }
+}

@@ -1,0 +1,60 @@
+{
+    "type": "TutorialScreen",
+    "contents": {
+        "type": "relativeLayout",
+        "id": "main",
+        "contents": [
+            {
+                "type": "UIBox",
+                "layoutInfo": {
+                    "width": 300,
+                    "height": 200,
+                    "position-horizontal-center": {},
+                    "position-vertical-center": {}
+                },
+                "content":
+                {
+                    "type": "relativeLayout",
+                    "contents": [
+                         {
+                            "type": "UILabel",
+                            "id": "title",
+                            "text": "Tutorial",
+                            "layoutInfo": {
+                                "use-content-width": true,
+                                "position-horizontal-center": {},
+                                "height": 30
+                            }
+                         },
+                         {
+                             "type": "UIText",
+                             "text": "...",
+                             "id": "info",
+                             "layoutInfo": {
+                                 "position-top": {
+                                     "widget": "title",
+                                     "target": "BOTTOM"
+                                 },
+                                 "position-bottom": {
+                                     "widget": "proceed",
+                                     "target": "TOP"
+                                 }
+                             },
+                             "multiline": true,
+                             "readOnly": true
+                         },
+                         {
+                             "type": "UIButton",
+                             "id": "proceed",
+                             "text": "Okay",
+                             "layoutInfo": {
+                                 "use-content-height": true,
+                                 "position-bottom": {}
+                             }
+                         }
+                    ]
+                }
+            }
+        ]
+    }
+}

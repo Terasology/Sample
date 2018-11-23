@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Modules get a copy of build.gradle as they are not allowed to have their own (for build security / sandboxing)
 build.gradle
 
@@ -15,3 +16,13 @@ build/
 
 # MacOS Specific
 .DS_Store
+=======
+# Simple stuff modules should ignore
+*.iml
+build.gradle
+.classpath
+.settings
+.project
+
+build/
+>>>>>>> 88d4818d10b6be3f2ce1acce18b9a563ddb89346
