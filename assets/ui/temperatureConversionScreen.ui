@@ -1,0 +1,105 @@
+{
+	"type": "TemperatureConversionScreen",
+	"contents": {
+		"type": "relativeLayout",
+		"contents": [
+			{
+				"type": "UIBox",
+				"layoutInfo": {
+					"width": 300,
+					"height": 300,
+					"position-horizontal-center": {
+					},
+					"position-vertical-center": {
+					}
+				},
+				"content": {
+					"type": "relativeLayout",
+					"contents": [
+						{
+							"type": "UILabel",
+							"id": "temperatureConversionLabel",
+							"text": "Temperature Conversion",
+							"layoutInfo": {
+								"use-content-width": true,
+								"position-horizontal-center": {
+								},
+								"height": 30
+							}
+						},
+						{
+							"type": "UIText",
+							"text": "",
+							"id": "infoArea",
+							"layoutInfo": {
+								"position-top": {
+									"widget": "temperatureConversionLabel",
+									"target": "BOTTOM"
+								},
+								"position-middle": {
+									"widget": "UIDropdown",
+									"target": "CENTER"
+								},
+								"position-bottom": {
+									"widget": "updateTempButton",
+									"target": "TOP"
+								}
+							},
+							"multiline": true,
+							"readOnly": true
+						},
+						{
+							"type": "UIDropdown",
+							"id": "conversionChooser",
+							"text": "Conversion Options",
+							"layoutInfo": {
+								"use-content-height": true,
+								"position-middle": {
+								},
+								"height": 180
+							}
+						},
+						{
+							"type": "UISlider",
+							"id": "temperatureChooser",
+							"text": "Choose Temperature",
+							"layoutInfo": {
+								"use-content-height": true,
+								"position-middle": {
+								},
+								"height": 120
+							},
+							"value": 32,
+							"minimum": -273,
+							"range": 546,
+							"precision": 1
+						},
+						{
+							"type": "UIText",
+							"id": "answerLabel",
+							"text": "Place Holder",
+							"layoutInfo": {
+								"use-content-height": true,
+								"position-middle": {
+								},
+								"height": 270
+							},
+							"readOnly": true
+						},
+						{
+							"type": "UIButton",
+							"id": "updateTempButton",
+							"text": "Convert Temperature",
+							"layoutInfo": {
+								"use-content-height": true,
+								"position-bottom": {
+								},
+								"height": 30
+							}
+						}
+					]
+				}
+			}
+		]
+	}
+}
