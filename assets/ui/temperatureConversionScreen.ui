@@ -85,17 +85,6 @@
 								"height": 270
 							},
 							"readOnly": true
-						},
-						{
-							"type": "UIButton",
-							"id": "updateTempButton",
-							"text": "Convert Temperature",
-							"layoutInfo": {
-								"use-content-height": true,
-								"position-bottom": {
-								},
-								"height": 30
-							}
 						}
 					]
 				}
