@@ -7,8 +7,8 @@
   },
 
   "tiles": {
-    "sides": "Core:Plank",
-    "topBottom": "Core:Plank",
+    "sides": "CoreAssets:Plank",
+    "topBottom": "CoreAssets:Plank",
     "front": "DrawerSolo",
     "back": "DrawerSolo"
   },
