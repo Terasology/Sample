@@ -1,0 +1,117 @@
+{
+  "type": "WildAnimalsList",
+  "contents": {
+    "type": "relativeLayout",
+    "contents": [
+      {
+        "type": "UIBox",
+        "layoutInfo": {
+          "width": 600,
+          "height": 500,
+          "position-horizontal-center": {},
+          "position-vertical-center": {}
+        },
+        "content": {
+          "type": "relativeLayout",
+          "contents": [
+            {
+              "type": "UILabel",
+              "id": "animalLabel",
+              "text": "WildAnimals",
+              "layoutInfo": {
+                "use-content-width": true,
+                "position-horizontal-center": {},
+                "height": 30
+              }
+            },
+            {
+              "type": "UIText",
+              "text": "HEELLOO",
+              "id": "detail",
+              "layoutInfo": {
+                "use-content-width": true,
+                "position-horizontal-center": {},
+                "height": 200,
+                "width": 600,
+                "position-top": {
+                  "widget": "animalLabel",
+                  "target": "BOTTOM"
+                }
+              },
+              "multiline": true,
+              "readOnly": true
+            },
+            {
+              "type": "migLayout",
+              "id": "buttonsLayout",
+              "layoutConstraints": "",
+              "layoutInfo": {
+                "position-top": {
+                  "widget": "detail",
+                  "target": "BOTTOM"
+                }
+              },
+              "contents": [
+                {
+                  "type": "UIButton",
+                  "id": "lion",
+                  "text": "Lion",
+                  "layoutInfo": {
+                    "cc": "cell 0 0",
+                    "height": "5"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "tiger",
+                  "text": "Tiger",
+                  "layoutInfo": {
+                    "cc": "cell 0 1",
+                    "height": "5"
+                  }
+                },{
+                  "type": "UIButton",
+                  "id": "crocodile",
+                  "text": "Crocodile",
+                  "layoutInfo": {
+                    "cc": "cell 0 2",
+                    "height": "30"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "deer",
+                  "text": "Deer",
+                  "layoutInfo": {
+                    "cc": "cell 0 3",
+                    "height": "30"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "leopard",
+                  "text": "Leopard",
+                  "layoutInfo": {
+                    "cc": "cell 0 4",
+                    "height": "30"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "bear",
+                  "text": "Bear",
+                  "layoutInfo": {
+                    "cc": "cell 0 5",
+                    "height": "30"
+                  }
+                }
+
+
+                ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
