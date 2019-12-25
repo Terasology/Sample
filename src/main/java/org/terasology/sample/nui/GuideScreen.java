@@ -1,4 +1,4 @@
-package org.terasology.nui;
+package org.terasology.sample.nui;
 
 //import org.terasology.engine.Time;
 //import org.terasology.registry.In;

@@ -13,15 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.terasology.nui.internal;
+package org.terasology.sample.nui;
 
-import org.terasology.nui.ListenerScreenTextProvider;
+import org.terasology.registry.In;
+import org.terasology.rendering.nui.CoreScreenLayer;
+import org.terasology.rendering.nui.widgets.UILabel;
+import org.terasology.world.block.BlockManager;
 
-public class TestListenerScreenTextProvider implements ListenerScreenTextProvider {
-    private int count;
+public class BlockFamilyCountScreen extends CoreScreenLayer {
+    private UILabel blockFamilyCountLabel;
+
+    @In
+    BlockManager blockManager;
 
     @Override
-    public String getText() {
-        return String.valueOf(++count);
+    public void initialise() {
+        blockFamilyCountLabel = find("blockFamilyCountLabel", UILabel.class);
+
+        blockFamilyCountLabel.setText("Number of Registered Block Families: " + blockManager.getBlockFamilyCount());
     }
 }

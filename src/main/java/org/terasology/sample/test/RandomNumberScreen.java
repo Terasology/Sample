@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 MovingBlocks
+ * Copyright 2016 MovingBlocks
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,40 +13,39 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.terasology.nui;
+package org.terasology.sample.test;
 
+import org.terasology.engine.Time;
+import org.terasology.registry.In;
 import org.terasology.rendering.nui.CoreScreenLayer;
 import org.terasology.rendering.nui.widgets.UIButton;
 import org.terasology.rendering.nui.widgets.UIText;
+import java.util.Random;
 
-public class CounterScreen extends CoreScreenLayer {
-    private UIText infoArea;
-    private UIButton updateIncreaseButton;
-	private UIButton updateDecreaseButton;
-	private int i = 0;
+public class RandomNumberScreen extends CoreScreenLayer {
+    private UIText text2;
+    private UIButton button2;
+
+    private Random rand;
+
+    @In
+    private Time time;
 
     @Override
     public void initialise() {
-        infoArea = find("infoArea", UIText.class);
-        updateIncreaseButton = find("updateIncreaseButton", UIButton.class);
+        text2 = find("text2", UIText.class);
+        button2 = find("button2", UIButton.class);
 
-		if (updateIncreaseButton != null)
-		{
-			updateIncreaseButton.subscribe(button -> {
-				i++;
-				infoArea.setText("Count: " + i);
-			});
+        rand = new Random();
 
-		}
+        if (button2 != null) {
+            button2.subscribe(button -> {
+                int random = rand.nextInt(10 - 1 + 1) + 1;
+                String text = "Random Number: " + random;
+                text2.setText(text);
+            });
+        }
 
-		updateDecreaseButton = find("updateDecreaseButton", UIButton.class);
-		if (updateDecreaseButton != null)
-		{
-			updateDecreaseButton.subscribe(button -> {
-				i--;
-				infoArea.setText("Count: " + i);
-			});
 
-		}
-	}
+    }
 }

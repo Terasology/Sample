@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 MovingBlocks
+ * Copyright 2017 MovingBlocks
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,32 +13,40 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.terasology.test;
+package org.terasology.sample.nui;
 
-import org.terasology.engine.Time;
-import org.terasology.registry.In;
 import org.terasology.rendering.nui.CoreScreenLayer;
 import org.terasology.rendering.nui.widgets.UIButton;
 import org.terasology.rendering.nui.widgets.UIText;
 
-public class TimeElapsedInfoScreen extends CoreScreenLayer {
-
-    @In
-    private Time time;
-
+public class CounterScreen extends CoreScreenLayer {
     private UIText infoArea;
-    private UIButton updateInfoButton;
+    private UIButton updateIncreaseButton;
+	private UIButton updateDecreaseButton;
+	private int i = 0;
 
     @Override
     public void initialise() {
         infoArea = find("infoArea", UIText.class);
-        updateInfoButton = find("updateInfoButton", UIButton.class);
-        long startTime = time.getGameTimeInMs();
+        updateIncreaseButton = find("updateIncreaseButton", UIButton.class);
 
-        if (updateInfoButton != null) {
-            updateInfoButton.subscribe(button -> {
-                infoArea.setText(String.format("Hello there! %d milliseconds have passed since you first opened this screen. ", time.getGameTimeInMs() - startTime));
-            });
-        }
-    }
+		if (updateIncreaseButton != null)
+		{
+			updateIncreaseButton.subscribe(button -> {
+				i++;
+				infoArea.setText("Count: " + i);
+			});
+
+		}
+
+		updateDecreaseButton = find("updateDecreaseButton", UIButton.class);
+		if (updateDecreaseButton != null)
+		{
+			updateDecreaseButton.subscribe(button -> {
+				i--;
+				infoArea.setText("Count: " + i);
+			});
+
+		}
+	}
 }

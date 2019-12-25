@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 MovingBlocks
+ * Copyright 2017 MovingBlocks
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,12 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.terasology.test;
+package org.terasology.sample.nui.internal;
 
-import org.terasology.entitySystem.Component;
+import org.terasology.nui.ListenerScreenTextProvider;
 
-public class PrivateComponent implements Component {
-    private PrivateComponent() {
+public class TestListenerScreenTextProvider implements ListenerScreenTextProvider {
+    private int count;
 
+    @Override
+    public String getText() {
+        return String.valueOf(++count);
     }
 }

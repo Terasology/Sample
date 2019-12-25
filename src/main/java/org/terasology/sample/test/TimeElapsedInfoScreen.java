@@ -13,39 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.terasology.test;
+package org.terasology.sample.test;
 
 import org.terasology.engine.Time;
 import org.terasology.registry.In;
 import org.terasology.rendering.nui.CoreScreenLayer;
 import org.terasology.rendering.nui.widgets.UIButton;
 import org.terasology.rendering.nui.widgets.UIText;
-import java.util.Random;
 
-public class RandomNumberScreen extends CoreScreenLayer {
-    private UIText text2;
-    private UIButton button2;
-
-    private Random rand;
+public class TimeElapsedInfoScreen extends CoreScreenLayer {
 
     @In
     private Time time;
 
+    private UIText infoArea;
+    private UIButton updateInfoButton;
+
     @Override
     public void initialise() {
-        text2 = find("text2", UIText.class);
-        button2 = find("button2", UIButton.class);
+        infoArea = find("infoArea", UIText.class);
+        updateInfoButton = find("updateInfoButton", UIButton.class);
+        long startTime = time.getGameTimeInMs();
 
-        rand = new Random();
-
-        if (button2 != null) {
-            button2.subscribe(button -> {
-                int random = rand.nextInt(10 - 1 + 1) + 1;
-                String text = "Random Number: " + random;
-                text2.setText(text);
+        if (updateInfoButton != null) {
+            updateInfoButton.subscribe(button -> {
+                infoArea.setText(String.format("Hello there! %d milliseconds have passed since you first opened this screen. ", time.getGameTimeInMs() - startTime));
             });
         }
-
-
     }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 MovingBlocks
+ * Copyright 2016 MovingBlocks
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,20 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.terasology.nui;
 
-import org.terasology.engine.Time;
-import org.terasology.registry.In;
+package org.terasology.sample.nui;
+
 import org.terasology.rendering.nui.CoreScreenLayer;
 import org.terasology.rendering.nui.widgets.UIButton;
 import org.terasology.rendering.nui.widgets.UIText;
 
-public class CpuInfoScreen extends CoreScreenLayer {
+public class InformativeLinksScreen extends CoreScreenLayer {
     private UIText infoArea;
     private UIButton updateInfoButton;
+    private int index;
 
-    @In
-    private Time time;
+    private String[] linksList = {
+            "Care to visit Terasology's main website?\nhttp://terasology.org/",
+            "Check out the Terasology forum here:\nhttp://forum.terasology.org/",
+            "Wish to contribute to our Open-Source Code? Find our Github repository here:\nhttps://github.com/MovingBlocks/Terasology",
+            "Follow us on Twitter:\nhttps://twitter.com/terasology?lang=en",
+            "Follow us on Facebook:\nhttps://www.facebook.com/Terasology/"
+    };
+
+    public String getNextLink() {
+
+        index++;
+
+        if (index >= linksList.length) {
+            index = 0;
+        }
+
+        return linksList[index];
+    }
 
     @Override
     public void initialise() {
@@ -35,17 +51,7 @@ public class CpuInfoScreen extends CoreScreenLayer {
 
         if (updateInfoButton != null) {
             updateInfoButton.subscribe(button -> {
-                int nCores = Runtime.getRuntime().availableProcessors();
-
-                // Get current CPU usage
-
-
-                infoArea.setText(String.format("Welcome to the CPU info screen!%n" +
-                        "There are currently %d CPU cores available to Terasology.%n" +
-                        "As for temperature... well, your computer is on. We know that much.%n" +
-                        "(If you can figure out a way to measure core temp in Java, submit a pull request on GitHub!)",
-                        nCores
-                ));
+                infoArea.setText(getNextLink());
             });
         }
     }

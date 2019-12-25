@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.terasology.test;
+package org.terasology.sample.test;
 
 import com.google.common.collect.Lists;
 import org.terasology.rendering.nui.CoreScreenLayer;

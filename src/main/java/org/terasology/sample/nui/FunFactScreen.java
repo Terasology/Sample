@@ -1,4 +1,4 @@
-package org.terasology.nui;
+package org.terasology.sample.nui;
 
 import org.terasology.rendering.nui.CoreScreenLayer;
 import org.terasology.rendering.nui.widgets.UIButton;
