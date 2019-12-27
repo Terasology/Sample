@@ -26,23 +26,23 @@ public class InspirationScreen extends CoreScreenLayer {
     private int selectedIndex = -1;
     
     private String[] inspirationQuotes = {
-    		"Keep your face always toward the sunshine - and shadows will fall behind you -Walt Whitman",
-    		"Believe you can and you're halfway there -Theodore Roosevelt",
-    		"Try to be a rainbow in someone's cloud -Maya Angelou",
-    		"We know what we are, but know not what we may be  -William Shakespeare",
-    		"No act of kindness, no matter how small, is ever wasted -Aesop",
-    		"If opportunity doesn't knock, build a door -Milton Berle"
+            "Keep your face always toward the sunshine - and shadows will fall behind you -Walt Whitman",
+            "Believe you can and you're halfway there -Theodore Roosevelt",
+            "Try to be a rainbow in someone's cloud -Maya Angelou",
+            "We know what we are, but know not what we may be  -William Shakespeare",
+            "No act of kindness, no matter how small, is ever wasted -Aesop",
+            "If opportunity doesn't knock, build a door -Milton Berle"
     };
     
     public String getNextQuote(){
-    	
-    	selectedIndex++;
-    	
-    	if(selectedIndex >= inspirationQuotes.length){
-    		selectedIndex = 0;
-    	}
-    		
-    	return inspirationQuotes[selectedIndex];
+        
+        selectedIndex++;
+        
+        if(selectedIndex >= inspirationQuotes.length){
+            selectedIndex = 0;
+        }
+            
+        return inspirationQuotes[selectedIndex];
     }
     
 

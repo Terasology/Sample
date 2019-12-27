@@ -38,7 +38,7 @@ public class Task extends CoreScreenLayer {
             "The only thing necessary for the triumph of evil is for good men to do nothing. - Edmund Burke",
             "One of the most beautiful qualities of true friendship is to understand and to be understood. - Lucius Annaeus Seneca",
             "Do all things with love. - Og Mandino",
-			"You can't blame gravity for falling in love. - Albert Einstein",
+            "You can't blame gravity for falling in love. - Albert Einstein",
             "In three words I can sum up everything I've learned about life: it goes on. - Robert Frost",
             "Education is the most powerful weapon which you can use to change the world. - Nelson Mandela",
             "Life's most persistent and urgent question is, 'What are you doing for others?' - Martin Luther King, Jr.",
