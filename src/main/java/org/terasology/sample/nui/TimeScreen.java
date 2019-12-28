@@ -25,12 +25,12 @@ public class TimeScreen extends CoreScreenLayer {
     private UIText infoArea;
     private UIButton updateInfoButton;
 
-    private void setInfoAreaText(){
+    private void setInfoAreaText() {
         Calendar c = Calendar.getInstance();
         c.setTimeInMillis(System.currentTimeMillis());
         String date = c.get(Calendar.YEAR) + "-" + c.get(Calendar.MONTH) + "-" + c.get(Calendar.DAY_OF_MONTH);
         String time = c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE) + ":" + c.get(Calendar.SECOND);
-        infoArea.setText("Real Time: "+ date + " " + time + "\nPress ESC to exit");
+        infoArea.setText("Real Time: " + date + " " + time + "\nPress ESC to exit");
     }
 
     @Override

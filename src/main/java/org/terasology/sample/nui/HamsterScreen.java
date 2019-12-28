@@ -21,7 +21,6 @@ import org.terasology.rendering.nui.widgets.UIText;
 public class HamsterScreen extends CoreScreenLayer {
     private UIText infoArea;
 
-
     @Override
     public void initialise() {
         infoArea = find("infoArea", UIText.class);

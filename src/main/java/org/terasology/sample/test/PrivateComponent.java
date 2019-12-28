@@ -17,7 +17,7 @@ package org.terasology.sample.test;
 
 import org.terasology.entitySystem.Component;
 
-public class PrivateComponent implements Component {
+public final class PrivateComponent implements Component {
     private PrivateComponent() {
 
     }

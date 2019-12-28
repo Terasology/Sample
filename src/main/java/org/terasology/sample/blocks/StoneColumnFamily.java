@@ -45,10 +45,10 @@ public class StoneColumnFamily extends MultiConnectFamily {
         BlockUri blockUri;
         blocks = new TByteObjectHashMap<Block>();
         blockUri = new BlockUri(definition.getUrn());
-        registerBlock(blockUri, definition, blockBuilder,"standby", (byte) 0 , Collections.singleton(Rotation.none()));
-        registerBlock(blockUri, definition, blockBuilder,"bottom", SideBitFlag.getSide(Side.TOP) , Collections.singleton(Rotation.none()));
-        registerBlock(blockUri, definition, blockBuilder,"top", SideBitFlag.getSide(Side.BOTTOM) , Collections.singleton(Rotation.none()));
-        registerBlock(blockUri, definition, blockBuilder,"middle", getSides(Side.TOP, Side.BOTTOM) , Collections.singleton(Rotation.none()));
+        registerBlock(blockUri, definition, blockBuilder, "standby", (byte) 0, Collections.singleton(Rotation.none()));
+        registerBlock(blockUri, definition, blockBuilder, "bottom", SideBitFlag.getSide(Side.TOP), Collections.singleton(Rotation.none()));
+        registerBlock(blockUri, definition, blockBuilder, "top", SideBitFlag.getSide(Side.BOTTOM), Collections.singleton(Rotation.none()));
+        registerBlock(blockUri, definition, blockBuilder, "middle", getSides(Side.TOP, Side.BOTTOM), Collections.singleton(Rotation.none()));
         this.setCategory(definition.getCategories());
     }
 
@@ -68,3 +68,4 @@ public class StoneColumnFamily extends MultiConnectFamily {
         return blocks.get(getSides(Side.TOP, Side.BOTTOM));
     }
 }
+

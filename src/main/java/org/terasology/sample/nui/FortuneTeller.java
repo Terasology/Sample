@@ -15,7 +15,6 @@
  */
 package org.terasology.sample.nui;
 
-
 import org.terasology.rendering.nui.CoreScreenLayer;
 import org.terasology.rendering.nui.widgets.UIRadialRing;
 import org.terasology.rendering.nui.widgets.UIRadialSection;
@@ -23,7 +22,6 @@ import org.terasology.rendering.nui.widgets.UIText;
 
 import java.util.LinkedList;
 import java.util.List;
-
 
 public class FortuneTeller extends CoreScreenLayer {
     private UIText infoArea;

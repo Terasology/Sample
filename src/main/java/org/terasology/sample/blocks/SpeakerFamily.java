@@ -15,14 +15,22 @@
  */
 package org.terasology.sample.blocks;
 
-
 import com.google.common.collect.ImmutableList;
-import org.terasology.math.*;
+import org.terasology.math.Pitch;
+import org.terasology.math.Roll;
+import org.terasology.math.Rotation;
+import org.terasology.math.Side;
+import org.terasology.math.SideBitFlag;
+import org.terasology.math.Yaw;
 import org.terasology.math.geom.Vector3i;
 import org.terasology.world.block.Block;
 import org.terasology.world.block.BlockBuilderHelper;
 import org.terasology.world.block.BlockUri;
-import org.terasology.world.block.family.*;
+import org.terasology.world.block.family.BlockFamily;
+import org.terasology.world.block.family.BlockSections;
+import org.terasology.world.block.family.MultiConnectFamily;
+import org.terasology.world.block.family.RegisterBlockFamily;
+import org.terasology.world.block.family.UpdatesWithNeighboursFamily;
 import org.terasology.world.block.loader.BlockFamilyDefinition;
 import org.terasology.world.block.shapes.BlockShape;
 
@@ -33,7 +41,7 @@ public class SpeakerFamily extends MultiConnectFamily implements UpdatesWithNeig
     public static final String MIDDLE = "middle";
     public static final String RIGHT = "right";
 
-    ImmutableList<Rotation> Rotation1= ImmutableList.of(
+    ImmutableList<Rotation> rotation1 = ImmutableList.of(
             Rotation.rotate(Yaw.NONE, Pitch.NONE, Roll.NONE),
             Rotation.rotate(Yaw.CLOCKWISE_90, Pitch.NONE, Roll.NONE));
 
@@ -48,8 +56,8 @@ public class SpeakerFamily extends MultiConnectFamily implements UpdatesWithNeig
 
         this.registerBlock(blockUri, definition, blockBuilder, MIDDLE, (byte) 0, Rotation.allValues());
         this.registerBlock(blockUri, definition, blockBuilder, MIDDLE, SideBitFlag.getSides(Side.LEFT, Side.RIGHT), Rotation.allValues());
-        this.registerBlock(blockUri, definition, blockBuilder, LEFT, SideBitFlag.getSides(Side.RIGHT), Rotation1);
-        this.registerBlock(blockUri, definition, blockBuilder, RIGHT, SideBitFlag.getSides(Side.LEFT), Rotation1);
+        this.registerBlock(blockUri, definition, blockBuilder, LEFT, SideBitFlag.getSides(Side.RIGHT), rotation1);
+        this.registerBlock(blockUri, definition, blockBuilder, RIGHT, SideBitFlag.getSides(Side.LEFT), rotation1);
 
     }
     @Override
@@ -59,8 +67,9 @@ public class SpeakerFamily extends MultiConnectFamily implements UpdatesWithNeig
         if (worldProvider.isBlockRelevant(neighborLocation)) {
             Block neighborBlock = worldProvider.getBlock(neighborLocation);
             final BlockFamily blockFamily = neighborBlock.getBlockFamily();
-            if (blockFamily instanceof SpeakerFamily)
+            if (blockFamily instanceof SpeakerFamily) {
                 return true;
+            }
         }
         return false;
     }

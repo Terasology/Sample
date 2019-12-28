@@ -22,10 +22,10 @@ import org.terasology.rendering.nui.CoreScreenLayer;
  * mode in Minecraft in that it allows any blocks or items to be spawned via a GUI alternative to the /give command. It
  * also allows the searching of all available blocks and items.
  */
-public class BlocksScreen extends CoreScreenLayer{
+public class BlocksScreen extends CoreScreenLayer {
 
     @Override
-    public void initialise(){
+    public void initialise() {
         //TODO: Get list of items and alphabatize names
         //TODO: Add list of items (alphabatized or otherwise) to Inventory view (after inventoryview is fixed)
         //TODO: Use binary search on alphabatized list of items for efficient searches (in another method called when search button is pressed)

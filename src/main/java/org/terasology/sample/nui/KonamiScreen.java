@@ -22,7 +22,7 @@ import org.terasology.rendering.nui.widgets.UIText;
 public class KonamiScreen extends CoreScreenLayer {
     private UIText infoArea;
     private UIButton toggleKonamiButton;
-    private boolean konamiActivated = false;
+    private boolean konamiActivated;
 
     @Override
     public void initialise() {
@@ -31,8 +31,7 @@ public class KonamiScreen extends CoreScreenLayer {
 
         if (konamiActivated) {
             infoArea.setText("Konami Mode is currently activated");
-        }
-        else {
+        } else {
             infoArea.setText("Konami Mode is currently deactivated");
         }
 
@@ -40,8 +39,7 @@ public class KonamiScreen extends CoreScreenLayer {
             toggleKonamiButton.subscribe(button -> {
                 if (konamiActivated) {
                     infoArea.setText("Konami Mode has been deactivated");
-                }
-                else {
+                } else {
                     infoArea.setText("Konami Mode has been activated");
                 }
                 konamiActivated = !konamiActivated;
@@ -49,3 +47,4 @@ public class KonamiScreen extends CoreScreenLayer {
         }
     }
 }
+

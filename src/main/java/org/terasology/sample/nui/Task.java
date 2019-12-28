@@ -20,10 +20,7 @@ import org.terasology.rendering.nui.widgets.UIButton;
 import org.terasology.rendering.nui.widgets.UIText;
 
 public class Task extends CoreScreenLayer {
-
-    private UIText infoArea;
-    private UIButton infoButton;
-    private static int i = 0;
+    private static int i;
 
     final String[] quotes = {
             "Where there is love there is life. - Mahatma Gandhi",
@@ -49,6 +46,9 @@ public class Task extends CoreScreenLayer {
             "You cannot shake hands with a clenched fist. - Indira Gandhi"
     };
 
+    private UIText infoArea;
+    private UIButton infoButton;
+
     @Override
     public void initialise() {
         infoArea = find("infoArea", UIText.class);
@@ -56,7 +56,9 @@ public class Task extends CoreScreenLayer {
 
         if (infoButton != null) {
             infoButton.subscribe(button -> {
-                if (i == 20) i = 0;
+                if (i == 20) {
+                    i = 0;
+                }
                 infoArea.setText(quotes[i]);
                 i++;
             });

@@ -26,29 +26,30 @@ import org.terasology.world.WorldProvider;
 import org.terasology.world.block.Block;
 import org.terasology.world.block.BlockBuilderHelper;
 import org.terasology.world.block.BlockUri;
-import org.terasology.world.block.family.*;
+import org.terasology.world.block.family.AbstractBlockFamily;
+import org.terasology.world.block.family.BlockFamily;
+import org.terasology.world.block.family.BlockSections;
+import org.terasology.world.block.family.RegisterBlockFamily;
+import org.terasology.world.block.family.UpdatesWithNeighboursFamily;
 import org.terasology.world.block.loader.BlockFamilyDefinition;
 import org.terasology.world.block.shapes.BlockShape;
 
-import java.util.ArrayList;
-
-
 @RegisterBlockFamily("CubePC")
 @BlockSections({"lone", "top", "bottom", "middle"})
-public class CubePCFamily extends AbstractBlockFamily implements UpdatesWithNeighboursFamily{
+public class CubePCFamily extends AbstractBlockFamily implements UpdatesWithNeighboursFamily {
 
     @In
     WorldProvider worldProvider;
 
-    private TByteObjectMap<Block> blocks;
-
     BlockUri blockUri;
+
+    private TByteObjectMap<Block> blocks;
 
     public CubePCFamily(BlockFamilyDefinition definition, BlockShape shape, BlockBuilderHelper blockBuilder) {
         super(definition, shape, blockBuilder);
     }
 
-    public CubePCFamily (BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder){
+    public CubePCFamily(BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder) {
         super(definition, blockBuilder);
 
         blocks = new TByteObjectHashMap<Block>();
@@ -68,7 +69,7 @@ public class CubePCFamily extends AbstractBlockFamily implements UpdatesWithNeig
         blocks.put(bitFlag, addBlock(definition, blockBuilder, section, blockUri, bitFlag));
     }
 
-    private Block getProperBlock(WorldProvider worldProvider, Vector3i location) {
+    private Block getProperBlock(WorldProvider worldProviderArg, Vector3i location) {
         byte connections = 0;
         for (Side connectSide : new Side[] {Side.TOP, Side.BOTTOM}) {
             if (this.connectionCondition(location, connectSide)) {
@@ -78,8 +79,8 @@ public class CubePCFamily extends AbstractBlockFamily implements UpdatesWithNeig
         return blocks.get(connections);
     }
 
-    private Block addBlock(BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder, String section, BlockUri blockUri, byte sides) {
-        Block newBlock = blockBuilder.constructSimpleBlock(definition, section,new BlockUri(blockUri, new Name(String.valueOf(sides))),this);
+    private Block addBlock(BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder, String section, BlockUri blockUriArg, byte sides) {
+        Block newBlock = blockBuilder.constructSimpleBlock(definition, section, new BlockUri(blockUriArg, new Name(String.valueOf(sides))), this);
         newBlock.setBlockFamily(this);
 
         return newBlock;
@@ -119,10 +120,9 @@ public class CubePCFamily extends AbstractBlockFamily implements UpdatesWithNeig
     }
 
     @Override
-    public Block getBlockFor(BlockUri blockUri) {
-
+    public Block getBlockFor(BlockUri blockUriArg) {
         for (Block block : blocks.valueCollection()) {
-            if (block.getURI().equals(blockUri)) {
+            if (block.getURI().equals(blockUriArg)) {
                 return block;
             }
         }

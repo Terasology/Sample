@@ -43,7 +43,7 @@ public class DrawerFamily extends MultiConnectFamily {
         super(definition, blockBuilder);
 
         BlockUri blockUri = new BlockUri(definition.getUrn());
-        Block block = blockBuilder.constructSimpleBlock(definition,new BlockUri(blockUri, new Name(String.valueOf(0))),this);
+        Block block = blockBuilder.constructSimpleBlock(definition, new BlockUri(blockUri, new Name(String.valueOf(0))), this);
 
         this.blocks.put((byte) 0, block);
 
@@ -72,7 +72,6 @@ public class DrawerFamily extends MultiConnectFamily {
 
     @Override
     public boolean connectionCondition(Vector3i blockLocation, Side connectSide) {
-
         Vector3i neighborLocation = new Vector3i(blockLocation);
         neighborLocation.add(connectSide.getVector3i());
 

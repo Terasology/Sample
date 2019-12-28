@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.terasology.sample.nui;
 
 import org.terasology.rendering.nui.CoreScreenLayer;
@@ -34,7 +33,6 @@ public class InformativeLinksScreen extends CoreScreenLayer {
     };
 
     public String getNextLink() {
-
         index++;
 
         if (index >= linksList.length) {

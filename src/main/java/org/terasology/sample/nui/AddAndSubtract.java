@@ -21,9 +21,10 @@ import org.terasology.rendering.nui.widgets.UIText;
 
 public class AddAndSubtract extends CoreScreenLayer {
     private UIText infoArea;
-    private UIButton addButton, subtractButton;
+    private UIButton addButton;
+    private UIButton subtractButton;
 
-    private int count = 0;
+    private int count;
 
     @Override
     public void initialise() {

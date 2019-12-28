@@ -24,7 +24,7 @@ public class InspirationScreen extends CoreScreenLayer {
     private UIButton updateInfoButton;
 
     private int selectedIndex = -1;
-    
+
     private String[] inspirationQuotes = {
             "Keep your face always toward the sunshine - and shadows will fall behind you -Walt Whitman",
             "Believe you can and you're halfway there -Theodore Roosevelt",
@@ -33,18 +33,16 @@ public class InspirationScreen extends CoreScreenLayer {
             "No act of kindness, no matter how small, is ever wasted -Aesop",
             "If opportunity doesn't knock, build a door -Milton Berle"
     };
-    
-    public String getNextQuote(){
-        
+
+    public String getNextQuote() {
         selectedIndex++;
-        
-        if(selectedIndex >= inspirationQuotes.length){
+
+        if (selectedIndex >= inspirationQuotes.length) {
             selectedIndex = 0;
         }
-            
+
         return inspirationQuotes[selectedIndex];
     }
-    
 
     @Override
     public void initialise() {
@@ -59,3 +57,4 @@ public class InspirationScreen extends CoreScreenLayer {
         }
     }
 }
+

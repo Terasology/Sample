@@ -21,10 +21,11 @@ import org.terasology.rendering.nui.widgets.UILabel;
 import org.terasology.world.block.BlockManager;
 
 public class BlockFamilyCountScreen extends CoreScreenLayer {
-    private UILabel blockFamilyCountLabel;
 
     @In
     BlockManager blockManager;
+
+    private UILabel blockFamilyCountLabel;
 
     @Override
     public void initialise() {

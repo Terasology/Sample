@@ -31,7 +31,7 @@ import org.terasology.world.block.loader.BlockFamilyDefinition;
 import org.terasology.world.block.shapes.BlockShape;
 
 @RegisterBlockFamily("sample:NetworkCable")
-@BlockSections({"one_connection", "line_connection", "2d_corner","3d_corner","2d_t","cross","3d_side","five_connections"})
+@BlockSections({"one_connection", "line_connection", "2d_corner", "3d_corner", "2d_t", "cross", "3d_side", "five_connections"})
 public class NetworkCableFamily extends MultiConnectFamily implements UpdatesWithNeighboursFamily {
 
     public NetworkCableFamily(BlockFamilyDefinition definition, BlockShape shape, BlockBuilderHelper builderHelper) {
@@ -43,18 +43,26 @@ public class NetworkCableFamily extends MultiConnectFamily implements UpdatesWit
 
         BlockUri blockUri = new BlockUri(definition.getUrn());
 
-        Block block = builderHelper.constructSimpleBlock(definition,new BlockUri(blockUri,new Name(String.valueOf(0))),this);
-        this.blocks.put((byte) 0,block);
+        Block block = builderHelper.constructSimpleBlock(definition, new BlockUri(blockUri, new Name(String.valueOf(0))), this);
+        this.blocks.put((byte) 0, block);
 
-//        this.registerBlock(blockUri, definition, builderHelper, "one_connection", (byte) 0, Rotation.allValues());
-        this.registerBlock(blockUri, definition, builderHelper, "one_connection", SideBitFlag.getSides(Side.BACK), Rotation.allValues());
-        this.registerBlock(blockUri, definition, builderHelper, "line_connection",SideBitFlag.getSides(Side.BACK, Side.FRONT), Rotation.allValues());
-        this.registerBlock(blockUri, definition, builderHelper, "2d_corner",  SideBitFlag.getSides(Side.LEFT, Side.BACK), Rotation.allValues());
-        this.registerBlock(blockUri, definition, builderHelper, "3d_corner", SideBitFlag.getSides(Side.LEFT, Side.BACK, Side.TOP), Rotation.allValues());
-        this.registerBlock(blockUri, definition, builderHelper, "2d_t", SideBitFlag.getSides(Side.LEFT, Side.BACK, Side.FRONT), Rotation.allValues());
-        this.registerBlock(blockUri, definition, builderHelper, "cross", SideBitFlag.getSides(Side.RIGHT, Side.LEFT, Side.BACK, Side.FRONT), Rotation.allValues());
-        this.registerBlock(blockUri, definition, builderHelper, "3d_side", SideBitFlag.getSides(Side.LEFT, Side.BACK, Side.FRONT, Side.TOP), Rotation.allValues());
-        this.registerBlock(blockUri, definition, builderHelper, "five_connections", SideBitFlag.getSides(Side.LEFT, Side.BACK, Side.FRONT, Side.TOP, Side.BOTTOM), Rotation.allValues());
+//      this.registerBlock(blockUri, definition, builderHelper, "one_connection", (byte) 0, Rotation.allValues());
+        this.registerBlock(blockUri, definition, builderHelper, "one_connection",
+                SideBitFlag.getSides(Side.BACK), Rotation.allValues());
+        this.registerBlock(blockUri, definition, builderHelper, "line_connection",
+                SideBitFlag.getSides(Side.BACK, Side.FRONT), Rotation.allValues());
+        this.registerBlock(blockUri, definition, builderHelper, "2d_corner",
+                SideBitFlag.getSides(Side.LEFT, Side.BACK), Rotation.allValues());
+        this.registerBlock(blockUri, definition, builderHelper, "3d_corner",
+                SideBitFlag.getSides(Side.LEFT, Side.BACK, Side.TOP), Rotation.allValues());
+        this.registerBlock(blockUri, definition, builderHelper, "2d_t",
+                SideBitFlag.getSides(Side.LEFT, Side.BACK, Side.FRONT), Rotation.allValues());
+        this.registerBlock(blockUri, definition, builderHelper, "cross",
+                SideBitFlag.getSides(Side.RIGHT, Side.LEFT, Side.BACK, Side.FRONT), Rotation.allValues());
+        this.registerBlock(blockUri, definition, builderHelper, "3d_side",
+                SideBitFlag.getSides(Side.LEFT, Side.BACK, Side.FRONT, Side.TOP), Rotation.allValues());
+        this.registerBlock(blockUri, definition, builderHelper, "five_connections",
+                SideBitFlag.getSides(Side.LEFT, Side.BACK, Side.FRONT, Side.TOP, Side.BOTTOM), Rotation.allValues());
 
     }
 
@@ -65,7 +73,7 @@ public class NetworkCableFamily extends MultiConnectFamily implements UpdatesWit
 
     @Override
     public Block getArchetypeBlock() {
-        return blocks.get((byte)0);
+        return blocks.get((byte) 0);
     }
 
     @Override

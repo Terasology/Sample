@@ -1,3 +1,18 @@
+/*
+ * Copyright 2017 MovingBlocks
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.terasology.sample.blocks;
 
 import gnu.trove.map.TByteObjectMap;
@@ -19,18 +34,16 @@ import org.terasology.world.block.family.UpdatesWithNeighboursFamily;
 import org.terasology.world.block.loader.BlockFamilyDefinition;
 import org.terasology.world.block.shapes.BlockShape;
 
-import java.util.ArrayList;
-
 @RegisterBlockFamily("romancolumn")
 @BlockSections({"lone_block", "on_top", "on_bottom", "in_a_line"})
 public class RomanColumnFamily extends AbstractBlockFamily implements UpdatesWithNeighboursFamily {
 
     @In
     WorldProvider worldProvider;
-    
-    private TByteObjectMap<Block> blocks;
 
     BlockUri blockUri;
+
+    private TByteObjectMap<Block> blocks;
 
     // Archetype is the base block of the family
     // attachmentSide is the side of the block that the block being placed is going to be attached to
@@ -58,7 +71,7 @@ public class RomanColumnFamily extends AbstractBlockFamily implements UpdatesWit
         blocks.put(bitFlag, addBlock(definition, blockBuilder, section, blockUri, bitFlag));
     }
 
-    private Block getProperBlock(WorldProvider worldProvider, Vector3i location) {
+    private Block getProperBlock(WorldProvider worldProviderArg, Vector3i location) {
         byte connections = 0;
         for (Side connectSide : new Side[] {Side.TOP, Side.BOTTOM}) {
             if (this.connectionCondition(location, connectSide)) {
@@ -68,8 +81,8 @@ public class RomanColumnFamily extends AbstractBlockFamily implements UpdatesWit
         return blocks.get(connections);
     }
 
-    private Block addBlock(BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder, String section, BlockUri blockUri, byte sides) {
-        Block newBlock = blockBuilder.constructSimpleBlock(definition, section,new BlockUri(blockUri, new Name(String.valueOf(sides))),this);
+    private Block addBlock(BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder, String section, BlockUri blockUriArg, byte sides) {
+        Block newBlock = blockBuilder.constructSimpleBlock(definition, section, new BlockUri(blockUriArg, new Name(String.valueOf(sides))), this);
         newBlock.setBlockFamily(this);
 
         return newBlock;
@@ -109,15 +122,13 @@ public class RomanColumnFamily extends AbstractBlockFamily implements UpdatesWit
     }
 
     @Override
-    public Block getBlockFor(BlockUri blockUri) {
-
+    public Block getBlockFor(BlockUri blockUriArg) {
         for (Block block : blocks.valueCollection()) {
-            if (block.getURI().equals(blockUri)) {
+            if (block.getURI().equals(blockUriArg)) {
                 return block;
             }
         }
         return null;
-
     }
 
     @Override

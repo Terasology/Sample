@@ -49,17 +49,15 @@ public class BlackAndWhiteFamily extends AbstractBlockFamily implements UpdatesW
         private static final long serialVersionUID = 1L;
 
         {
-
             add("Black");
             add("White");
             add("BlackAndWhite");
-
         }
     };
 
-    private TByteObjectMap<Block> blocks;
-
     BlockUri blockUri;
+
+    private TByteObjectMap<Block> blocks;
 
     public BlackAndWhiteFamily(BlockFamilyDefinition definition, BlockShape shape, BlockBuilderHelper blockBuilder) {
         super(definition, shape, blockBuilder);
@@ -86,7 +84,7 @@ public class BlackAndWhiteFamily extends AbstractBlockFamily implements UpdatesW
         blocks.put(bitFlag, addBlock(definition, blockBuilder, section, blockUri, bitFlag));
     }
 
-    private Block getProperBlock(WorldProvider worldProvider, Vector3i location) {
+    private Block getProperBlock(WorldProvider worldProviderArg, Vector3i location) {
         byte connections = 0;
         for (Side connectSide : new Side[] {Side.TOP, Side.BOTTOM}) {
             if (this.connectionCondition(location, connectSide)) {
@@ -96,9 +94,8 @@ public class BlackAndWhiteFamily extends AbstractBlockFamily implements UpdatesW
         return blocks.get(connections);
     }
 
-    private Block addBlock(BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder, String section, BlockUri blockUri, byte sides) {
-        return blockBuilder.constructSimpleBlock(definition, section,new BlockUri(blockUri, new Name(String.valueOf(sides))),this);
-
+    private Block addBlock(BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder, String section, BlockUri blockUriArg, byte sides) {
+        return blockBuilder.constructSimpleBlock(definition, section, new BlockUri(blockUriArg, new Name(String.valueOf(sides))), this);
     }
 
     protected boolean connectionCondition(Vector3i blockLocation, Side connectSide) {
@@ -135,15 +132,13 @@ public class BlackAndWhiteFamily extends AbstractBlockFamily implements UpdatesW
     }
 
     @Override
-    public Block getBlockFor(BlockUri blockUri) {
-
+    public Block getBlockFor(BlockUri blockUriArg) {
         for (Block block : blocks.valueCollection()) {
-            if (block.getURI().equals(blockUri)) {
+            if (block.getURI().equals(blockUriArg)) {
                 return block;
             }
         }
         return null;
-
     }
 
     @Override
@@ -157,3 +152,4 @@ public class BlackAndWhiteFamily extends AbstractBlockFamily implements UpdatesW
     }
 
 }
+

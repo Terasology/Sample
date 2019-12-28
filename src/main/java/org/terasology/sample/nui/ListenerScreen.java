@@ -22,9 +22,10 @@ import org.terasology.rendering.nui.widgets.UIText;
 import java.util.ArrayList;
 
 public class ListenerScreen extends CoreScreenLayer {
+    private static ListenerScreen instance;
+
     private UIText text;
 
-    private static ListenerScreen instance;
     private ArrayList<ListenerScreenTextProvider> providers = new ArrayList<>();
 
     public ListenerScreen() {
@@ -32,7 +33,7 @@ public class ListenerScreen extends CoreScreenLayer {
     }
 
     private ListenerScreen(boolean singleton) {
-        if(singleton) {
+        if (singleton) {
             instance = this;
         }
     }

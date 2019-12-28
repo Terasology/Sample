@@ -24,7 +24,7 @@ public class LatinQuotes extends CoreScreenLayer {
     private UIText infoArea;
     private UIButton updateInfoButton;
     private Random random = new Random();
-    
+
     private String[] latinQuotes = {
             "Barba tenus sapientes",
             "Carpe Noctem!",

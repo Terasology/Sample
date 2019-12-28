@@ -39,7 +39,6 @@ public class CpuInfoScreen extends CoreScreenLayer {
 
                 // Get current CPU usage
 
-
                 infoArea.setText(String.format("Welcome to the CPU info screen!%n" +
                         "There are currently %d CPU cores available to Terasology.%n" +
                         "As for temperature... well, your computer is on. We know that much.%n" +

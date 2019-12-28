@@ -1,3 +1,18 @@
+/*
+ * Copyright 2019 MovingBlocks
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.terasology.sample.blocks;
 
 import org.terasology.math.Rotation;
@@ -19,9 +34,9 @@ public class IronPlateFamily extends MultiConnectFamily {
 
     public IronPlateFamily(BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder) {
         super(definition, blockBuilder);
-        
+
         BlockUri blockUri = new BlockUri(definition.getUrn());
-        
+
         this.registerBlock(blockUri, definition, blockBuilder, "single", (byte) 0, Rotation.horizontalRotations());
         this.registerBlock(blockUri, definition, blockBuilder, "one_connection", SideBitFlag.getSide(Side.RIGHT), Rotation.horizontalRotations());
         this.registerBlock(blockUri, definition, blockBuilder, "line", SideBitFlag.getSides(Side.FRONT, Side.BACK), Rotation.horizontalRotations());
@@ -37,8 +52,9 @@ public class IronPlateFamily extends MultiConnectFamily {
         if (worldProvider.isBlockRelevant(neighborLocation)) {
             Block neighborBlock = worldProvider.getBlock(neighborLocation);
             final BlockFamily blockFamily = neighborBlock.getBlockFamily();
-            if (blockFamily instanceof IronPlateFamily)
+            if (blockFamily instanceof IronPlateFamily) {
                 return true;
+            }
         }
         return false;
     }
