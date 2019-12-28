@@ -15,7 +15,7 @@
  */
 package org.terasology.sample.nui.internal;
 
-import org.terasology.nui.ListenerScreenTextProvider;
+import org.terasology.sample.nui.ListenerScreenTextProvider;
 
 public class TestListenerScreenTextProvider implements ListenerScreenTextProvider {
     private int count;

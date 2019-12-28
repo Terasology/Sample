@@ -15,7 +15,7 @@
  */
 package org.terasology.sample.nui.internal;
 
-import org.terasology.nui.ListenerScreen;
+import org.terasology.sample.nui.ListenerScreen;
 
 public class TestListenerScreen extends ListenerScreen {
     @Override

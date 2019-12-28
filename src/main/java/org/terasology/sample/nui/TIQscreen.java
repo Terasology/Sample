@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.terasology.TIQScreen;
+package org.terasology.sample.nui;
 
 import org.terasology.engine.Time;
 import org.terasology.registry.In;

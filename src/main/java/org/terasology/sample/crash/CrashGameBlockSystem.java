@@ -27,7 +27,7 @@ import org.terasology.logic.common.ActivateEvent;
 @RegisterSystem
 public class CrashGameBlockSystem extends BaseComponentSystem {
 
-    @ReceiveEvent(components = {CrashGameBlockComponent.class})
+    @ReceiveEvent(components = CrashGameBlockComponent.class)
     public void onActivate(ActivateEvent event, EntityRef entity) {
         CrashGameBlockComponent cgbc = entity.getComponent(CrashGameBlockComponent.class);
         if (cgbc.reallyCrashy) {
