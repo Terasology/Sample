@@ -5,7 +5,7 @@
     "displayName" : "Sample Module",
     "description" : "This module contains assets and code for testing / showcasing Terasology engine + module features",
     "dependencies" : [
-        {"id": "Core", "minVersion": "2.0.0"},
+        {"id": "Core", "minVersion": "3.0.0"},
         {"id": "CoreAssets", "minVersion": "1.0.0"}
     ],
     "isServerSideOnly" : false
