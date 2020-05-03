@@ -6,7 +6,8 @@
     "description" : "This module contains assets and code for testing / showcasing Terasology engine + module features",
     "dependencies" : [
         {"id": "CoreAssets", "minVersion": "1.0.0"},
-        {"id" : "Inventory", "minVersion" : "1.1.0"}
+        {"id": "Inventory", "minVersion": "1.1.0"},
+        {"id": "Health", "minVersion": "0.1.0"}
     ],
     "isServerSideOnly" : false,
     "isSpecial": true
