@@ -1,12 +1,15 @@
 {
-    "id" : "Sample",
-    "version" : "0.1.5-SNAPSHOT",
-    "author" : "MovingBlocks Community, Mandar Juvekar, Paarth Madan, Scott Moses Sunarto, SufurElite, Wojciech Sadowski",
-    "displayName" : "Sample Module",
-    "description" : "This module contains assets and code for testing / showcasing Terasology engine + module features",
-    "dependencies" : [
-        {"id": "Core", "minVersion": "3.0.0"},
-        {"id": "CoreAssets", "minVersion": "1.0.0"}
+    "id": "Sample",
+    "version": "1.0.0",
+    "author": "MovingBlocks Community, Mandar Juvekar, Paarth Madan, Scott Moses Sunarto, SufurElite, Wojciech Sadowski",
+    "displayName": "Sample Module",
+    "description": "This module contains assets and code for testing / showcasing Terasology engine + module features",
+    "dependencies": [
+        { "id": "CoreAssets", "minVersion": "2.0.1" },
+        { "id": "Health", "minVersion": "1.0.0" },
+        { "id": "Inventory", "minVersion": "1.1.0" }
     ],
-    "isServerSideOnly" : false
+    "isServerSideOnly": false,
+    "isAsset": true,
+    "isSpecial": true
 }
