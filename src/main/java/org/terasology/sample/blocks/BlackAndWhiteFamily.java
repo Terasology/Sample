@@ -17,6 +17,7 @@ package org.terasology.sample.blocks;
 
 import gnu.trove.map.TByteObjectMap;
 import gnu.trove.map.hash.TByteObjectHashMap;
+import org.terasology.math.JomlUtil;
 import org.terasology.math.Side;
 import org.terasology.math.SideBitFlag;
 import org.terasology.math.geom.Vector3i;
@@ -28,6 +29,7 @@ import org.terasology.world.block.BlockBuilderHelper;
 import org.terasology.world.block.BlockUri;
 import org.terasology.world.block.family.AbstractBlockFamily;
 import org.terasology.world.block.family.BlockFamily;
+import org.terasology.world.block.family.BlockPlacementData;
 import org.terasology.world.block.family.BlockSections;
 import org.terasology.world.block.family.RegisterBlockFamily;
 import org.terasology.world.block.family.UpdatesWithNeighboursFamily;
@@ -119,6 +121,11 @@ public class BlackAndWhiteFamily extends AbstractBlockFamily implements UpdatesW
     @Override
     public String getDisplayName() {
         return "Black and White";
+    }
+
+    @Override
+    public Block getBlockForPlacement(BlockPlacementData data) {
+        return getProperBlock(worldProvider, JomlUtil.from(data.blockPosition));
     }
 
     @Override
