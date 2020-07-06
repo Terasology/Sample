@@ -16,6 +16,7 @@
 package org.terasology.sample.blocks;
 
 import gnu.trove.map.hash.TByteObjectHashMap;
+import org.joml.Vector3ic;
 import org.terasology.math.Rotation;
 import org.terasology.math.Side;
 import org.terasology.math.SideBitFlag;
@@ -55,6 +56,12 @@ public class StoneColumnFamily extends MultiConnectFamily {
     @Override
     protected boolean connectionCondition(Vector3i blockLocation, Side connectSide) {
         Vector3i target = connectSide.getAdjacentPos(blockLocation);
+        return worldProvider.isBlockRelevant(target) && worldProvider.getBlock(target).getBlockFamily() instanceof StoneColumnFamily;
+    }
+
+    @Override
+    protected boolean connectionCondition(Vector3ic blockLocation, Side connectSide) {
+        org.joml.Vector3i target = connectSide.getAdjacentPos(blockLocation, new org.joml.Vector3i());
         return worldProvider.isBlockRelevant(target) && worldProvider.getBlock(target).getBlockFamily() instanceof StoneColumnFamily;
     }
 

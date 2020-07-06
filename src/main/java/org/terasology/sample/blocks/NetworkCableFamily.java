@@ -15,6 +15,7 @@
  */
 package org.terasology.sample.blocks;
 
+import org.joml.Vector3ic;
 import org.terasology.math.Rotation;
 import org.terasology.math.Side;
 import org.terasology.math.SideBitFlag;
@@ -79,6 +80,12 @@ public class NetworkCableFamily extends MultiConnectFamily implements UpdatesWit
     @Override
     protected boolean connectionCondition(Vector3i location, Side side) {
         Vector3i target = side.getAdjacentPos(location);
+        return worldProvider.isBlockRelevant(target) && worldProvider.getBlock(target).getBlockFamily() instanceof NetworkCableFamily;
+    }
+
+    @Override
+    protected boolean connectionCondition(Vector3ic blockLocation, Side connectSide) {
+        org.joml.Vector3i target = connectSide.getAdjacentPos(blockLocation, new org.joml.Vector3i());
         return worldProvider.isBlockRelevant(target) && worldProvider.getBlock(target).getBlockFamily() instanceof NetworkCableFamily;
     }
 }
