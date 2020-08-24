@@ -15,10 +15,10 @@
  */
 package org.terasology.sample.nui;
 
+import org.terasology.nui.UIWidget;
+import org.terasology.nui.widgets.UIButton;
+import org.terasology.nui.widgets.UIText;
 import org.terasology.rendering.nui.CoreScreenLayer;
-import org.terasology.rendering.nui.UIWidget;
-import org.terasology.rendering.nui.widgets.UIButton;
-import org.terasology.rendering.nui.widgets.UIText;
 import java.util.Calendar;
 
 public class TimeScreen extends CoreScreenLayer {

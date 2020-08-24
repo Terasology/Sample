@@ -15,11 +15,9 @@
  */
 package org.terasology.sample.nui;
 
-//import org.terasology.engine.Time;
-//import org.terasology.registry.In;
+import org.terasology.nui.widgets.UIButton;
+import org.terasology.nui.widgets.UIText;
 import org.terasology.rendering.nui.CoreScreenLayer;
-import org.terasology.rendering.nui.widgets.UIButton;
-import org.terasology.rendering.nui.widgets.UIText;
 
 public class GuideScreen extends CoreScreenLayer {
     private UIText infoArea;

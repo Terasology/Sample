@@ -15,10 +15,10 @@
  */
 package org.terasology.sample.nui;
 
+import org.terasology.nui.widgets.UIRadialRing;
+import org.terasology.nui.widgets.UIRadialSection;
+import org.terasology.nui.widgets.UIText;
 import org.terasology.rendering.nui.CoreScreenLayer;
-import org.terasology.rendering.nui.widgets.UIRadialRing;
-import org.terasology.rendering.nui.widgets.UIRadialSection;
-import org.terasology.rendering.nui.widgets.UIText;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -43,9 +43,7 @@ public class FortuneTeller extends CoreScreenLayer {
         List<UIRadialSection> newSections = new LinkedList<>();
 
         for (int i = 0; i < fortunes.length; i++) {
-            UIRadialSection newSection = new UIRadialSection();
-            newSection.setText(Integer.toString(i));
-
+            UIRadialSection newSection = new UIRadialSection(Integer.toString(i));
             newSections.add(newSection);
         }
 
