@@ -19,10 +19,10 @@ import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.logic.health.HealthComponent;
 import org.terasology.logic.inventory.InventoryManager;
 import org.terasology.logic.players.LocalPlayer;
+import org.terasology.nui.widgets.UIButton;
+import org.terasology.nui.widgets.UIText;
 import org.terasology.registry.In;
 import org.terasology.rendering.nui.CoreScreenLayer;
-import org.terasology.rendering.nui.widgets.UIButton;
-import org.terasology.rendering.nui.widgets.UIText;
 
 public class PlayerInfoScreen extends CoreScreenLayer {
     private UIText infoArea;

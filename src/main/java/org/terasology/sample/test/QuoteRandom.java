@@ -16,11 +16,10 @@
 package org.terasology.sample.test;
 
 import com.google.common.collect.Lists;
+import org.terasology.nui.UIWidget;
+import org.terasology.nui.widgets.UIButton;
+import org.terasology.nui.widgets.UILabel;
 import org.terasology.rendering.nui.CoreScreenLayer;
-import org.terasology.rendering.nui.UIWidget;
-import org.terasology.rendering.nui.widgets.UIButton;
-import org.terasology.rendering.nui.widgets.UILabel;
-
 import java.util.Collections;
 import java.util.List;
 
