@@ -1,63 +1,63 @@
 {
-    "type": "RandomNumberScreen",
-    "contents": {
-        "type": "relativeLayout",
-        "contents": [
+  "type": "RandomNumberScreen",
+  "contents": {
+    "type": "relativeLayout",
+    "contents": [
+      {
+        "type": "UIBox",
+        "layoutInfo": {
+          "width": 300,
+          "height": 300,
+          "position-horizontal-center": {},
+          "position-vertical-center": {}
+        },
+        "content": {
+          "type": "relativeLayout",
+          "contents": [
             {
-                "type": "UIBox",
-                "layoutInfo": {
-                    "width": 300,
-                    "height": 300,
-                    "position-horizontal-center": {},
-                    "position-vertical-center": {}
+              "type": "UILabel",
+              "id": "box2",
+              "text": "Random Thing",
+              "layoutInfo": {
+                "use-content-width": true,
+                "position-horizontal-right": {},
+                "height": 30,
+                "position-left": {}
+              }
+            },
+            {
+              "type": "UIText",
+              "text": "",
+              "id": "text2",
+              "layoutInfo": {
+                "position-top": {
+                  "widget": "box2",
+                  "target": "BOTTOM"
                 },
-                "content": {
-                    "type": "relativeLayout",
-                    "contents": [
-                        {
-                            "type": "UILabel",
-                            "id": "box2",
-                            "text": "Random Thing",
-                            "layoutInfo": {
-                                "use-content-width": true,
-                                "position-horizontal-right": {},
-                                "height": 30,
-                                "position-left": {}
-                            }
-                        },
-                        {
-                            "type": "UIText",
-                            "text": "",
-                            "id": "text2",
-                            "layoutInfo": {
-                                "position-top": {
-                                    "widget": "box2",
-                                    "target": "BOTTOM"
-                                },
-                                "position-bottom": {
-                                    "widget": "button2",
-                                    "target": "TOP"
-                                },
-                                "width": 270,
-                                "position-right": {}
-                            },
-                            "multiline": true,
-                            "readOnly": true
-                        },
-                        {
-                            "type": "UIButton",
-                            "id": "button2",
-                            "text": "Click Me",
-                            "layoutInfo": {
-                                "use-content-height": true,
-                                "position-bottom": {},
-                                "width": 270,
-                                "position-right": {}
-                            }
-                        }
-                    ]
-                }
+                "position-bottom": {
+                  "widget": "button2",
+                  "target": "TOP"
+                },
+                "width": 270,
+                "position-right": {}
+              },
+              "multiline": true,
+              "readOnly": true
+            },
+            {
+              "type": "UIButton",
+              "id": "button2",
+              "text": "Click Me",
+              "layoutInfo": {
+                "use-content-height": true,
+                "position-bottom": {},
+                "width": 270,
+                "position-right": {}
+              }
             }
-        ]
-    }
+          ]
+        }
+      }
+    ]
+  }
 }

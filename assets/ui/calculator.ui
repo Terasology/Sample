@@ -1,221 +1,222 @@
 {
-    "type": "CalculatorScreen",
-    "contents": {
-        "type": "relativeLayout",
-        "contents": [
+  "type": "CalculatorScreen",
+  "contents": {
+    "type": "relativeLayout",
+    "contents": [
+      {
+        "type": "UIBox",
+        "layoutInfo": {
+          "width": 600,
+          "height": 400,
+          "position-horizontal-center": {},
+          "position-vertical-center": {}
+        },
+        "content": {
+          "type": "relativeLayout",
+          "contents": [
             {
-                "type": "UIBox",
-                "layoutInfo": {
-                    "width": 600,
-                    "height": 400,
-                    "position-horizontal-center": {},
-                    "position-vertical-center": {}
-                },
-                "content": {
-                    "type": "relativeLayout",
-                    "contents": [
-                        {
-                            "type": "UILabel",
-                            "id": "calculatorLabel",
-                            "text": "Calculator",
-                            "layoutInfo": {
-                                "use-content-width": true,
-                                "position-horizontal-center": {},
-                                "height": 30
-                            }
-                        },
-                        {
-                            "type": "UIText",
-                            "text": "Results go here",
-                            "id": "calculationOutput",
-                            "layoutInfo": {
-                                "use-content-width": true,
-                                "position-horizontal-center": {},
-                                "height": 30,
-				"width": 600,
-                                "position-top": {
-                                    "widget": "calculatorLabel",
-                                    "target": "BOTTOM"
-                                }
-                            },
-                            "multiline": true,
-                            "readOnly": true
-                        },
-                        {
-                            "type": "migLayout",
-                            "id": "buttonsLayout",
-                            "layoutConstraints": "",
-                            "layoutInfo": {
-                                "position-top": {
-                                    "widget": "calculationOutput",
-                                    "target": "BOTTOM"
-                                }
-                            },
-                            "contents": [
-                            {
-                                "type": "UIButton",
-                                "id": "button1",
-                                "text": "1",
-                                "layoutInfo": {
-                                    "cc": "cell 0 0"
-                                }
-                            },
-                            {
-                                "type": "UIButton",
-                                "id": "button2",
-                                "text": "2",
-                                "layoutInfo": {
-                                    "cc": "cell 1 0"
-                                }
-                            },
-                            {
-                                "type": "UIButton",
-                                "id": "button3",
-                                "text": "3",
-                                "layoutInfo": {
-                                    "cc": "cell 2 0"
-                                }
-                            },
-                            {
-                                "type": "UIButton",
-                                "id": "button4",
-                                "text": "4",
-                                "layoutInfo": {
-                                    "cc": "cell 0 1"
-                                }
-                            },
-                            {
-                                "type": "UIButton",
-                                "id": "button5",
-                                "text": "5",
-                                "layoutInfo": {
-                                    "cc": "cell 1 1"
-                                }
-                            },
-                            {
-                                "type": "UIButton",
-                                "id": "button6",
-                                "text": "6",
-                                "layoutInfo": {
-                                      "cc": "cell 2 1"
-                                }
-                            },
-                            {
-                                "type": "UIButton",
-                                "id": "button7",
-                                "text": "7",
-                                "layoutInfo": {
-                                    "cc": "cell 0 2"
-                                }
-                            },
-                            {
-                                "type": "UIButton",
-                                "id": "button8",
-                                "text": "8",
-                                "layoutInfo": {
-                                    "cc": "cell 1 2"
-                                }
-                            },
-                            {
-                                "type": "UIButton",
-                                "id": "button9",
-                                "text": "9",
-                                "layoutInfo": {
-                                    "cc": "cell 2 2"
-                                }
-                            },
-                            {
-                                "type": "UIButton",
-                                "id": "button0",
-                                "text": "0",
-                                "layoutInfo": {
-                                    "cc": "cell 0 3"
-                                }
-                            },
-                            {
-                                "type": "UIButton",
-                                "id": "buttonEquals",
-                                "text": "=",
-                                "layoutInfo": {
-                                    "cc": "cell 2 3"
-                                }
-                            },
-                            {
-                                "type": "UIButton",
-                                "id": "buttonAdd",
-                                "text": "+",
-                                "layoutInfo": {
-                                    "cc": "cell 3 0"
-                                }
-                            },
-                            {
-                                "type": "UIButton",
-                                "id": "buttonSubtract",
-                                "text": "-",
-                                "layoutInfo": {
-                                    "cc": "cell 3 1"
-                                }
-                            },
-                            {
-                                "type": "UIButton",
-                                "id": "buttonMultiply",
-                                "text": "*",
-                                "layoutInfo": {
-                                    "cc": "cell 3 2"
-                                }
-                            },
-                            {
-                                "type": "UIButton",
-                                "id": "buttonDivide",
-                                "text": "/",
-                                "layoutInfo": {
-                                    "cc": "cell 3 3"
-                                }
-                            },
-                            {
-                                "type": "UIButton",
-                                "id": "buttonDot",
-                                "text": ".",
-                                "layoutInfo": {
-                                    "cc": "cell 1 3"
-                                }
-                            },
-                            {
-                                "type": "UIButton",
-                                "id": "buttonClear",
-                                "text": "Clear",
-                                "layoutInfo": {
-                                    "cc": "cell 4 0"
-                                }
-                            },
-                            {
-                                "type": "UIButton",
-                                "id": "buttonBack",
-                                "text": "Delete",
-                                "layoutInfo": {
-                                    "cc": "cell 4 1"
-                                }
-                            },
-                            {
-                                "type": "UIButton",
-                                "id": "buttonLeftBracket",
-                                "text": "(",
-                                "layoutInfo": {
-                                    "cc": "cell 4 2"
-                                }
-                            },
-                            {
-                                "type": "UIButton",
-                                "id": "buttonRightBracket",
-                                "text": ")",
-                                "layoutInfo": {
-                                    "cc": "cell 4 3"
-                                }
-                            }]
-                        }
-                    ]
+              "type": "UILabel",
+              "id": "calculatorLabel",
+              "text": "Calculator",
+              "layoutInfo": {
+                "use-content-width": true,
+                "position-horizontal-center": {},
+                "height": 30
+              }
+            },
+            {
+              "type": "UIText",
+              "text": "Results go here",
+              "id": "calculationOutput",
+              "layoutInfo": {
+                "use-content-width": true,
+                "position-horizontal-center": {},
+                "height": 30,
+                "width": 600,
+                "position-top": {
+                  "widget": "calculatorLabel",
+                  "target": "BOTTOM"
                 }
+              },
+              "multiline": true,
+              "readOnly": true
+            },
+            {
+              "type": "migLayout",
+              "id": "buttonsLayout",
+              "layoutConstraints": "",
+              "layoutInfo": {
+                "position-top": {
+                  "widget": "calculationOutput",
+                  "target": "BOTTOM"
+                }
+              },
+              "contents": [
+                {
+                  "type": "UIButton",
+                  "id": "button1",
+                  "text": "1",
+                  "layoutInfo": {
+                    "cc": "cell 0 0"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "button2",
+                  "text": "2",
+                  "layoutInfo": {
+                    "cc": "cell 1 0"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "button3",
+                  "text": "3",
+                  "layoutInfo": {
+                    "cc": "cell 2 0"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "button4",
+                  "text": "4",
+                  "layoutInfo": {
+                    "cc": "cell 0 1"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "button5",
+                  "text": "5",
+                  "layoutInfo": {
+                    "cc": "cell 1 1"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "button6",
+                  "text": "6",
+                  "layoutInfo": {
+                    "cc": "cell 2 1"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "button7",
+                  "text": "7",
+                  "layoutInfo": {
+                    "cc": "cell 0 2"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "button8",
+                  "text": "8",
+                  "layoutInfo": {
+                    "cc": "cell 1 2"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "button9",
+                  "text": "9",
+                  "layoutInfo": {
+                    "cc": "cell 2 2"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "button0",
+                  "text": "0",
+                  "layoutInfo": {
+                    "cc": "cell 0 3"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "buttonEquals",
+                  "text": "=",
+                  "layoutInfo": {
+                    "cc": "cell 2 3"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "buttonAdd",
+                  "text": "+",
+                  "layoutInfo": {
+                    "cc": "cell 3 0"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "buttonSubtract",
+                  "text": "-",
+                  "layoutInfo": {
+                    "cc": "cell 3 1"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "buttonMultiply",
+                  "text": "*",
+                  "layoutInfo": {
+                    "cc": "cell 3 2"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "buttonDivide",
+                  "text": "/",
+                  "layoutInfo": {
+                    "cc": "cell 3 3"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "buttonDot",
+                  "text": ".",
+                  "layoutInfo": {
+                    "cc": "cell 1 3"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "buttonClear",
+                  "text": "Clear",
+                  "layoutInfo": {
+                    "cc": "cell 4 0"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "buttonBack",
+                  "text": "Delete",
+                  "layoutInfo": {
+                    "cc": "cell 4 1"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "buttonLeftBracket",
+                  "text": "(",
+                  "layoutInfo": {
+                    "cc": "cell 4 2"
+                  }
+                },
+                {
+                  "type": "UIButton",
+                  "id": "buttonRightBracket",
+                  "text": ")",
+                  "layoutInfo": {
+                    "cc": "cell 4 3"
+                  }
+                }
+              ]
             }
-        ]
-    }
+          ]
+        }
+      }
+    ]
+  }
 }

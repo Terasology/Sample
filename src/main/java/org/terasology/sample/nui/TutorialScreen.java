@@ -1,43 +1,31 @@
-/*
- * Copyright 2017 MovingBlocks
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright 2020 The Terasology Foundation
+// SPDX-License-Identifier: Apache-2.0
 package org.terasology.sample.nui;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.terasology.engine.Time;
+import org.terasology.engine.core.Time;
+import org.terasology.engine.registry.In;
+import org.terasology.engine.rendering.nui.CoreScreenLayer;
 import org.terasology.nui.layouts.relative.RelativeLayout;
 import org.terasology.nui.widgets.UIButton;
 import org.terasology.nui.widgets.UIText;
-import org.terasology.registry.In;
-import org.terasology.rendering.nui.CoreScreenLayer;
 
 public class TutorialScreen extends CoreScreenLayer {
     private static final Logger logger = LoggerFactory.getLogger("logger");
+    private final String pt0 = "Welcome to Terasology! This tutorial will guide you through using the default " +
+            "controls. Press 'Okay' to continue.";
+    private final String pt1 = "To destroy blocks, you can use the left mouse button.";
+    private final String pt2 = "To place blocks, use your right mouse button.";
+    private final String pt3 = "Press space to jump, and use W, A, S, and D to move.";
+    private final String pt4 = "Press E to activate or use an item, and I to access your inventory.";
+    private final String pt5 = "You can use the number keys (1-0) to move through your toolbar slots.";
+    private final String pt6 = "Enjoy playing Terasology!";
     private UIText info;
     private UIButton proceed;
     private RelativeLayout layout;
-    private String base = "Welcome to Terasology! This tutorial will guide you through using the default controls. Press 'Okay' to continue.";
-    private String pt0 = "Welcome to Terasology! This tutorial will guide you through using the default controls. Press 'Okay' to continue.";
-    private String pt1 = "To destroy blocks, you can use the left mouse button.";
-    private String pt2 = "To place blocks, use your right mouse button.";
-    private String pt3 = "Press space to jump, and use W, A, S, and D to move.";
-    private String pt4 = "Press E to activate or use an item, and I to access your inventory.";
-    private String pt5 = "You can use the number keys (1-0) to move through your toolbar slots.";
-    private String pt6 = "Enjoy playing Terasology!";
-
+    private String base = "Welcome to Terasology! This tutorial will guide you through using the default controls. " +
+            "Press 'Okay' to continue.";
     @In
     private Time time;
 
@@ -63,6 +51,7 @@ public class TutorialScreen extends CoreScreenLayer {
             });
         }
     }
+
     private void advance() {
         if (base.equals(pt0)) {
             base = pt1;

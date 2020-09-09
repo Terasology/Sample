@@ -1,69 +1,69 @@
 {
-    "type": "AddAndSubtract",
-    "contents": {
-        "type": "relativeLayout",
-        "contents": [
+  "type": "AddAndSubtract",
+  "contents": {
+    "type": "relativeLayout",
+    "contents": [
+      {
+        "type": "UIBox",
+        "layoutInfo": {
+          "width": 300,
+          "height": 300,
+          "position-horizontal-center": {},
+          "position-vertical-center": {}
+        },
+        "content": {
+          "type": "relativeLayout",
+          "contents": [
             {
-                "type": "UIBox",
-                "layoutInfo": {
-                    "width": 300,
-                    "height": 300,
-                    "position-horizontal-center": {},
-                    "position-vertical-center": {}
+              "type": "UILabel",
+              "id": "title",
+              "text": "Add and Subtract",
+              "layoutInfo": {
+                "use-content-width": true,
+                "position-horizontal-center": {},
+                "height": 30
+              }
+            },
+            {
+              "type": "UIText",
+              "text": "",
+              "id": "infoArea",
+              "layoutInfo": {
+                "position-top": {
+                  "widget": "title",
+                  "target": "BOTTOM"
                 },
-                "content": {
-                    "type": "relativeLayout",
-                    "contents": [
-                        {
-                            "type": "UILabel",
-                            "id": "title",
-                            "text": "Add and Subtract",
-                            "layoutInfo": {
-                                "use-content-width": true,
-                                "position-horizontal-center": {},
-                                "height": 30
-                            }
-                        },
-                        {
-                            "type": "UIText",
-                            "text": "",
-                            "id": "infoArea",
-                            "layoutInfo": {
-                                "position-top": {
-                                    "widget": "title",
-                                    "target": "BOTTOM"
-                                },
-                                "position-bottom": {
-                                    "widget": "addButton",
-                                    "target": "TOP"
-                                }
-                            },
-                            "multiline": true,
-                            "readOnly": true
-                        },
-                        {
-                            "type": "UIButton",
-                            "id": "addButton",
-                            "text": "Add",
-                            "layoutInfo": {
-                                "use-content-height": true,
-                                "position-bottom": {
-                                    "offset": 24
-                                }
-                            }
-                        },
-                        {
-                            "type": "UIButton",
-                            "id": "subtractButton",
-                            "text": "Subtract",
-                            "layoutInfo": {
-                                "use-content-height": true,
-                                "position-bottom": {}
-                            }
-                        }
-                    ]
+                "position-bottom": {
+                  "widget": "addButton",
+                  "target": "TOP"
                 }
+              },
+              "multiline": true,
+              "readOnly": true
+            },
+            {
+              "type": "UIButton",
+              "id": "addButton",
+              "text": "Add",
+              "layoutInfo": {
+                "use-content-height": true,
+                "position-bottom": {
+                  "offset": 24
+                }
+              }
+            },
+            {
+              "type": "UIButton",
+              "id": "subtractButton",
+              "text": "Subtract",
+              "layoutInfo": {
+                "use-content-height": true,
+                "position-bottom": {}
+              }
             }
-        ]
-    }
+          ]
+        }
+      }
+    ]
+  }
 }

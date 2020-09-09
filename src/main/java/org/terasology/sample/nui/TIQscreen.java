@@ -1,46 +1,33 @@
-/*
- * Copyright 2018 MovingBlocks
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright 2020 The Terasology Foundation
+// SPDX-License-Identifier: Apache-2.0
 package org.terasology.sample.nui;
 
-import org.terasology.engine.Time;
+import org.terasology.engine.core.Time;
+import org.terasology.engine.registry.In;
+import org.terasology.engine.rendering.nui.CoreScreenLayer;
 import org.terasology.nui.widgets.UIButton;
 import org.terasology.nui.widgets.UILabel;
 import org.terasology.nui.widgets.UIText;
-import org.terasology.registry.In;
-import org.terasology.rendering.nui.CoreScreenLayer;
 
 import java.util.Calendar;
 import java.util.Random;
 
 public class TIQscreen extends CoreScreenLayer {
+    private final double bytesInMegabyte = 1048576.0;
+    private final String[] quotes = {
+            "\"A champion is defined not by their wins but by how they can recover when they fall.\"  - Serena " +
+                    "Williams",
+            "\"It's the possibility of having a dream come true that makes life interesting.\" - Paulo Coelho, The " +
+                    "Alchemist",
+            "\"Even the darkest night will end and the sun will rise.\" - Victor Hugo, Les Miserables",
+            "\"So many things are possible just as long as you don’t know they’re impossible.\" - Norton Juster, The " +
+                    "Phantom Tollbooth",
+            "\"The worst enemy to creativity is self-doubt.\" - Sylvia Plath, The Unabridged Journals of Sylvia Plath"
+    };
     private UILabel timeDisplay;
     private UIText infoArea;
     private UIText quoteDisplay;
     private UIButton updateButton;
-
-    private final double bytesInMegabyte = 1048576.0;
-
-    private String[] quotes = {
-        "\"A champion is defined not by their wins but by how they can recover when they fall.\"  - Serena Williams",
-        "\"It's the possibility of having a dream come true that makes life interesting.\" - Paulo Coelho, The Alchemist",
-        "\"Even the darkest night will end and the sun will rise.\" - Victor Hugo, Les Miserables",
-        "\"So many things are possible just as long as you don’t know they’re impossible.\" - Norton Juster, The Phantom Tollbooth",
-        "\"The worst enemy to creativity is self-doubt.\" - Sylvia Plath, The Unabridged Journals of Sylvia Plath"
-    };
-
     @In
     private Time time;
 
@@ -84,7 +71,7 @@ public class TIQscreen extends CoreScreenLayer {
     }
 
     private float secondsInGame() {
-        return  time.getGameTime() - (minutesInGame() * 60);
+        return time.getGameTime() - (minutesInGame() * 60);
     }
 
     private String getRealWorldTime() {

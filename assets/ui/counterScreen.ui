@@ -1,57 +1,57 @@
 {
-    "type": "CounterScreen",
-    "contents": {
-        "type": "relativeLayout",
-        "contents": [
+  "type": "CounterScreen",
+  "contents": {
+    "type": "relativeLayout",
+    "contents": [
+      {
+        "type": "UIBox",
+        "layoutInfo": {
+          "width": 200,
+          "height": 100,
+          "position-horizontal-center": {},
+          "position-vertical-center": {}
+        },
+        "content": {
+          "type": "relativeLayout",
+          "contents": [
             {
-                "type": "UIBox",
-                "layoutInfo": {
-                    "width": 200,
-                    "height": 100,
-                    "position-horizontal-center": {},
-                    "position-vertical-center": {}
+              "type": "UIText",
+              "text": "",
+              "id": "infoArea",
+              "layoutInfo": {
+                "position-top": {
+                  "widget": "updateIncreaseButton",
+                  "target": "BOTTOM"
                 },
-                "content": {
-                    "type": "relativeLayout",
-                    "contents": [
-                        {
-                            "type": "UIText",
-                            "text": "",
-                            "id": "infoArea",
-                            "layoutInfo": {
-                                "position-top": {
-                                    "widget": "updateIncreaseButton",
-                                    "target": "BOTTOM"
-                                },
-                                "position-bottom": {
-                                    "widget": "updateDecreaseButton",
-                                    "target": "TOP"
-                                }
-                            },
-                            "multiline": true,
-                            "readOnly": true
-                        },
-                        {
-                            "type": "UIButton",
-                            "id": "updateIncreaseButton",
-                            "text": "Increase!",
-                            "layoutInfo": {
-                                "use-content-height": true,
-                                "position-top": {}
-                            }
-                        },
-                        {
-                            "type": "UIButton",
-                            "id": "updateDecreaseButton",
-                            "text": "Decrease!",
-                            "layoutInfo": {
-                                "use-content-height": true,
-                                "position-bottom": {}
-                            }
-                        }
-                    ]
+                "position-bottom": {
+                  "widget": "updateDecreaseButton",
+                  "target": "TOP"
                 }
+              },
+              "multiline": true,
+              "readOnly": true
+            },
+            {
+              "type": "UIButton",
+              "id": "updateIncreaseButton",
+              "text": "Increase!",
+              "layoutInfo": {
+                "use-content-height": true,
+                "position-top": {}
+              }
+            },
+            {
+              "type": "UIButton",
+              "id": "updateDecreaseButton",
+              "text": "Decrease!",
+              "layoutInfo": {
+                "use-content-height": true,
+                "position-bottom": {}
+              }
             }
-        ]
-    }
+          ]
+        }
+      }
+    ]
+  }
 }

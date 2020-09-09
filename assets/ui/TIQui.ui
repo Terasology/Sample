@@ -1,90 +1,85 @@
 {
-    "type": "TIQscreen",
-    "contents": {
-        "type": "relativeLayout",
-         "contents": [
+  "type": "TIQscreen",
+  "contents": {
+    "type": "relativeLayout",
+    "contents": [
+      {
+        "type": "UIBox",
+        "layoutInfo": {
+          "width": 900,
+          "height": 300,
+          "position-horizontal-center": {},
+          "position-vertical-center": {}
+        },
+        "content": {
+          "type": "relativeLayout",
+          "contents": [
             {
-                "type": "UIBox",
-                "layoutInfo": 
-                {
-                    "width": 900,
-                    "height": 300,
-                    "position-horizontal-center": {},
-                    "position-vertical-center": {}
+              "type": "UILabel",
+              "id": "ScreenLabel",
+              "text": "TIQ - TIME, INFO, QUOTE",
+              "layoutInfo": {
+                "use-content-width": true,
+                "position-horizontal-center": {},
+                "height": 30
+              }
+            },
+            {
+              "type": "UILabel",
+              "id": "timeDisplay",
+              "text": "",
+              "layoutInfo": {
+                "use-content-width": true,
+                "position-horizontal-center": {},
+                "position-top": {
+                  "widget": "ScreenLabel",
+                  "target": "BOTTOM"
                 },
-                "content": 
-                {
-                	"type": "relativeLayout",
-                	"contents": [
-					 	{
-					        "type": "UILabel",
-					        "id": "ScreenLabel",
-					        "text": "TIQ - TIME, INFO, QUOTE",
-					        "layoutInfo": 
-					        {
-					            "use-content-width": true,
-					            "position-horizontal-center": {},
-					            "height": 30
-					        }
-					    },
-					    {
-					        "type": "UILabel",
-					        "id": "timeDisplay",
-					        "text": "",
-					        "layoutInfo": 
-					        {
-					            "use-content-width": true,
-					            "position-horizontal-center": {},
-					             "position-top": {
-					                "widget": "ScreenLabel",
-					                "target": "BOTTOM"
-					            },
-					            "height": 30
-					        }
-					    },
-					    {
-					        "type": "UIText",
-					        "text": "",
-					        "id": "infoArea",
-					        "layoutInfo": {
-					            "position-top": {
-					                "widget": "timeDisplay",
-					                "target": "BOTTOM"
-					            },
-					             "position-bottom": {
-					                "widget": "quoteDisplay",
-					                "target": "TOP"
-					            }
-					        },
-					        "multiline": true,
-					        "readOnly": true
-					    },
-				     	{
-					        "type": "UIText",
-					        "id": "quoteDisplay",
-					        "text": "",
-					        "layoutInfo": 
-					        {
-					            "position-horizontal-center": {},
-					             "position-bottom": {
-					                "widget": "updateButton",
-					                "target": "TOP"
-					            },
-    					        "height": 50
-					        }
-					    },
-					    {
-					        "type": "UIButton",
-					        "id": "updateButton",
-					        "text": "Update",
-					        "layoutInfo": {
-					            "use-content-height": true,
-					            "position-bottom": {}
-					        }
-					    }
-                	]
+                "height": 30
+              }
+            },
+            {
+              "type": "UIText",
+              "text": "",
+              "id": "infoArea",
+              "layoutInfo": {
+                "position-top": {
+                  "widget": "timeDisplay",
+                  "target": "BOTTOM"
+                },
+                "position-bottom": {
+                  "widget": "quoteDisplay",
+                  "target": "TOP"
                 }
+              },
+              "multiline": true,
+              "readOnly": true
+            },
+            {
+              "type": "UIText",
+              "id": "quoteDisplay",
+              "text": "",
+              "layoutInfo": {
+                "position-horizontal-center": {},
+                "position-bottom": {
+                  "widget": "updateButton",
+                  "target": "TOP"
+                },
+                "height": 50
+              }
+            },
+            {
+              "type": "UIButton",
+              "id": "updateButton",
+              "text": "Update",
+              "layoutInfo": {
+                "use-content-height": true,
+                "position-bottom": {}
+              }
             }
-        ]
-    }
+          ]
+        }
+      }
+    ]
+  }
 }
