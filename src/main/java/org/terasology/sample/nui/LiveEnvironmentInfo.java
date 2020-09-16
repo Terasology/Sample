@@ -1,6 +1,6 @@
 // Copyright 2020 The Terasology Foundation
 // SPDX-License-Identifier: Apache-2.0
-package org.terasology.nui;
+package org.terasology.sample.nui;
 
 import org.terasology.engine.core.Time;
 import org.terasology.engine.logic.players.LocalPlayer;
