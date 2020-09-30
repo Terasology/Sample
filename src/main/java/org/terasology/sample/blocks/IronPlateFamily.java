@@ -15,6 +15,7 @@
  */
 package org.terasology.sample.blocks;
 
+import org.joml.Vector3ic;
 import org.terasology.math.Rotation;
 import org.terasology.math.Side;
 import org.terasology.math.SideBitFlag;
@@ -52,9 +53,19 @@ public class IronPlateFamily extends MultiConnectFamily {
         if (worldProvider.isBlockRelevant(neighborLocation)) {
             Block neighborBlock = worldProvider.getBlock(neighborLocation);
             final BlockFamily blockFamily = neighborBlock.getBlockFamily();
-            if (blockFamily instanceof IronPlateFamily) {
-                return true;
-            }
+            return blockFamily instanceof IronPlateFamily;
+        }
+        return false;
+    }
+
+    @Override
+    protected boolean connectionCondition(Vector3ic blockLocation, Side connectSide) {
+        org.joml.Vector3i neighborLocation = new org.joml.Vector3i(blockLocation);
+        neighborLocation.add(connectSide.direction());
+        if (worldProvider.isBlockRelevant(neighborLocation)) {
+            Block neighborBlock = worldProvider.getBlock(neighborLocation);
+            final BlockFamily blockFamily = neighborBlock.getBlockFamily();
+            return blockFamily instanceof IronPlateFamily;
         }
         return false;
     }

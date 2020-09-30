@@ -16,6 +16,7 @@
 package org.terasology.sample.blocks;
 
 import com.google.common.collect.ImmutableList;
+import org.joml.Vector3ic;
 import org.terasology.math.Pitch;
 import org.terasology.math.Roll;
 import org.terasology.math.Rotation;
@@ -67,9 +68,19 @@ public class SpeakerFamily extends MultiConnectFamily implements UpdatesWithNeig
         if (worldProvider.isBlockRelevant(neighborLocation)) {
             Block neighborBlock = worldProvider.getBlock(neighborLocation);
             final BlockFamily blockFamily = neighborBlock.getBlockFamily();
-            if (blockFamily instanceof SpeakerFamily) {
-                return true;
-            }
+            return blockFamily instanceof SpeakerFamily;
+        }
+        return false;
+    }
+
+    @Override
+    protected boolean connectionCondition(Vector3ic blockLocation, Side connectSide) {
+        org.joml.Vector3i neighborLocation = new org.joml.Vector3i(blockLocation);
+        neighborLocation.add(connectSide.direction());
+        if (worldProvider.isBlockRelevant(neighborLocation)) {
+            Block neighborBlock = worldProvider.getBlock(neighborLocation);
+            final BlockFamily blockFamily = neighborBlock.getBlockFamily();
+            return blockFamily instanceof SpeakerFamily;
         }
         return false;
     }

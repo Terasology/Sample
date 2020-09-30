@@ -17,6 +17,7 @@ package org.terasology.sample.blocks;
 
 import gnu.trove.map.TByteObjectMap;
 import gnu.trove.map.hash.TByteObjectHashMap;
+import org.joml.Vector3ic;
 import org.terasology.math.JomlUtil;
 import org.terasology.math.Side;
 import org.terasology.math.SideBitFlag;
@@ -83,6 +84,16 @@ public class RomanColumnFamily extends AbstractBlockFamily implements UpdatesWit
         return blocks.get(connections);
     }
 
+    private Block getProperBlock(WorldProvider worldProviderArg, Vector3ic location) {
+        byte connections = 0;
+        for (Side connectSide : new Side[] {Side.TOP, Side.BOTTOM}) {
+            if (this.connectionCondition(location, connectSide)) {
+                connections += SideBitFlag.getSide(connectSide);
+            }
+        }
+        return blocks.get(connections);
+    }
+
     private Block addBlock(BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder, String section, BlockUri blockUriArg, byte sides) {
         Block newBlock = blockBuilder.constructSimpleBlock(definition, section, new BlockUri(blockUriArg, new Name(String.valueOf(sides))), this);
         newBlock.setBlockFamily(this);
@@ -99,6 +110,17 @@ public class RomanColumnFamily extends AbstractBlockFamily implements UpdatesWit
             if (blockFamily instanceof RomanColumnFamily) {
                 return true;
             }
+        }
+        return false;
+    }
+
+    protected boolean connectionCondition(Vector3ic blockLocation, Side connectSide) {
+        org.joml.Vector3i neighborLocation = new org.joml.Vector3i(blockLocation);
+        neighborLocation.add(connectSide.direction());
+        if (worldProvider.isBlockRelevant(neighborLocation)) {
+            Block neighborBlock = worldProvider.getBlock(neighborLocation);
+            final BlockFamily blockFamily = neighborBlock.getBlockFamily();
+            return blockFamily instanceof RomanColumnFamily;
         }
         return false;
     }
@@ -145,6 +167,11 @@ public class RomanColumnFamily extends AbstractBlockFamily implements UpdatesWit
 
     @Override
     public Block getBlockForNeighborUpdate(Vector3i location, Block oldBlock) {
+        return getProperBlock(worldProvider, location);
+    }
+
+    @Override
+    public Block getBlockForNeighborUpdate(Vector3ic location, Block oldBlock) {
         return getProperBlock(worldProvider, location);
     }
 
