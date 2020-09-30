@@ -25,13 +25,14 @@ import org.terasology.world.block.Block;
 import org.terasology.world.block.BlockBuilderHelper;
 import org.terasology.world.block.BlockUri;
 import org.terasology.world.block.family.BlockSections;
+import org.terasology.world.block.family.MultiConnectFamily;
 import org.terasology.world.block.family.RegisterBlockFamily;
 import org.terasology.world.block.loader.BlockFamilyDefinition;
 import org.terasology.world.block.shapes.BlockShape;
-import org.terasology.world.block.family.MultiConnectFamily;
-import static org.terasology.math.SideBitFlag.getSides;
 
 import java.util.Collections;
+
+import static org.terasology.math.SideBitFlag.getSides;
 
 @RegisterBlockFamily("sample:StoneColumn")
 @BlockSections({"bottom", "top", "middle"})
