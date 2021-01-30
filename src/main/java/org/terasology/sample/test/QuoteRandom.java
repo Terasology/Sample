@@ -20,6 +20,7 @@ import org.terasology.nui.UIWidget;
 import org.terasology.nui.widgets.UIButton;
 import org.terasology.nui.widgets.UILabel;
 import org.terasology.rendering.nui.CoreScreenLayer;
+
 import java.util.Collections;
 import java.util.List;
 

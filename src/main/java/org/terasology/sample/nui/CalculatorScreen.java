@@ -20,11 +20,11 @@ import org.terasology.nui.widgets.UIText;
 import org.terasology.rendering.nui.CoreScreenLayer;
 
 import java.util.ArrayList;
-import java.util.Stack;
-import java.util.Queue;
-import java.util.Map;
-import java.util.HashMap;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Stack;
 import java.util.concurrent.ArrayBlockingQueue;
 
 public class CalculatorScreen extends CoreScreenLayer {

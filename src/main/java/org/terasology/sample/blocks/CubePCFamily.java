@@ -1,27 +1,13 @@
-/*
- * Copyright 2017 MovingBlocks
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright 2021 The Terasology Foundation
+// SPDX-License-Identifier: Apache-2.0
 package org.terasology.sample.blocks;
 
 import gnu.trove.map.TByteObjectMap;
 import gnu.trove.map.hash.TByteObjectHashMap;
+import org.joml.Vector3i;
 import org.joml.Vector3ic;
-import org.terasology.math.JomlUtil;
 import org.terasology.math.Side;
 import org.terasology.math.SideBitFlag;
-import org.terasology.math.geom.Vector3i;
 import org.terasology.naming.Name;
 import org.terasology.registry.In;
 import org.terasology.world.WorldProvider;
@@ -72,17 +58,6 @@ public class CubePCFamily extends AbstractBlockFamily implements UpdatesWithNeig
         blocks.put(bitFlag, addBlock(definition, blockBuilder, section, blockUri, bitFlag));
     }
 
-    private Block getProperBlock(WorldProvider worldProviderArg, Vector3i location) {
-        byte connections = 0;
-        for (Side connectSide : new Side[] {Side.TOP, Side.BOTTOM}) {
-            if (this.connectionCondition(location, connectSide)) {
-                connections += SideBitFlag.getSide(connectSide);
-            }
-        }
-        return blocks.get(connections);
-    }
-
-
     private Block getProperBlock(WorldProvider worldProviderArg, Vector3ic location) {
         byte connections = 0;
         for (Side connectSide : new Side[] {Side.TOP, Side.BOTTOM}) {
@@ -101,26 +76,12 @@ public class CubePCFamily extends AbstractBlockFamily implements UpdatesWithNeig
     }
 
     protected boolean connectionCondition(Vector3ic blockLocation, Side connectSide) {
-        org.joml.Vector3i neighborLocation = new org.joml.Vector3i(blockLocation);
+        Vector3i neighborLocation = new Vector3i(blockLocation);
         neighborLocation.add(connectSide.direction());
         if (worldProvider.isBlockRelevant(neighborLocation)) {
             Block neighborBlock = worldProvider.getBlock(neighborLocation);
             final BlockFamily blockFamily = neighborBlock.getBlockFamily();
             return blockFamily instanceof CubePCFamily;
-        }
-        return false;
-    }
-
-
-    protected boolean connectionCondition(Vector3i blockLocation, Side connectSide) {
-        Vector3i neighborLocation = new Vector3i(blockLocation);
-        neighborLocation.add(connectSide.getVector3i());
-        if (worldProvider.isBlockRelevant(neighborLocation)) {
-            Block neighborBlock = worldProvider.getBlock(neighborLocation);
-            final BlockFamily blockFamily = neighborBlock.getBlockFamily();
-            if (blockFamily instanceof CubePCFamily) {
-                return true;
-            }
         }
         return false;
     }
@@ -137,12 +98,7 @@ public class CubePCFamily extends AbstractBlockFamily implements UpdatesWithNeig
 
     @Override
     public Block getBlockForPlacement(BlockPlacementData data) {
-        return getProperBlock(worldProvider, JomlUtil.from(data.blockPosition));
-    }
-
-    @Override
-    public Block getBlockForPlacement(Vector3i location, Side attachmentSide, Side direction) {
-        return getProperBlock(worldProvider, location);
+        return getProperBlock(worldProvider, data.blockPosition);
     }
 
     @Override
