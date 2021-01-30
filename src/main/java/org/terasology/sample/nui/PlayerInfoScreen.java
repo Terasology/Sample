@@ -15,6 +15,7 @@
  */
 package org.terasology.sample.nui;
 
+import org.joml.Vector3f;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.logic.health.HealthComponent;
 import org.terasology.logic.inventory.InventoryManager;
@@ -41,7 +42,7 @@ public class PlayerInfoScreen extends CoreScreenLayer {
 
         if (updateButton != null) {
             updateButton.subscribe(button -> {
-                String response = "Welcome to the player information screen.\n\nPosition: " + localPlayer.getPosition().toString();
+                String response = "Welcome to the player information screen.\n\nPosition: " + localPlayer.getPosition(new Vector3f()).toString();
                 HealthComponent healthComponent = localPlayer.getCharacterEntity().getComponent(HealthComponent.class);
                 if (healthComponent != null) {
                     response += "\n\nHealth: " + healthComponent.currentHealth + " out of " + healthComponent.maxHealth;
