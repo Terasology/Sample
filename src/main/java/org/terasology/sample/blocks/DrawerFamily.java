@@ -62,25 +62,8 @@ public class DrawerFamily extends MultiConnectFamily {
     }
 
     @Override
-    public Block getBlockForNeighborUpdate(Vector3i location, Block oldBlock) {
-        return super.getBlockForNeighborUpdate(location, oldBlock);
-    }
-
-    @Override
     public Block getArchetypeBlock() {
         return blocks.get((byte) 0);
-    }
-
-    @Override
-    public boolean connectionCondition(Vector3i blockLocation, Side connectSide) {
-        Vector3i neighborLocation = new Vector3i(blockLocation);
-        neighborLocation.add(connectSide.getVector3i());
-
-        EntityRef neighborEntity = blockEntityRegistry.getEntityAt(neighborLocation);
-        BlockComponent blockComponent = neighborEntity.getComponent(BlockComponent.class);
-
-        return neighborEntity.hasComponent(ConnectsToDrawerComponent.class)
-                || (blockComponent != null && blockComponent.getBlock().isFullSide(connectSide));
     }
 
     @Override

@@ -166,11 +166,6 @@ public class RomanColumnFamily extends AbstractBlockFamily implements UpdatesWit
     }
 
     @Override
-    public Block getBlockForNeighborUpdate(Vector3i location, Block oldBlock) {
-        return getProperBlock(worldProvider, location);
-    }
-
-    @Override
     public Block getBlockForNeighborUpdate(Vector3ic location, Block oldBlock) {
         return getProperBlock(worldProvider, location);
     }

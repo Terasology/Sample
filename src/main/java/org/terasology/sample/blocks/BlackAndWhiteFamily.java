@@ -176,11 +176,6 @@ public class BlackAndWhiteFamily extends AbstractBlockFamily implements UpdatesW
     }
 
     @Override
-    public Block getBlockForNeighborUpdate(Vector3i location, Block oldBlock) {
-        return getProperBlock(worldProvider, location);
-    }
-
-    @Override
     public Block getBlockForNeighborUpdate(Vector3ic location, Block oldBlock) {
         return getProperBlock(worldProvider, location);
     }

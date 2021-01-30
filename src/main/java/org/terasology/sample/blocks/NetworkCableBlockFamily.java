@@ -93,15 +93,6 @@ public class NetworkCableBlockFamily extends MultiConnectFamily {
     }
 
     @Override
-    public boolean connectionCondition(Vector3i blockLocation, Side connectSide) {
-        Vector3i neighborLocation = new Vector3i(blockLocation);
-        neighborLocation.add(connectSide.getVector3i());
-
-        EntityRef neighborEntity = blockEntityRegistry.getBlockEntityAt(neighborLocation);
-        return neighborEntity != null && worldProvider.getBlock(neighborLocation).getBlockFamily() instanceof  NetworkCableBlockFamily;
-    }
-
-    @Override
     protected boolean connectionCondition(Vector3ic blockLocation, Side connectSide) {
         org.joml.Vector3i neighborLocation = new org.joml.Vector3i(blockLocation);
         neighborLocation.add(connectSide.direction());
