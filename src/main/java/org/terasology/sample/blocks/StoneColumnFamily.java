@@ -20,7 +20,6 @@ import org.joml.Vector3ic;
 import org.terasology.math.Rotation;
 import org.terasology.math.Side;
 import org.terasology.math.SideBitFlag;
-import org.terasology.math.geom.Vector3i;
 import org.terasology.world.block.Block;
 import org.terasology.world.block.BlockBuilderHelper;
 import org.terasology.world.block.BlockUri;
@@ -52,12 +51,6 @@ public class StoneColumnFamily extends MultiConnectFamily {
         registerBlock(blockUri, definition, blockBuilder, "top", SideBitFlag.getSide(Side.BOTTOM), Collections.singleton(Rotation.none()));
         registerBlock(blockUri, definition, blockBuilder, "middle", getSides(Side.TOP, Side.BOTTOM), Collections.singleton(Rotation.none()));
         this.setCategory(definition.getCategories());
-    }
-
-    @Override
-    protected boolean connectionCondition(Vector3i blockLocation, Side connectSide) {
-        Vector3i target = connectSide.getAdjacentPos(blockLocation);
-        return worldProvider.isBlockRelevant(target) && worldProvider.getBlock(target).getBlockFamily() instanceof StoneColumnFamily;
     }
 
     @Override

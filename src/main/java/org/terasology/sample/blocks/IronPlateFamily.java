@@ -47,18 +47,6 @@ public class IronPlateFamily extends MultiConnectFamily {
     }
 
     @Override
-    protected boolean connectionCondition(Vector3i blockLocation, Side connectSide) {
-        Vector3i neighborLocation = new Vector3i(blockLocation);
-        neighborLocation.add(connectSide.getVector3i());
-        if (worldProvider.isBlockRelevant(neighborLocation)) {
-            Block neighborBlock = worldProvider.getBlock(neighborLocation);
-            final BlockFamily blockFamily = neighborBlock.getBlockFamily();
-            return blockFamily instanceof IronPlateFamily;
-        }
-        return false;
-    }
-
-    @Override
     protected boolean connectionCondition(Vector3ic blockLocation, Side connectSide) {
         org.joml.Vector3i neighborLocation = new org.joml.Vector3i(blockLocation);
         neighborLocation.add(connectSide.direction());

@@ -167,11 +167,6 @@ public class CubePCFamily extends AbstractBlockFamily implements UpdatesWithNeig
     }
 
     @Override
-    public Block getBlockForNeighborUpdate(Vector3i location, Block oldBlock) {
-        return getProperBlock(worldProvider, location);
-    }
-
-    @Override
     public Block getBlockForNeighborUpdate(Vector3ic location, Block oldBlock) {
         return getProperBlock(worldProvider, location);
     }
