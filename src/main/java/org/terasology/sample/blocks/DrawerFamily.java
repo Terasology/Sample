@@ -61,6 +61,6 @@ public class DrawerFamily extends MultiConnectFamily {
         BlockComponent blockComponent = neighborEntity.getComponent(BlockComponent.class);
 
         return neighborEntity.hasComponent(ConnectsToDrawerComponent.class)
-            || (blockComponent != null && blockComponent.block.isFullSide(connectSide));
+            || (blockComponent != null && blockComponent.getBlock().isFullSide(connectSide));
     }
 }
