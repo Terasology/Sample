@@ -17,8 +17,8 @@ package org.terasology.sample.nui;
 
 import org.terasology.nui.widgets.UIButton;
 import org.terasology.nui.widgets.UIText;
-import org.terasology.rendering.nui.CoreScreenLayer;
-import org.terasology.utilities.random.FastRandom;
+import org.terasology.engine.rendering.nui.CoreScreenLayer;
+import org.terasology.engine.utilities.random.FastRandom;
 
 public class FunFactScreen extends CoreScreenLayer {
     private static final String[] FACTS = {

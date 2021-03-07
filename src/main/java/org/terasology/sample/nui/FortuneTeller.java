@@ -18,7 +18,7 @@ package org.terasology.sample.nui;
 import org.terasology.nui.widgets.UIRadialRing;
 import org.terasology.nui.widgets.UIRadialSection;
 import org.terasology.nui.widgets.UIText;
-import org.terasology.rendering.nui.CoreScreenLayer;
+import org.terasology.engine.rendering.nui.CoreScreenLayer;
 
 import java.util.LinkedList;
 import java.util.List;

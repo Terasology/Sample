@@ -15,13 +15,13 @@
  */
 package org.terasology.nui;
 
-import org.terasology.engine.Time;
-import org.terasology.logic.players.LocalPlayer;
+import org.terasology.engine.core.Time;
+import org.terasology.engine.logic.players.LocalPlayer;
 import org.terasology.nui.widgets.UIButton;
 import org.terasology.nui.widgets.UIDropdown;
 import org.terasology.nui.widgets.UIText;
-import org.terasology.registry.In;
-import org.terasology.rendering.nui.CoreScreenLayer;
+import org.terasology.engine.registry.In;
+import org.terasology.engine.rendering.nui.CoreScreenLayer;
 
 
 public class LiveEnvironmentInfo extends CoreScreenLayer {

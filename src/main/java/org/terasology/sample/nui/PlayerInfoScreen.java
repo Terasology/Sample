@@ -16,14 +16,14 @@
 package org.terasology.sample.nui;
 
 import org.joml.Vector3f;
-import org.terasology.entitySystem.entity.EntityRef;
-import org.terasology.logic.health.HealthComponent;
-import org.terasology.logic.inventory.InventoryManager;
-import org.terasology.logic.players.LocalPlayer;
+import org.terasology.engine.entitySystem.entity.EntityRef;
+import org.terasology.engine.logic.health.HealthComponent;
+import org.terasology.engine.logic.inventory.InventoryManager;
+import org.terasology.engine.logic.players.LocalPlayer;
 import org.terasology.nui.widgets.UIButton;
 import org.terasology.nui.widgets.UIText;
-import org.terasology.registry.In;
-import org.terasology.rendering.nui.CoreScreenLayer;
+import org.terasology.engine.registry.In;
+import org.terasology.engine.rendering.nui.CoreScreenLayer;
 
 public class PlayerInfoScreen extends CoreScreenLayer {
     private UIText infoArea;

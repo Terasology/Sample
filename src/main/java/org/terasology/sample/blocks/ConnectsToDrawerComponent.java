@@ -15,7 +15,7 @@
  */
 package org.terasology.sample.blocks;
 
-import org.terasology.entitySystem.Component;
+import org.terasology.engine.entitySystem.Component;
 
 public class ConnectsToDrawerComponent implements Component {
 }

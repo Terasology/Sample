@@ -5,22 +5,22 @@ package org.terasology.sample.blocks;
 import gnu.trove.map.TByteObjectMap;
 import gnu.trove.map.hash.TByteObjectHashMap;
 import org.joml.Vector3ic;
-import org.terasology.math.Side;
-import org.terasology.math.SideBitFlag;
+import org.terasology.engine.math.Side;
+import org.terasology.engine.math.SideBitFlag;
 import org.terasology.naming.Name;
-import org.terasology.registry.In;
-import org.terasology.world.WorldProvider;
-import org.terasology.world.block.Block;
-import org.terasology.world.block.BlockBuilderHelper;
-import org.terasology.world.block.BlockUri;
-import org.terasology.world.block.family.AbstractBlockFamily;
-import org.terasology.world.block.family.BlockFamily;
-import org.terasology.world.block.family.BlockPlacementData;
-import org.terasology.world.block.family.BlockSections;
-import org.terasology.world.block.family.RegisterBlockFamily;
-import org.terasology.world.block.family.UpdatesWithNeighboursFamily;
-import org.terasology.world.block.loader.BlockFamilyDefinition;
-import org.terasology.world.block.shapes.BlockShape;
+import org.terasology.engine.registry.In;
+import org.terasology.engine.world.WorldProvider;
+import org.terasology.engine.world.block.Block;
+import org.terasology.engine.world.block.BlockBuilderHelper;
+import org.terasology.engine.world.block.BlockUri;
+import org.terasology.engine.world.block.family.AbstractBlockFamily;
+import org.terasology.engine.world.block.family.BlockFamily;
+import org.terasology.engine.world.block.family.BlockPlacementData;
+import org.terasology.engine.world.block.family.BlockSections;
+import org.terasology.engine.world.block.family.RegisterBlockFamily;
+import org.terasology.engine.world.block.family.UpdatesWithNeighboursFamily;
+import org.terasology.engine.world.block.loader.BlockFamilyDefinition;
+import org.terasology.engine.world.block.shapes.BlockShape;
 
 @RegisterBlockFamily("romancolumn")
 @BlockSections({"lone_block", "on_top", "on_bottom", "in_a_line"})

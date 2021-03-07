@@ -17,12 +17,12 @@ package org.terasology.sample.nui;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.terasology.engine.Time;
+import org.terasology.engine.core.Time;
 import org.terasology.nui.layouts.relative.RelativeLayout;
 import org.terasology.nui.widgets.UIButton;
 import org.terasology.nui.widgets.UIText;
-import org.terasology.registry.In;
-import org.terasology.rendering.nui.CoreScreenLayer;
+import org.terasology.engine.registry.In;
+import org.terasology.engine.rendering.nui.CoreScreenLayer;
 
 public class TutorialScreen extends CoreScreenLayer {
     private static final Logger logger = LoggerFactory.getLogger("logger");

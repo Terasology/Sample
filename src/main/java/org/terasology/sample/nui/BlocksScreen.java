@@ -15,7 +15,7 @@
  */
 package org.terasology.sample.nui;
 
-import org.terasology.rendering.nui.CoreScreenLayer;
+import org.terasology.engine.rendering.nui.CoreScreenLayer;
 
 /**
  * This class provides the Java side of the Block Selection Screen, which offers functionality similar to creative

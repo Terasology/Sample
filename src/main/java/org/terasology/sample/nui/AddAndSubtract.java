@@ -17,7 +17,7 @@ package org.terasology.sample.nui;
 
 import org.terasology.nui.widgets.UIButton;
 import org.terasology.nui.widgets.UIText;
-import org.terasology.rendering.nui.CoreScreenLayer;
+import org.terasology.engine.rendering.nui.CoreScreenLayer;
 
 public class AddAndSubtract extends CoreScreenLayer {
     private UIText infoArea;

@@ -15,7 +15,7 @@
  */
 package org.terasology.sample.crash;
 
-import org.terasology.entitySystem.Component;
+import org.terasology.engine.entitySystem.Component;
 
 /**
  * Used by a block meant to crash the game, yay!

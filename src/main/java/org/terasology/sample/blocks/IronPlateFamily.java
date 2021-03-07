@@ -16,17 +16,17 @@
 package org.terasology.sample.blocks;
 
 import org.joml.Vector3ic;
-import org.terasology.math.Rotation;
-import org.terasology.math.Side;
-import org.terasology.math.SideBitFlag;
-import org.terasology.world.block.Block;
-import org.terasology.world.block.BlockBuilderHelper;
-import org.terasology.world.block.BlockUri;
-import org.terasology.world.block.family.BlockFamily;
-import org.terasology.world.block.family.BlockSections;
-import org.terasology.world.block.family.MultiConnectFamily;
-import org.terasology.world.block.family.RegisterBlockFamily;
-import org.terasology.world.block.loader.BlockFamilyDefinition;
+import org.terasology.engine.math.Rotation;
+import org.terasology.engine.math.Side;
+import org.terasology.engine.math.SideBitFlag;
+import org.terasology.engine.world.block.Block;
+import org.terasology.engine.world.block.BlockBuilderHelper;
+import org.terasology.engine.world.block.BlockUri;
+import org.terasology.engine.world.block.family.BlockFamily;
+import org.terasology.engine.world.block.family.BlockSections;
+import org.terasology.engine.world.block.family.MultiConnectFamily;
+import org.terasology.engine.world.block.family.RegisterBlockFamily;
+import org.terasology.engine.world.block.loader.BlockFamilyDefinition;
 
 @RegisterBlockFamily("ironplate")
 @BlockSections({"single", "one_connection", "line", "corner", "t", "cross"})
@@ -40,7 +40,8 @@ public class IronPlateFamily extends MultiConnectFamily {
         this.registerBlock(blockUri, definition, blockBuilder, "single", (byte) 0, Rotation.horizontalRotations());
         this.registerBlock(blockUri, definition, blockBuilder, "one_connection", SideBitFlag.getSide(Side.RIGHT), Rotation.horizontalRotations());
         this.registerBlock(blockUri, definition, blockBuilder, "line", SideBitFlag.getSides(Side.FRONT, Side.BACK), Rotation.horizontalRotations());
-        this.registerBlock(blockUri, definition, blockBuilder, "corner", SideBitFlag.getSides(Side.LEFT, Side.BACK), Rotation.horizontalRotations());
+        this.registerBlock(blockUri, definition, blockBuilder, "corner", SideBitFlag.getSides(Side.LEFT, Side.BACK),
+                Rotation.horizontalRotations());
         this.registerBlock(blockUri, definition, blockBuilder, "t", SideBitFlag.getSides(Side.LEFT, Side.BACK, Side.RIGHT), Rotation.horizontalRotations());
         this.registerBlock(blockUri, definition, blockBuilder, "cross", SideBitFlag.getSides(Side.LEFT, Side.FRONT, Side.RIGHT, Side.BACK), Rotation.horizontalRotations());
     }

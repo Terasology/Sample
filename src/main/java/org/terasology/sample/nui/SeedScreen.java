@@ -17,9 +17,9 @@ package org.terasology.sample.nui;
 
 import org.terasology.nui.widgets.UIButton;
 import org.terasology.nui.widgets.UIText;
-import org.terasology.registry.In;
-import org.terasology.rendering.nui.CoreScreenLayer;
-import org.terasology.world.WorldProvider;
+import org.terasology.engine.registry.In;
+import org.terasology.engine.rendering.nui.CoreScreenLayer;
+import org.terasology.engine.world.WorldProvider;
 
 public class SeedScreen extends CoreScreenLayer {
     private UIText seedText;

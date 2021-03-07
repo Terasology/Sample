@@ -16,11 +16,11 @@
 package org.terasology.sample.nui;
 
 import com.google.common.collect.Iterables;
-import org.terasology.entitySystem.entity.EntityManager;
+import org.terasology.engine.entitySystem.entity.EntityManager;
 import org.terasology.nui.widgets.UIButton;
 import org.terasology.nui.widgets.UIText;
-import org.terasology.registry.In;
-import org.terasology.rendering.nui.CoreScreenLayer;
+import org.terasology.engine.registry.In;
+import org.terasology.engine.rendering.nui.CoreScreenLayer;
 
 public class AmountofEntities extends CoreScreenLayer {
     private UIText infoArea;
