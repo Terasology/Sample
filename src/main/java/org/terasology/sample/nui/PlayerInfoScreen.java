@@ -17,8 +17,8 @@ package org.terasology.sample.nui;
 
 import org.joml.Vector3f;
 import org.terasology.engine.entitySystem.entity.EntityRef;
-import org.terasology.engine.logic.health.HealthComponent;
-import org.terasology.engine.logic.inventory.InventoryManager;
+import org.terasology.logic.health.HealthComponent;
+import org.terasology.module.inventory.systems.InventoryManager;
 import org.terasology.engine.logic.players.LocalPlayer;
 import org.terasology.engine.registry.In;
 import org.terasology.engine.rendering.nui.CoreScreenLayer;
