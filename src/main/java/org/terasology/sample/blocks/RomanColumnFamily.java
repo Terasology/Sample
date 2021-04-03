@@ -7,7 +7,7 @@ import gnu.trove.map.hash.TByteObjectHashMap;
 import org.joml.Vector3ic;
 import org.terasology.engine.math.Side;
 import org.terasology.engine.math.SideBitFlag;
-import org.terasology.naming.Name;
+import org.terasology.gestalt.naming.Name;
 import org.terasology.engine.registry.In;
 import org.terasology.engine.world.WorldProvider;
 import org.terasology.engine.world.block.Block;
