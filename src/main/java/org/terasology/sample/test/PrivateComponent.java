@@ -8,4 +8,9 @@ public final class PrivateComponent implements Component<PrivateComponent> {
     private PrivateComponent() {
 
     }
+
+    @Override
+    public void copy(PrivateComponent other) {
+
+    }
 }

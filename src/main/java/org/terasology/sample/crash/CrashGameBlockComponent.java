@@ -9,4 +9,9 @@ import org.terasology.gestalt.entitysystem.component.Component;
  */
 public class CrashGameBlockComponent implements Component<CrashGameBlockComponent> {
     boolean reallyCrashy;
+
+    @Override
+    public void copy(CrashGameBlockComponent other) {
+        this.reallyCrashy = other.reallyCrashy;
+    }
 }
