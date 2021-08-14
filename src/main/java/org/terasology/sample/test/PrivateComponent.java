@@ -10,7 +10,7 @@ public final class PrivateComponent implements Component<PrivateComponent> {
     }
 
     @Override
-    public void copy(PrivateComponent other) {
+    public void copyFrom(PrivateComponent other) {
 
     }
 }

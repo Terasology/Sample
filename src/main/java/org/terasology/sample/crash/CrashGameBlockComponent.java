@@ -11,7 +11,7 @@ public class CrashGameBlockComponent implements Component<CrashGameBlockComponen
     boolean reallyCrashy;
 
     @Override
-    public void copy(CrashGameBlockComponent other) {
+    public void copyFrom(CrashGameBlockComponent other) {
         this.reallyCrashy = other.reallyCrashy;
     }
 }

@@ -6,7 +6,7 @@ import org.terasology.gestalt.entitysystem.component.Component;
 
 public class ConnectsToDrawerComponent implements Component<ConnectsToDrawerComponent> {
     @Override
-    public void copy(ConnectsToDrawerComponent other) {
+    public void copyFrom(ConnectsToDrawerComponent other) {
 
     }
 }
