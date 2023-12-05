@@ -8,7 +8,7 @@ import org.terasology.gestalt.entitysystem.component.Component;
  * Used by a block meant to crash the game, yay!
  */
 public class CrashGameBlockComponent implements Component<CrashGameBlockComponent> {
-    boolean reallyCrashy;
+    public boolean reallyCrashy;
 
     @Override
     public void copyFrom(CrashGameBlockComponent other) {
