@@ -2,11 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 package org.terasology.sample.blocks;
 
-import org.terasology.gestalt.entitysystem.component.Component;
+import org.terasology.gestalt.entitysystem.component.EmptyComponent;
 
-public class ConnectsToDrawerComponent implements Component<ConnectsToDrawerComponent> {
-    @Override
-    public void copyFrom(ConnectsToDrawerComponent other) {
-
-    }
+public class ConnectsToDrawerComponent extends EmptyComponent<ConnectsToDrawerComponent> {
 }
